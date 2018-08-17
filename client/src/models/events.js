@@ -21,11 +21,13 @@ Events.prototype.getData = function (townName) {
     .then((data) => {
       this.events = data.results;
       PubSub.publish('Events:event-data-loaded', this.events);
-      console.log(this.events);
     })
    .catch((err) => {
      console.error(err);
   });
 }
+
+
+
 
 module.exports = Events;
