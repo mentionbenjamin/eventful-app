@@ -1,13 +1,18 @@
 const Request = require('../helpers/request.js');
 const PubSub = require('../helpers/pub_sub.js');
+const ApiKey = require('./api_key.js');
 
 const Events = function () {
   this.events = [];
   this.towns = [];
 }
 
+const apiKey = new ApiKey();
+
+console.log(apiKey);
+
 Events.prototype.getData = function () {
-  const url = 'https://www.skiddle.com/api/v1/events/search/?api_key=ad2b6e3c9f2cbbb0b736f407132c55b7';
+  const url = `https://www.skiddle.com/api/v1/events/search/?api_key=${apiKey.apiKey}`;
   const request = new Request(url);
   request.get()
     .then((data) => {
