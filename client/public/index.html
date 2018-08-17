@@ -1,11 +1,43 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <script src="./js/bundle.js"></script>
-  </head>
-  <body>
-    <p>EXAMPLE</p>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/style.css">
+  <title>Event Map App</title>
+  <script src="./js/bundle.js"></script>
+</head>
+
+<body>
+
+  <form id="event-form">
+
+    <div class="form category">
+      <label for="category">Select a category</label>
+      <select id="category">
+        <option selected disabled></option>
+      </select>
+    </div>
+
+    <div class="form date">
+      <label for="date">Date</label>
+      <input type="date" id="date"/>
+    </div>
+
+    <div class=“autocomplete” style=“width:100px;“ required>
+      <input id=“location” type=“text” placeholder=“Location”>
+    </div>
+
+    <div class="form price">
+      <label for="price">Select a price range</label>
+      <select id="price">
+        <option selected disabled></option>
+      </select>
+    </div>
+
+    <input type="submit" value="Save" id="save"/>
+  </form>
+
+
+</body>
+
 </html>
