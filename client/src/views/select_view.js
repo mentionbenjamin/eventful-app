@@ -5,30 +5,35 @@ const SelectView = function (element) {
 };
 
 
+//
+// SelectView.prototype.bindEvents = function () {
+//   PubSub.subscribe('Events:event-data-loaded', (evt) => {
+//     const events = evt.detail;
+//     const categoryNames = this.getCategoryNames(evt.detail);
+//     this.populate(categoryNames);
+//   });
+//
+//   this.element.addEventListener('change', (evt) => {
+//     const selectedIndex = evt.target.value;
+//     PubSub.publish('SelectView:change', selectedIndex);
+//     console.log(selectedIndex);
+//   });
+// };
 
 SelectView.prototype.bindEvents = function () {
   PubSub.subscribe('Events:event-data-loaded', (evt) => {
-    const eventCategories = evt.detail;
-    console.log(evt.detail);
-    const categoryNames = this.getCategoryNames(evt.detail);
-    console.log(categoryNames);
+    const events = evt.detail;
+    const categoryNames = this.getCategoryNames(events);
     this.populate(categoryNames);
-  });
-
-  this.element.addEventListener('change', (evt) => {
-    const selectedIndex = evt.target.value;
-    PubSub.publish('SelectView:change', selectedIndex);
-  });
+  })
+  this.element.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+    const data = evt.target;
+    PubSub.publish('Form:submitted', data);
+    // const data = this.createData(evt.target);
+    console.log(data);
+  })
 };
-
-// SelectView.prototype.populate = function (events) {
-//   events.forEach((event, index) => {
-//     const option = document.createElement('option');
-//     option.textContent = event.EventCode;
-//     option.value = index;
-//     this.element.appendChild(option);
-//   });
-// };
 
 SelectView.prototype.populate = function (categories) {
   for (category of categories) {
@@ -43,5 +48,12 @@ SelectView.prototype.getCategoryNames = function (events) {
     .map(event => event.EventCode)
     .filter((category, index, categories) => categories.indexOf(category) === index);
 };
+
+// SelectView.prototype.createData = function (form) {
+//   return {
+//     category: form.category.value,
+//     location: form.location.value
+//   };
+// };
 
 module.exports = SelectView;
