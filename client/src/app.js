@@ -14,13 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
   selectView.bindEvents();
 
   const events = new Events();
-  // events.getData('Liverpool');
 
-  events.getData('Manchester');
+  // events.getData('Manchester');
   events.bindEvents();
-
-  // events.getFormData();
-  // console.log(events.getData('Edinburgh'));
 
   const eventListPanel = document.querySelector('#list-panel');
   const eventListView = new EventListView(eventListPanel);

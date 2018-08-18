@@ -5,6 +5,7 @@ const PubSub = require('../helpers/pub_sub.js');
 const Events = function () {
   this.events = [];
   this.town = null;
+  this.newEvents = [];
 }
 
 // receiving the two API's
@@ -29,23 +30,45 @@ Events.prototype.getData = function (townName) {
   });
 }
 
+Events.prototype.getSearchData = function (townName) {
+  const url = `https://geocode.xyz/${townName},UK?json=1`;
+  const request = new Request(url);
+  request.get()
+  .then((data) => {
+    const url = `http://localhost:3000/events/${data.latt}/${data.longt}`;
+    const request = new Request(url);
+    return request.get();
+
+  })
+  .then((data) => {
+    this.newEvents = data.results;
+    // console.log(this.events);
+    PubSub.publish('Events:event-data-loaded', this.newEvents);
+    // console.log(this.events);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+}
+
 // subscribing from SelectView to the data the user inputted in the form
 Events.prototype.bindEvents = function () {
   PubSub.subscribe('SelectView:form-input-submitted', (evt) => {
-
-    console.log(evt.detail);
-    this.postForm(evt.detail);
+    // debugger;
+    const newEvents = this.getSearchData(evt.detail.location);
+    // console.log(newEvents);
+    // PubSub.publish('Events:new-data-loaded', newEvents);
   });
 };
 
 // converted users inputs into matching events from API
-Events.prototype.postForm = function (event) {
-  this.request.post(event)
-    .then((event) => {
-      PubSub.publish('Events:events-search-results-ready', event);
-    })
-    .catch(console.error);
-};
+// Events.prototype.postForm = function (event) {
+//   this.request.post(event)
+//     .then((event) => {
+//       PubSub.publish('Events:events-search-results-ready', event);
+//     })
+//     .catch(console.error);
+// };
 
 
 

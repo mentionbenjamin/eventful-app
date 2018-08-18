@@ -7,34 +7,29 @@ const SelectView = function (element) {
 SelectView.prototype.bindEvents = function () {
   PubSub.subscribe('Events:event-data-loaded', (evt) => {
     const events = evt.detail;
-    const categoryNames = this.getCategoryNames(events);
-    this.populate(categoryNames);
+    // const categoryNames = this.getCategoryNames(events);
+    // this.populate(categoryNames);
   })
   this.element.addEventListener('submit', (evt) => {
     evt.preventDefault();
     const category = event.target['category'].value;
-    // console.log(category);
     const location = event.target['location'].value;
-    console.log(location);
     const mindate = event.target['mindate'].value;
-    console.log(mindate);
     const maxdate = event.target['maxdate'].value;
-    console.log(maxdate);
     data = this.createData(category, location, mindate, maxdate);
-    console.log(data);
     PubSub.publish('SelectView:form-input-submitted', data);
 
   })
 };
 
-SelectView.prototype.populate = function (categories) {
-  for (category of categories) {
-    const option = document.createElement('option');
-    option.textContent = category;
-    const categorySelect = document.querySelector('#category');
-    categorySelect.appendChild(option);
-  }
-};
+// SelectView.prototype.populate = function (categories) {
+//   for (category of categories) {
+//     const option = document.createElement('option');
+//     option.textContent = category;
+//     const categorySelect = document.querySelector('#category');
+//     categorySelect.appendChild(option);
+//   }
+// };
 
 SelectView.prototype.getCategoryNames = function (events) {
   return events
