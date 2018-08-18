@@ -1,5 +1,5 @@
 const PubSub = require('../helpers/pub_sub.js');
-const EventItemView = require('event_item_view.js');
+const EventItemView = require('./event_item_view.js');
 
 const EventListView = function(container) {
   this.container = container;
