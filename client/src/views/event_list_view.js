@@ -1,33 +1,33 @@
 const PubSub = require('../helpers/pub_sub.js');
 const EventItemView = require('event_item_view.js');
 
-const EventListView = function(listItem) {
-  this.element = listItem;
+const EventListView = function(container) {
+  this.container = container;
 };
 
-ListView.prototype.setupEventListeners = function() {
-  this.element.addEventListener('submit', function(evt) {
-    evt.preventDefault();
-  });
-  PubSub.subscribe('Events:form-submitted', (evt) => {
+EventListView.prototype.bindEvents = function() {
+  PubSub.subscribe('Events:events-search-results-ready', (evt) => {
     const items = evt.detail;
     this.renderList(items);
   });
 };
 
-ListView.prototype.renderList = function(items) {
+EventListView.prototype.renderList = function(items) {
   this.emptyList();
-  items.forEach((item) => this.renderItem(item));
+  items.forEach((item) => {
+    const eventSearchResult = this.renderItem(item);
+    this.container.appendChild(eventSearchResult);
+  });
 };
 
-ListView.prototype.emptyList = function(items) {
-  this.element.innerHTML = '';
+EventListView.prototype.emptyList = function(items) {
+  this.container.innerHTML = '';
 };
 
-ListView.prototype.renderItem = function(item) {
-  const eventItemView = new EventItemView(item);
-  const li = eventItemView.createLi();
-  this.element.appendChild(li);
+EventListView.prototype.renderItem = function(item) {
+  const eventItemView = new EventItemView();
+  const eventItem = eventItemView.render(item);
+  return eventItem;
 };
 
-module.exports = ListView;
+module.exports = EventListView;
