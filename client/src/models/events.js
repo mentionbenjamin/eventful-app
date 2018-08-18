@@ -21,9 +21,7 @@ Events.prototype.getData = function (townName) {
   })
   .then((data) => {
     this.events = data.results;
-    // console.log(this.events);
     PubSub.publish('Events:event-data-loaded', this.events);
-    // console.log(this.events);
   })
   .catch((err) => {
     console.error(err);
@@ -42,9 +40,7 @@ Events.prototype.getSearchData = function (townName) {
   })
   .then((data) => {
     this.newEvents = data.results;
-    // console.log(this.events);
     PubSub.publish('Events:event-data-loaded', this.newEvents);
-    // console.log(this.events);
   })
   .catch((err) => {
     console.error(err);
@@ -60,19 +56,6 @@ Events.prototype.bindEvents = function () {
     // PubSub.publish('Events:new-data-loaded', newEvents);
   });
 };
-
-// converted users inputs into matching events from API
-// Events.prototype.postForm = function (event) {
-//   this.request.post(event)
-//     .then((event) => {
-//       PubSub.publish('Events:events-search-results-ready', event);
-//     })
-//     .catch(console.error);
-// };
-
-
-
-
 
 
 module.exports = Events;
