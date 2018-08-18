@@ -6,7 +6,7 @@ const EventListView = function(container) {
 };
 
 EventListView.prototype.bindEvents = function() {
-  PubSub.subscribe('Events:events-search-results-ready', (evt) => {
+  PubSub.subscribe('Events:event-data-loaded', (evt) => {
     const items = evt.detail;
     this.renderList(items);
   });

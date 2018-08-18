@@ -1,7 +1,7 @@
 const PubSub = require('../helpers/pub_sub.js');
 
-const EventItemView = function(item) {
-  this.item = item;
+const EventItemView = function() {
+
 };
 
 EventItemView.prototype.render = function (event) {
@@ -20,7 +20,7 @@ EventItemView.prototype.render = function (event) {
   const price = this.createTextElement('p', event.entryprice);
   eventContainer.appendChild(price);
 
-  this.container.appendChild(eventContainer);
+  return eventContainer;
 };
 
 EventItemView.prototype.createTextElement = function (elementType, text) {

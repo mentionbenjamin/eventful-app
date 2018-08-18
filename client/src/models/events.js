@@ -42,7 +42,7 @@ Events.prototype.bindEvents = function () {
 Events.prototype.postForm = function (event) {
   this.request.post(event)
     .then((event) => {
-      PubSub.publish('Events:event-results', event);
+      PubSub.publish('Events:events-search-results-ready', event);
     })
     .catch(console.error);
 };
