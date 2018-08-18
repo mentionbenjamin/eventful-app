@@ -28,4 +28,5 @@ Events.prototype.getData = function (townName) {
     console.error(err);
   });
 }
+
 module.exports = Events;

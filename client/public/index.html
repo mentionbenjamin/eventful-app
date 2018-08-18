@@ -22,13 +22,19 @@ crossorigin=""/>
       </select>
     </div>
 
+
     <div class="form-date">
       <label for="date">Select a date</label>
       <input type="date" id="date"/>
     </div>
 
     <div class=“form-location” style=“width:100px;“ required>
-      <input id=“location” type=“text” placeholder=“Location”>
+      <label for="location">Location:</label>
+      <select id="location">
+        <option selected disabled></option>
+        <option value="manchester">Manchester</option>
+        <option value="edinburgh">Edinburgh</option>
+      </select>
     </div>
 
     <input type="submit" value="Save" id="save"/>

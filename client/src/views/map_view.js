@@ -1,5 +1,5 @@
-const PubSub = require('../helpers/pub_sub.js')
-const linkifyjsHtml = require('linkifyjs/html')
+const PubSub = require('../helpers/pub_sub.js');
+const linkifyjsHtml = require('linkifyjs/html');
 const MapView = function (container) {
   this.container = container;
 }
