@@ -1,17 +1,17 @@
 const Events = require('./models/events.js');
 const leaflet = require('leaflet');
+const MapView = require('./views/map_view.js');
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('JavaScript loaded');
 
-
-  var myMap = L.map('mapid', {
-    center: [51.505, -0.09],
-    zoom: 10
-  })
+  const mapContainer = document.querySelector('#map-container');
+  const mapView = new MapView(mapContainer);
+  mapView.bindEvents();
 
 
-  console.log(myMap)
+
+
 
 
 
