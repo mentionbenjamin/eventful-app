@@ -1,36 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<head>
-  <meta charset="utf-8">
-  <!-- <link rel="stylesheet" href="./style.css"> -->
-  <title>Event Map App</title>
-  <script src="./js/bundle.js"></script>
-</head>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/style.css"/>
 
-<body>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+  integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+  crossorigin=""/>
 
-  <form id="event-form">
+  <script src="/js/bundle.js"></script>
+    <title></title>
+  </head>
+  <body>
+    <p>Hello</p>
 
-    <div class="form-category">
-      <label for="category">Select a category</label>
-      <select id="category">
-        <option selected disabled></option>
-      </select>
-    </div>
+     <div id="mapid"></div>
+     <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+      integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+      crossorigin=""></script>
 
-    <div class="form-date">
-      <label for="date">Select a date</label>
-      <input type="date" id="date"/>
-    </div>
-
-    <div class=“form-location” style=“width:100px;“ required>
-      <input id=“location” type=“text” placeholder=“Location”>
-    </div>
-
-    <input type="submit" value="Save" id="save"/>
-  </form>
-
-
-</body>
-
+  </body>
 </html>
