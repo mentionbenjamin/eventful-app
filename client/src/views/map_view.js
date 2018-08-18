@@ -8,7 +8,7 @@ MapView.prototype.bindEvents = function () {
 
 
   PubSub.subscribe('Events:event-data-loaded', (evt) => {
-   this.createMap();
+   this.createMap(evt.detail);
    this.setMapMarkers(evt.detail);
    console.log(evt);
 
@@ -16,9 +16,11 @@ MapView.prototype.bindEvents = function () {
 
 }
 
-  MapView.prototype.createMap = function () {
-  myMap = L.map('mapid', {
-    center: [51.505, -0.09],
+  MapView.prototype.createMap = function (eventData) {
+    const latt = eventData[0].venue.latitude;
+    const longt = eventData[0].venue.longitude;
+    myMap = L.map('mapid', {
+    center: [latt, longt],
     zoom: 10
   })
   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
