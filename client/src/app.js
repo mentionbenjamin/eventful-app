@@ -16,6 +16,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   const events = new Events();
-  // events.getData('Edinburgh');
-  // console.log(events.getData('Edinburgh'));
+  events.getData('Edinburgh');
 });
