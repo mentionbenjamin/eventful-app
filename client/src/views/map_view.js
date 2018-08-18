@@ -8,7 +8,7 @@ MapView.prototype.bindEvents = function () {
 
   PubSub.subscribe('Events:event-data-loaded', (evt) => {
    this.createMap();
-   this.getLatLongFromData(evt.detail);
+   this.setMapMarkers(evt.detail);
 
   });
 
@@ -24,10 +24,10 @@ MapView.prototype.bindEvents = function () {
     }).addTo(myMap);
   };
 
-  MapView.prototype.getLatLongFromData = function (eventData) {
+  MapView.prototype.setMapMarkers = function (eventData) {
     const eventInformation = eventData;
     for(var i = 0; i <eventInformation.length; i++){
-    const venueName = eventInformation[i].venue.name.toString();
+    venueName = eventInformation[i].venue.name.toString();
     console.log(venueName);
     const venueLat = eventInformation[i].venue.latitude;
 
@@ -35,8 +35,11 @@ MapView.prototype.bindEvents = function () {
 
     const eventMarker = L.marker([venueLat, venueLongt],{
       opacity: 0.5,
-      title: venueName
+      title: venueName,
+      riseOnHover: true,
+      riseOffSet: 250
     });
+    console.log(eventMarker);
 
     eventMarker.addTo(myMap).on('click', onMapClick);
     popup = L.popup({
@@ -49,7 +52,7 @@ MapView.prototype.bindEvents = function () {
   function onMapClick(e) {
     popup
     .setLatLng(e.latlng)
-    .setContent(venueName + " " + e.latlng)
+    .setContent(`${venueName} `+ " " + e.latlng)
     .openOn(myMap);
   }
 
