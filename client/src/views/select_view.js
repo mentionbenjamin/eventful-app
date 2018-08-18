@@ -28,10 +28,11 @@ SelectView.prototype.bindEvents = function () {
   })
   this.element.addEventListener('submit', (evt) => {
     evt.preventDefault();
-    const data = evt.target;
-    PubSub.publish('Form:submitted', data);
-    // const data = this.createData(evt.target);
-    console.log(data);
+    const category = event.target['category'].value;
+    console.log(category);
+    // const data = evt.target;
+    // PubSub.publish('Form:submitted', data);
+    // console.log(data);
   })
 };
 
@@ -39,7 +40,8 @@ SelectView.prototype.populate = function (categories) {
   for (category of categories) {
     const option = document.createElement('option');
     option.textContent = category;
-    this.element.appendChild(option);
+    const categorySelect = document.querySelector('#category');
+    categorySelect.appendChild(option);
   }
 };
 
