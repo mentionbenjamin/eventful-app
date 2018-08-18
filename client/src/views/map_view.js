@@ -6,7 +6,6 @@ const MapView = function (container) {
 
 MapView.prototype.bindEvents = function () {
 
-
   PubSub.subscribe('Events:event-data-loaded', (evt) => {
    this.createMap(evt.detail);
    this.setMapMarkers(evt.detail);
