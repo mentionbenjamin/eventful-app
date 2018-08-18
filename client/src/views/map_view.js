@@ -1,4 +1,5 @@
 const PubSub = require('../helpers/pub_sub.js')
+const linkifyjsHtml = require('linkifyjs/html')
 const MapView = function (container) {
   this.container = container;
 }
@@ -30,7 +31,8 @@ MapView.prototype.bindEvents = function () {
     const venueName = eventInformation[i].venue.name.toString();
     const eventType = eventInformation[i].EventCode;
     const eventName = eventInformation[i].eventname;
-    const eventLink = eventInformation[i].link;
+    const eventLinkText = eventInformation[i].link;
+    const eventLinkURL = linkifyjsHtml(eventLinkText);
     const eventImage = eventInformation[i].imageurl;
     console.log(eventType);
     console.log(venueName);
@@ -45,7 +47,7 @@ MapView.prototype.bindEvents = function () {
     console.log(eventMarker);
 
     eventMarker.addTo(myMap).on('click', onMapClick)
-    .bindPopup(`Event: ${eventName} | Venue: ${venueName} | Type: ${eventType} | Link: ${eventLink}`);
+    .bindPopup(`Event: ${eventName} | Venue: ${venueName} | Type: ${eventType} | Link: ${eventLinkURL}`);
     popup = L.popup({
      keepInView: true,
      className: "popup"
