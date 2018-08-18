@@ -34,8 +34,8 @@ MapView.prototype.bindEvents = function () {
     const eventLinkText = eventInformation[i].link;
     const eventLinkURL = linkifyjsHtml(eventLinkText);
     const eventImage = eventInformation[i].imageurl;
-    console.log(eventType);
-    console.log(venueName);
+    // console.log(eventType);
+    // console.log(venueName);
     const venueLat = eventInformation[i].venue.latitude;
     const venueLongt = eventInformation[i].venue.longitude;
     const eventMarker = L.marker([venueLat, venueLongt],{
@@ -44,7 +44,7 @@ MapView.prototype.bindEvents = function () {
       riseOnHover: true,
       riseOffSet: 250
     })
-    console.log(eventMarker);
+    // console.log(eventMarker);
 
     eventMarker.addTo(myMap).on('click', onMapClick)
     .bindPopup(`Event: ${eventName} | Venue: ${venueName} | Type: ${eventType} | Link: ${eventLinkURL}`);
