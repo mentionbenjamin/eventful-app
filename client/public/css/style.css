@@ -1,1 +1,10 @@
-//TODO
+#mapid {
+  height: 500px;
+  width:70%;
+}
+
+body {
+  height: auto;
+  width: auto;
+  
+}
