@@ -1,4 +1,6 @@
 const PubSub = require('../helpers/pub_sub.js');
+const Cities = require('../models/uk_cities.js');
+const cityList = new Cities();
 
 const SelectView = function (element) {
   this.element = element;
