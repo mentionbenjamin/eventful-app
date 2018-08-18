@@ -29,11 +29,4 @@ Events.prototype.getData = function (townName) {
   });
 }
 
-// Events.prototype.getFormData = function () {
-//   PubSub.subscribe('Form:submitted', (evt) => {
-//     console.log(evt.target);
-//   })
-// };
-
-
 module.exports = Events;
