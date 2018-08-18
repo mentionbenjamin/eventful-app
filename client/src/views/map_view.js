@@ -28,20 +28,22 @@ MapView.prototype.bindEvents = function () {
     const eventInformation = eventData;
     for(var i = 0; i <eventInformation.length; i++){
     venueName = eventInformation[i].venue.name.toString();
+    eventType = eventInformation[i].EventCode;
+    eventName = eventInformation[i].eventname;
+    console.log(eventType);
     console.log(venueName);
     const venueLat = eventInformation[i].venue.latitude;
-
     const venueLongt = eventInformation[i].venue.longitude;
-
     const eventMarker = L.marker([venueLat, venueLongt],{
       opacity: 0.5,
       title: venueName,
       riseOnHover: true,
       riseOffSet: 250
-    });
+    })
     console.log(eventMarker);
 
-    eventMarker.addTo(myMap).on('click', onMapClick);
+    eventMarker.addTo(myMap).on('click', onMapClick)
+    .bindPopup(`${venueName}`);
     popup = L.popup({
      keepInView: true,
      className: "popup"
@@ -52,7 +54,7 @@ MapView.prototype.bindEvents = function () {
   function onMapClick(e) {
     popup
     .setLatLng(e.latlng)
-    .setContent(`${venueName} `+ " " + e.latlng)
+    .setContent(`${venueName} ${eventType} ${eventName}` + " " + e.latlng)
     .openOn(myMap);
   }
 
