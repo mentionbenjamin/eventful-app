@@ -45,7 +45,7 @@ MapView.prototype.bindEvents = function () {
     console.log(eventMarker);
 
     eventMarker.addTo(myMap).on('click', onMapClick)
-    .bindPopup(`Event name:${eventName} | Venue Name:${venueName} | Event type:${eventType} | Link: ${eventLink}.link`);
+    .bindPopup(`Event:${eventName} | Venue:${venueName} | Type:${eventType} | Link: ${eventLink}`);
     popup = L.popup({
      keepInView: true,
      className: "popup"
@@ -56,7 +56,6 @@ MapView.prototype.bindEvents = function () {
   function onMapClick(e) {
     popup
     .setLatLng(e.latlng)
-    .setContent(`Event Name:`)
     .openOn(myMap);
   }
 
