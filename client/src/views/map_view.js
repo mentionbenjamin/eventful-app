@@ -27,9 +27,11 @@ MapView.prototype.bindEvents = function () {
   MapView.prototype.setMapMarkers = function (eventData) {
     const eventInformation = eventData;
     for(var i = 0; i <eventInformation.length; i++){
-    venueName = eventInformation[i].venue.name.toString();
-    eventType = eventInformation[i].EventCode;
-    eventName = eventInformation[i].eventname;
+    const venueName = eventInformation[i].venue.name.toString();
+    const eventType = eventInformation[i].EventCode;
+    const eventName = eventInformation[i].eventname;
+    const eventLink = eventInformation[i].link;
+    const eventImage = eventInformation[i].imageurl;
     console.log(eventType);
     console.log(venueName);
     const venueLat = eventInformation[i].venue.latitude;
@@ -43,7 +45,7 @@ MapView.prototype.bindEvents = function () {
     console.log(eventMarker);
 
     eventMarker.addTo(myMap).on('click', onMapClick)
-    .bindPopup(`${venueName}`);
+    .bindPopup(`Event name:${eventName} | Venue Name:${venueName} | Event type:${eventType} | Link: ${eventLink}.link`);
     popup = L.popup({
      keepInView: true,
      className: "popup"
@@ -54,7 +56,7 @@ MapView.prototype.bindEvents = function () {
   function onMapClick(e) {
     popup
     .setLatLng(e.latlng)
-    .setContent(`${venueName} ${eventType} ${eventName}` + " " + e.latlng)
+    .setContent(`Event Name:`)
     .openOn(myMap);
   }
 
