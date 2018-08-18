@@ -4,22 +4,6 @@ const SelectView = function (element) {
   this.element = element;
 };
 
-
-//
-// SelectView.prototype.bindEvents = function () {
-//   PubSub.subscribe('Events:event-data-loaded', (evt) => {
-//     const events = evt.detail;
-//     const categoryNames = this.getCategoryNames(evt.detail);
-//     this.populate(categoryNames);
-//   });
-//
-//   this.element.addEventListener('change', (evt) => {
-//     const selectedIndex = evt.target.value;
-//     PubSub.publish('SelectView:change', selectedIndex);
-//     console.log(selectedIndex);
-//   });
-// };
-
 SelectView.prototype.bindEvents = function () {
   PubSub.subscribe('Events:event-data-loaded', (evt) => {
     const events = evt.detail;
@@ -31,12 +15,15 @@ SelectView.prototype.bindEvents = function () {
     const category = event.target['category'].value;
     // console.log(category);
     const location = event.target['location'].value;
-    // console.log(location);
-    const date = event.target['date'].value;
-    // console.log(date);
-    data = this.createData(category, location, date);
-    // console.log(data);
+    console.log(location);
+    const mindate = event.target['mindate'].value;
+    console.log(mindate);
+    const maxdate = event.target['maxdate'].value;
+    console.log(maxdate);
+    data = this.createData(category, location, mindate, maxdate);
+    console.log(data);
     PubSub.publish('SelectView:form-input-submitted', data);
+
   })
 };
 
@@ -55,11 +42,12 @@ SelectView.prototype.getCategoryNames = function (events) {
     .filter((category, index, categories) => categories.indexOf(category) === index);
 };
 
-SelectView.prototype.createData = function (category, location, date) {
+SelectView.prototype.createData = function (category, location, mindate, maxdate) {
   return {
     category: category,
     location: location,
-    date: date
+    mindate: mindate,
+    maxdate: maxdate
   };
 };
 
