@@ -34,7 +34,7 @@ SelectView.prototype.bindEvents = function () {
     console.log(location);
     const mindate = event.target['mindate'].value;
     console.log(mindate);
-    cosnt maxdate = event.target['maxdate'].value;
+    const maxdate = event.target['maxdate'].value;
     console.log(maxdate);
     data = this.createData(category, location, mindate, maxdate);
     console.log(data);
