@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const events = new Events();
   events.getData('Manchester');
+  events.bindEvents();
   // events.getFormData();
   // console.log(events.getData('Edinburgh'));
 

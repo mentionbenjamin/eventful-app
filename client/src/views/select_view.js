@@ -29,14 +29,14 @@ SelectView.prototype.bindEvents = function () {
   this.element.addEventListener('submit', (evt) => {
     evt.preventDefault();
     const category = event.target['category'].value;
-    console.log(category);
+    // console.log(category);
     const location = event.target['location'].value;
-    console.log(location);
+    // console.log(location);
     const date = event.target['date'].value;
-    console.log(date);
+    // console.log(date);
     data = this.createData(category, location, date);
-    console.log(data);
-    PubSub.publish('Form:submitted', data);
+    // console.log(data);
+    PubSub.publish('SelectView:form-input-submitted', data);
   })
 };
 
