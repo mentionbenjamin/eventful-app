@@ -34,12 +34,13 @@ Events.prototype.bindEvents = function () {
   PubSub.subscribe('SelectView:form-input-submitted', (evt) => {
 
     console.log(evt.detail);
-    this.postForm(evt.detail);
+    PubSub.publish('Events:event-results', event);
   });
 };
 
 // converted users inputs into matching events from API
 Events.prototype.postForm = function (event) {
+  console.log(event);
   this.request.post(event)
     .then((event) => {
       PubSub.publish('Events:event-results', event);
