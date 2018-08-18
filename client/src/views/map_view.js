@@ -34,11 +34,16 @@ MapView.prototype.bindEvents = function () {
   MapView.prototype.getLatLongFromData = function (eventData) {
     const eventInformation = eventData;
     for(var i = 0; i <eventInformation.length; i++){
+    const venueName = eventInformation[i].venue.name.toString();
+    console.log(venueName);
     const venueLat = eventInformation[i].venue.latitude;
-    console.log(venueLat);
+
     const venueLongt = eventInformation[i].venue.longitude;
-    console.log(venueLongt);
-    const eventMarker = L.marker([venueLat, venueLongt]);
+
+    const eventMarker = L.marker([venueLat, venueLongt],{
+      title: venueName,
+      opacity: 0.5
+    });
     eventMarker.addTo(myMap);
      }
   };
