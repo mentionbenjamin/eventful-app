@@ -13,7 +13,7 @@ crossorigin=""/>
 
 <body>
 
-  <form id="event-form" autocomplete="off">
+  <form id="form" autocomplete="off">
 
     <div class="form-category" >
       <label for="category">Select a category</label>
@@ -35,7 +35,7 @@ crossorigin=""/>
 
     <div class=“form-location” style=“width:100px;“ required>
       <label for="location">Location:</label>
-      <input type="text" id="location" list="cities" placeholder="location"/>
+      <input type="text" id="location" list="cities" placeholder="Where?"/>
       <datalist id="cities"></datalist>
       <script>
       const cities = ["Aberdeen",
