@@ -32,9 +32,11 @@ SelectView.prototype.bindEvents = function () {
     console.log(category);
     const location = event.target['location'].value;
     console.log(location);
-    const date = event.target['date'].value;
-    console.log(date);
-    data = this.createData(category, location, date);
+    const mindate = event.target['mindate'].value;
+    console.log(mindate);
+    cosnt maxdate = event.target['maxdate'].value;
+    console.log(maxdate);
+    data = this.createData(category, location, mindate, maxdate);
     console.log(data);
     PubSub.publish('Form:submitted', data);
   })
@@ -55,11 +57,12 @@ SelectView.prototype.getCategoryNames = function (events) {
     .filter((category, index, categories) => categories.indexOf(category) === index);
 };
 
-SelectView.prototype.createData = function (category, location, date) {
+SelectView.prototype.createData = function (category, location, mindate, maxdate) {
   return {
     category: category,
     location: location,
-    date: date
+    mindate: mindate,
+    maxdate: maxdate
   };
 };
 

@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   selectView.bindEvents();
 
   const events = new Events();
-  events.getData('Manchester');
+  events.getData('Liverpool');
   // events.getFormData();
   // console.log(events.getData('Edinburgh'));
 
