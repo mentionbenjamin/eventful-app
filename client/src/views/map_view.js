@@ -10,13 +10,6 @@ MapView.prototype.bindEvents = function () {
    this.createMap();
    this.getLatLongFromData(evt.detail);
 
-
-   // const eventInformation = evt.detail;
-   // for(var i = 0; i <eventInformation.length; i++){
-   // const venueLat = eventInformation[i].venue.latitude;
-   // const venueLongt = eventInformation[i].venue.longitude;
-   // const coordinates = L.latLng(venueLat, venueLongt);
-   //  }
   });
 
 }
@@ -41,12 +34,23 @@ MapView.prototype.bindEvents = function () {
     const venueLongt = eventInformation[i].venue.longitude;
 
     const eventMarker = L.marker([venueLat, venueLongt],{
-      title: venueName,
-      opacity: 0.5
+      opacity: 0.5,
+      title: venueName
     });
-    eventMarker.addTo(myMap);
+
+    eventMarker.addTo(myMap).on('click', onMapClick);
+    popup = L.popup({
+     keepInView: true,
+     className: "popup"
+    })
      }
   };
 
+  function onMapClick(e) {
+    popup
+    .setLatLng(e.latlng)
+    .setContent(venueName + " " + e.latlng)
+    .openOn(myMap);
+  }
 
 module.exports = MapView;
