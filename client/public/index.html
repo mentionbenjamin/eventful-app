@@ -13,14 +13,16 @@ crossorigin=""/>
 
 <body>
 
-  <form id="event-form">
+  <form id="form" autocomplete="off">
 
     <div class="form-category">
-      <label for="category">Select a category</label>
-      <select id="category">
-        <option selected disabled></option>
-      </select>
-    </div>
+       <label for="category">Select a category</label>
+       <select id="category">
+         <option value="LIVE">Live Music</option>
+         <option value="FEST">Festivals</option>
+         <option value="COMEDY">Comedy</option>
+       </select>
+     </div>
 
 
     <div class="form-date">
@@ -35,11 +37,72 @@ crossorigin=""/>
 
     <div class=“form-location” style=“width:100px;“ required>
       <label for="location">Location:</label>
-      <select id="location">
-        <option selected disabled></option>
-        <option value="manchester">Manchester</option>
-        <option value="edinburgh">Edinburgh</option>
-      </select>
+      <input type="text" id="location" list="cities" placeholder="Where?"/>
+      <datalist id="cities"></datalist>
+      <script>
+      const cities = ["Aberdeen",
+      "Bath",
+      "Belfast",
+      "Birmingham",
+      "Bournemouth",
+      "Bradford",
+      "Brighton",
+      "Bristol",
+      "Cambridge",
+      "Cardiff",
+      "Chester",
+      "Coventry",
+      "Derby",
+      "Derry",
+      "Dundee",
+      "Edinburgh",
+      "Essex",
+      "Exeter",
+      "Falkirk",
+      "Stirling",
+      "Gateshead",
+      "Glasgow",
+      "Gloucester",
+      "Hull",
+      "Ipswich",
+      "Jersey",
+      "Leeds",
+      "Leicester",
+      "Lincoln",
+      "Liverpool",
+      "London",
+      "Kent",
+      "Manchester",
+      "Milton Keynes",
+      "Newcastle Upon Tyne",
+      "Northampton",
+      "Norwich",
+      "Nottingham",
+      "Oxford",
+      "Peterborough",
+      "Plymouth",
+      "Portsmouth",
+      "Lancaster",
+      "Reading",
+      "Sheffield",
+      "Southampton",
+      "Stoke-on-Trent",
+      "Surrey",
+      "Swansea",
+      "Swindon",
+      "Teesside",
+      "Watford",
+      "Wolverhampton",
+      "Worcester",
+      "York"];
+      const list = document.getElementById('cities');
+
+      cities.forEach(function(item){
+     const option = document.createElement('option');
+     option.value = item;
+     list.appendChild(option);
+    });
+    </script>
     </div>
 
     <input type="submit" value="Save" id="save"/>
@@ -52,6 +115,11 @@ crossorigin=""/>
        crossorigin=""></script>
   </div>
 
+  <div id="list-panel"></div>
+
+  <datalist class="cities">
+
+  </datalist>
 
 </body>
 

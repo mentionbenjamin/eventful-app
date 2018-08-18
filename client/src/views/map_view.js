@@ -10,6 +10,7 @@ MapView.prototype.bindEvents = function () {
   PubSub.subscribe('Events:event-data-loaded', (evt) => {
    this.createMap();
    this.setMapMarkers(evt.detail);
+   console.log(evt);
 
   });
 

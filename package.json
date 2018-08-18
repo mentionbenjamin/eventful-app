@@ -23,5 +23,14 @@
     "mongodb": "^3.0.7",
     "node-fetch": "^2.2.0",
     "nodemon": "^1.18.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gregorcox/JavaScript-Project-3.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gregorcox/JavaScript-Project-3/issues"
+  },
+  "homepage": "https://github.com/gregorcox/JavaScript-Project-3#readme",
+  "description": ""
   }
-}
