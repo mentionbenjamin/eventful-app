@@ -30,9 +30,13 @@ SelectView.prototype.bindEvents = function () {
     evt.preventDefault();
     const category = event.target['category'].value;
     console.log(category);
-    // const data = evt.target;
-    // PubSub.publish('Form:submitted', data);
-    // console.log(data);
+    const location = event.target['location'].value;
+    console.log(location);
+    const date = event.target['date'].value;
+    console.log(date);
+    data = this.createData(category, location, date);
+    console.log(data);
+    PubSub.publish('Form:submitted', data);
   })
 };
 
@@ -51,11 +55,12 @@ SelectView.prototype.getCategoryNames = function (events) {
     .filter((category, index, categories) => categories.indexOf(category) === index);
 };
 
-// SelectView.prototype.createData = function (form) {
-//   return {
-//     category: form.category.value,
-//     location: form.location.value
-//   };
-// };
+SelectView.prototype.createData = function (category, location, date) {
+  return {
+    category: category,
+    location: location,
+    date: date
+  };
+};
 
 module.exports = SelectView;
