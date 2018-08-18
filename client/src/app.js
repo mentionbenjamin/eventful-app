@@ -9,7 +9,7 @@ const EventListView = require('./views/event_list_view.js');
 document.addEventListener('DOMContentLoaded', () => {
   console.log('JavaScript loaded');
 
-  const form = document.querySelector('#event-form');
+  const form = document.querySelector('#form');
   const selectView = new SelectView(form);
   selectView.bindEvents();
 
