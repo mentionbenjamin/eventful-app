@@ -1,6 +1,11 @@
+#map-container {
+  position: relative;
+}
+
 #mapid {
   height: 500px;
   width:70%;
+  position: relative;
 }
 
 body {
@@ -10,5 +15,20 @@ body {
 }
 #event-form {
   position: relative;
- display: inline-block;
+  display: inline-block;
+}
+
+#list-panel {
+  position: absolute;
+  left: 10px;
+  top: 200px;
+  width: 200px;
+  height: 600px;
+  overflow: auto;
+  border: 2px solid salmon;
+  z-index: 1;
+}
+
+#event-item {
+
 }
