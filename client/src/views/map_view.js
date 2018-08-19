@@ -31,9 +31,9 @@ MapView.prototype.bindEvents = function () {
     const venueName = eventInformation[i].venue.name.toString();
     const eventType = eventInformation[i].EventCode;
     const eventName = eventInformation[i].eventname;
-    const eventLinkText = eventInformation[i].link;
-    const eventLinkURL = linkifyjsHtml(eventLinkText);
+    const eventLink =linkifyjsHtml(eventInformation[i].link);
     const eventImage = eventInformation[i].imageurl;
+    const eventPrice = eventInformation[i].entryprice;
     console.log(eventType);
     console.log(venueName);
     const venueLat = eventInformation[i].venue.latitude;
@@ -47,7 +47,7 @@ MapView.prototype.bindEvents = function () {
     console.log(eventMarker);
 
     eventMarker.addTo(myMap).on('click', onMapClick)
-    .bindPopup(`Event: ${eventName} | Venue: ${venueName} | Type: ${eventType} | Link: ${eventLinkURL}`);
+    .bindPopup(`Event: ${eventName} | Venue: ${venueName} | Type: ${eventType} | Tickets: ${eventLink} | cost ${eventPrice}`);
     popup = L.popup({
      keepInView: true,
      className: "popup"
