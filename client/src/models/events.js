@@ -33,9 +33,10 @@ Events.prototype.getSearchData = function (criteria) {
   const request = new Request(url);
   const category = criteria.category;
   const mindate = criteria.mindate;
+  const maxdate = criteria.maxdate;
   request.get()
   .then((data) => {
-    const url = `http://localhost:3000/events/${data.latt}/${data.longt}/${category}/${mindate}`;
+    const url = `http://localhost:3000/events/${data.latt}/${data.longt}/${category}/${mindate}/${maxdate}`;
     const request = new Request(url);
     return request.get();
 

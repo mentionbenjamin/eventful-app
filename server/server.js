@@ -13,13 +13,14 @@ app.get('/', function(req, res){
  res.sendFile('index.html');
 });
 
-app.get('/events/:lat/:long/:category/:mindate' , function(req, res){
+app.get('/events/:lat/:long/:category/:mindate/:maxdate' , function(req, res){
    const lat = req.params.lat;
    const long = req.params.long;
    const category = req.params.category;
    const mindate = req.params.mindate;
+   const maxdate = req.params.maxdate;
 
- const url = `https://www.skiddle.com/api/v1/events/search/?api_key=${apiKey.apiKey}&limit=100&order=goingto&latitude=${lat}&longitude=${long}&radius=10&eventcode=${category}&minDate=${mindate}`;
+ const url = `https://www.skiddle.com/api/v1/events/search/?api_key=${apiKey.apiKey}&limit=100&order=goingto&latitude=${lat}&longitude=${long}&radius=10&eventcode=${category}&minDate=${mindate}&maxDate=${maxdate}`;
 
  fetch(url)
  .then(res =>  res.json())
