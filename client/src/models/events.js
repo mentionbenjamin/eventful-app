@@ -32,9 +32,10 @@ Events.prototype.getSearchData = function (criteria) {
   const url = `https://geocode.xyz/${criteria.location},UK?json=1`;
   const request = new Request(url);
   const category = criteria.category;
+  const mindate = criteria.mindate;
   request.get()
   .then((data) => {
-    const url = `http://localhost:3000/events/${data.latt}/${data.longt}/${category}`;
+    const url = `http://localhost:3000/events/${data.latt}/${data.longt}/${category}/${mindate}`;
     const request = new Request(url);
     return request.get();
 
