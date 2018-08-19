@@ -1,6 +1,9 @@
 #mapid {
   height: 500px;
-  width:70%;
+  width:65%;
+  float: right;
+  overflow: hidden;
+  margin-top:20px;
 }
 
 body {
