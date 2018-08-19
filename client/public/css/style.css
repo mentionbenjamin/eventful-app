@@ -6,6 +6,8 @@
 body {
   height: auto;
   width: auto;
+  font-family: arial;
+  margin-left: 20px;
 
 }
 #event-form {
