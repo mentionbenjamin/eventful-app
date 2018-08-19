@@ -13,11 +13,12 @@ app.get('/', function(req, res){
  res.sendFile('index.html');
 });
 
-app.get('/events/:lat/:long' , function(req, res){
+app.get('/events/:lat/:long/:category' , function(req, res){
    const lat = req.params.lat;
    const long = req.params.long;
+   const category = req.params.category;
 
- const url = `https://www.skiddle.com/api/v1/events/search/?api_key=${apiKey.apiKey}&limit=100&order=goingto&latitude=${lat}&longitude=${long}&radius=10`;
+ const url = `https://www.skiddle.com/api/v1/events/search/?api_key=${apiKey.apiKey}&limit=100&order=goingto&latitude=${lat}&longitude=${long}&radius=10&eventcode=${category}`;
 
  fetch(url)
  .then(res =>  res.json())

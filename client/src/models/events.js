@@ -28,12 +28,13 @@ Events.prototype.getData = function (townName) {
   });
 }
 
-Events.prototype.getSearchData = function (townName) {
-  const url = `https://geocode.xyz/${townName},UK?json=1`;
+Events.prototype.getSearchData = function (criteria) {
+  const url = `https://geocode.xyz/${criteria.location},UK?json=1`;
   const request = new Request(url);
+  const category = criteria.category;
   request.get()
   .then((data) => {
-    const url = `http://localhost:3000/events/${data.latt}/${data.longt}`;
+    const url = `http://localhost:3000/events/${data.latt}/${data.longt}/${category}`;
     const request = new Request(url);
     return request.get();
 
@@ -50,8 +51,9 @@ Events.prototype.getSearchData = function (townName) {
 // subscribing from SelectView to the data the user inputted in the form
 Events.prototype.bindEvents = function () {
   PubSub.subscribe('SelectView:form-input-submitted', (evt) => {
-    // debugger;
-    const newEvents = this.getSearchData(evt.detail.location);
+    // PubSub.publish('Events:form-data', evt.detail)
+    const newEvents = this.getSearchData(evt.detail);
+
     // console.log(newEvents);
     // PubSub.publish('Events:new-data-loaded', newEvents);
   });
