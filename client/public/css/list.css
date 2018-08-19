@@ -5,7 +5,11 @@
   padding-right: 10px;
   width: 30%;
   overflow: scroll;
-  height: 600px;
+  height: 500px;
+}
+
+#event-item {
+  padding: 5px 0px;
 }
 
 #event-item:hover {
