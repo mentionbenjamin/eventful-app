@@ -53,11 +53,7 @@ Events.prototype.getSearchData = function (criteria) {
 // subscribing from SelectView to the data the user inputted in the form
 Events.prototype.bindEvents = function () {
   PubSub.subscribe('SelectView:form-input-submitted', (evt) => {
-    // PubSub.publish('Events:form-data', evt.detail)
     const newEvents = this.getSearchData(evt.detail);
-
-    // console.log(newEvents);
-    // PubSub.publish('Events:new-data-loaded', newEvents);
   });
 };
 
