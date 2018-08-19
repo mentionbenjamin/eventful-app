@@ -5,9 +5,10 @@ const PubSub = require('../helpers/pub_sub.js');
 const Events = function () {
   this.events = [];
   this.town = null;
+  this.newEvents = [];
 }
 
-
+// receiving the two API's
 Events.prototype.getData = function (townName) {
   const url = `https://geocode.xyz/${townName},UK?json=1`;
   const request = new Request(url);
@@ -20,12 +21,41 @@ Events.prototype.getData = function (townName) {
   })
   .then((data) => {
     this.events = data.results;
-    console.log(this.events);
     PubSub.publish('Events:event-data-loaded', this.events);
-    // console.log(this.events);
   })
   .catch((err) => {
     console.error(err);
   });
 }
+
+Events.prototype.getSearchData = function (criteria) {
+  const url = `https://geocode.xyz/${criteria.location},UK?json=1`;
+  const request = new Request(url);
+  const category = criteria.category;
+  const mindate = criteria.mindate;
+  const maxdate = criteria.maxdate;
+  request.get()
+  .then((data) => {
+    const url = `http://localhost:3000/events/${data.latt}/${data.longt}/${category}/${mindate}/${maxdate}`;
+    const request = new Request(url);
+    return request.get();
+
+  })
+  .then((data) => {
+    this.newEvents = data.results;
+    PubSub.publish('Events:event-data-loaded', this.newEvents);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+}
+
+// subscribing from SelectView to the data the user inputted in the form
+Events.prototype.bindEvents = function () {
+  PubSub.subscribe('SelectView:form-input-submitted', (evt) => {
+    const newEvents = this.getSearchData(evt.detail);
+  });
+};
+
+
 module.exports = Events;

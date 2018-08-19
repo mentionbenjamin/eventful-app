@@ -1,24 +1,30 @@
-const PubSub = require('../helpers/pub_sub.js')
-const linkifyjsHtml = require('linkifyjs/html')
+const PubSub = require('../helpers/pub_sub.js');
+const linkifyjsHtml = require('linkifyjs/html');
 const MapView = function (container) {
   this.container = container;
 }
 
 MapView.prototype.bindEvents = function () {
 
-
   PubSub.subscribe('Events:event-data-loaded', (evt) => {
-   this.createMap();
+   this.createMap(evt.detail);
    this.setMapMarkers(evt.detail);
-
+   console.log(evt);
   });
+
 
 }
 
-  MapView.prototype.createMap = function () {
-  myMap = L.map('mapid', {
-    center: [51.505, -0.09],
+  MapView.prototype.createMap = function (eventData) {
+    // const mapDiv = document.getElementById('mapid');
+    // console.log(mapDiv);
+    // document.getElementById('map-container').innerHTML = mapDiv;
+    const latt = eventData[0].venue.latitude;
+    const longt = eventData[0].venue.longitude;
+    myMap = L.map('mapid', {
+    center: [latt, longt],
     zoom: 10
+    zoomAnimation: true
   })
   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -34,8 +40,8 @@ MapView.prototype.bindEvents = function () {
     const eventLink =linkifyjsHtml(eventInformation[i].link);
     const eventImage = eventInformation[i].imageurl;
     const eventPrice = eventInformation[i].entryprice;
-    console.log(eventType);
-    console.log(venueName);
+    // console.log(eventType);
+    // console.log(venueName);
     const venueLat = eventInformation[i].venue.latitude;
     const venueLongt = eventInformation[i].venue.longitude;
     const eventMarker = L.marker([venueLat, venueLongt],{
@@ -44,9 +50,9 @@ MapView.prototype.bindEvents = function () {
       riseOnHover: true,
       riseOffSet: 250
     })
-    console.log(eventMarker);
+    // console.log(eventMarker);
 
-    eventMarker.addTo(myMap).on('click', onMapClick)
+    eventMarker.addTo(myMap).on('click', onMapClickInfo).on('click', onMapClickZoom)
     .bindPopup(`Event: ${eventName} | Venue: ${venueName} | Type: ${eventType} | Tickets: ${eventLink} | cost ${eventPrice}`);
     popup = L.popup({
      keepInView: true,
@@ -55,10 +61,14 @@ MapView.prototype.bindEvents = function () {
      }
   };
 
-  function onMapClick(e) {
+  function onMapClickInfo(e) {
     popup
     .setLatLng(e.latlng)
     .openOn(myMap);
   }
+
+  function onMapClickZoom(e){
+    myMap.setView(e.latlng, 15);
+  };
 
 module.exports = MapView;
