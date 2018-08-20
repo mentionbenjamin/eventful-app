@@ -40,12 +40,15 @@ EventItemView.prototype.saveEvent = function (event, container){
   console.log(saveButton.value);
   container.appendChild(saveButton);
   saveButton.addEventListener('click', (evt)=>{
+
     const newEvent = {
       name: event.eventname,
       venue: event.venue.name,
       date: event.date,
       price: event.entryprice
     }
+
+    PubSub.publish('EventItemView:event-to-save-data', newEvent);
     console.log(newEvent);
   });
 }

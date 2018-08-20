@@ -55,6 +55,11 @@ Events.prototype.bindEvents = function () {
   PubSub.subscribe('SelectView:form-input-submitted', (evt) => {
     const newEvents = this.getSearchData(evt.detail);
   });
+
+  PubSub.subscribe('EventItemView:event-to-save-data', (evt) =>{
+    const eventToSave = evt.detail;
+    console.log(eventToSave);
+  })
 };
 
 
