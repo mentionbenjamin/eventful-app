@@ -9,10 +9,7 @@ MapView.prototype.bindEvents = function () {
   PubSub.subscribe('Events:event-data-loaded', (evt) => {
    this.createMap(evt.detail);
    this.setMapMarkers(evt.detail);
-   console.log(evt);
-
   });
-
 }
 
   MapView.prototype.createMap = function (eventData) {
@@ -29,39 +26,36 @@ MapView.prototype.bindEvents = function () {
   };
 
   MapView.prototype.setMapMarkers = function (eventData) {
+
+
     const eventInformation = eventData;
     for(var i = 0; i <eventInformation.length; i++){
-    const venueName = eventInformation[i].venue.name.toString();
-    const eventType = eventInformation[i].EventCode;
-    const eventName = eventInformation[i].eventname;
-    const eventLinkText = eventInformation[i].link;
-    const eventLinkURL = linkifyjsHtml(eventLinkText);
-    const eventImage = eventInformation[i].imageurl;
-    // console.log(eventType);
-    // console.log(venueName);
+    const markerLayer =  L.layerGroup().addTo(myMap);
     const venueLat = eventInformation[i].venue.latitude;
     const venueLongt = eventInformation[i].venue.longitude;
     const eventMarker = L.marker([venueLat, venueLongt],{
       opacity: 1,
-      title: venueName,
       riseOnHover: true,
       riseOffSet: 250
     })
-    // console.log(eventMarker);
+    eventMarker.customId = Math.floor((Math.random() * 100) + 1);
+    eventMarker.venueName = eventInformation[i].venue.name.toString();
+    eventMarker.eventType = eventInformation[i].EventCode;
+    eventMarker.eventName =eventInformation[i].eventname;
+    eventMarker.linkURL  = eventInformation[i].link;
+    eventMarker.eventImage = eventInformation[i].imageurl;
+    eventMarker.price = eventInformation[i].entryprice;
+    eventMarker.description = eventInformation[i].description;
+    eventMarker.date = eventInformation[i].date;
 
-    eventMarker.addTo(myMap).on('click', onMapClick)
-    .bindPopup(`Event: ${eventName} | Venue: ${venueName} | Type: ${eventType} | Link: ${eventLinkURL}`);
-    popup = L.popup({
-     keepInView: true,
-     className: "popup"
-    })
-     }
+
+    eventMarker.addTo(markerLayer).on('click', onMapClick)
+    }
   };
 
   function onMapClick(e) {
-    popup
-    .setLatLng(e.latlng)
-    .openOn(myMap);
+    console.log(e);
+    PubSub.publish('MapView:pin-click', e.target);
   }
 
 module.exports = MapView;

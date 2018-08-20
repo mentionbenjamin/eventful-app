@@ -18,3 +18,12 @@ body {
   position: relative;
  display: inline-block;
 }
+ .eventDetails {
+  width: 65%;
+  height: 500px;
+  position: absolute;
+  top: 100px;
+  left: 200px;
+  border: 2px solid red;
+  z-index: 10;
+ }

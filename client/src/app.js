@@ -3,6 +3,7 @@ const SelectView = require('./views/select_view.js');
 const leaflet = require('leaflet');
 const MapView = require('./views/map_view.js');
 const EventListView = require('./views/event_list_view.js');
+const EventMapDetailView = require('./views/event_map_detail_view.js');
 
 
 
@@ -15,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const events = new Events();
 
-  // events.getData('Manchester');
   events.bindEvents();
 
   const eventListPanel = document.querySelector('#list-panel');
@@ -25,5 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const mapContainer = document.querySelector('#map-container');
   const mapView = new MapView(mapContainer);
   mapView.bindEvents();
+
+  const mapDetailContainer = document.querySelector('#popup-event-details');
+  const mapDetailView = new EventMapDetailView( mapDetailContainer);
+  mapDetailView.bindEvents();
 
 });
