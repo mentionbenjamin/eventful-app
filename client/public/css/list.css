@@ -20,3 +20,9 @@
 #event-container {
   width: 100%;
 }
+
+button {
+  width: 50%;
+  outline: none;
+  padding: 10px;
+}

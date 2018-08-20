@@ -18,7 +18,13 @@ EventListView.prototype.renderList = function(items) {
   this.emptyList();
   eventsLength = items.length;
   const eventCounter = document.createElement("h1");
+  const resultsTab = document.createElement("button");
+  resultsTab.innerHTML = "Results";
+  const savedTab = document.createElement("button");
+  savedTab.innerHTML = "Saved";
   eventCounter.textContent = `${eventsLength} events found`;
+  this.container.appendChild(resultsTab);
+  this.container.appendChild(savedTab);
   this.container.appendChild(eventCounter);
   items.forEach((item) => {
     const eventSearchResult = this.renderItem(item);
