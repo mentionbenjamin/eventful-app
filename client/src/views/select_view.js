@@ -27,7 +27,6 @@ SelectView.prototype.bindEvents = function () {
 
 SelectView.prototype.populateSelect = function () {
   const categorySelect = document.querySelector('select#category');
-  console.log(categorySelect);
 
   const categories = [ {name: "Live Music", value: "LIVE" }, {name: "Festivals", value: "FEST" }, {name: "Comedy", value: "COMEDY" }, {name: "Theatre", value: "THEATRE" }, {name: "Exhibitions", value: "EXHIB" }];
 
