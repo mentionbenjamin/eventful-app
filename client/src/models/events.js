@@ -6,6 +6,7 @@ const Events = function () {
   this.events = [];
   this.town = null;
   this.newEvents = [];
+  this.url = 'http://localhost:3000/api/saved-events'
 }
 
 // receiving the two API's
@@ -58,8 +59,17 @@ Events.prototype.bindEvents = function () {
 
   PubSub.subscribe('EventItemView:event-to-save-data', (evt) =>{
     const eventToSave = evt.detail;
-    console.log(eventToSave);
+    this.saveNewEvent(eventToSave);
   })
+};
+
+Events.prototype.saveNewEvent = function (eventDetails) {
+  const request = new Request(this.url);
+  request.post(eventDetails)
+  .then(events) => {
+    PubSub.publish('Events:saved-event-list', events);
+  }
+  .catch(console.error);
 };
 
 
