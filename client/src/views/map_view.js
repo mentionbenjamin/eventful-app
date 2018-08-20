@@ -16,6 +16,7 @@ MapView.prototype.bindEvents = function () {
 }
 
   MapView.prototype.createMap = function (eventData) {
+    document.getElementById('map-container').innerHTML = "<div id ='mapid'></div>"
     const latt = eventData[0].venue.latitude;
     const longt = eventData[0].venue.longitude;
     myMap = L.map('mapid', {
