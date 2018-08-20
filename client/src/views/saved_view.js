@@ -36,8 +36,9 @@ SavedEventView.prototype.render = function(events){
 };
 
 SavedEventView.prototype.createDeleteButton = function(eventId, container){
-  const deleteButton = document.createElement('button');
-  deleteButton.classList.add('delete-btn');
+  const deleteButton = document.createElement('i');
+  deleteButton.classList.add('material-icons');
+  deleteButton.innerHTML = 'cancel'
   deleteButton.value = eventId;
   deleteButton.name = 'delete';
   container.appendChild(deleteButton);
