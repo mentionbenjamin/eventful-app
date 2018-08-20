@@ -75,4 +75,5 @@ function openTab(evt, tabName) {
 }
 
 
+
 module.exports = EventListView;
