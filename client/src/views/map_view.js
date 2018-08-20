@@ -18,9 +18,9 @@ MapView.prototype.bindEvents = function () {
 }
 
   MapView.prototype.createMap = function (eventData) {
-    // const mapDiv = document.getElementById('mapid');
-    // console.log(mapDiv);
-    // document.getElementById('map-container').innerHTML = mapDiv;
+    const mapDiv = document.getElementById('mapid');
+    console.log(mapDiv);
+    document.getElementById('map-container').innerHTML = "<div id ='mapid'></div>";
     const latt = eventData[0].venue.latitude;
     const longt = eventData[0].venue.longitude;
     myMap = L.map('mapid', {
@@ -48,7 +48,7 @@ MapView.prototype.bindEvents = function () {
     const venueLat = eventInformation[i].venue.latitude;
     const venueLongt = eventInformation[i].venue.longitude;
     const eventMarker = L.marker([venueLat, venueLongt],{
-      opacity: 0.5,
+      opacity: 1,
       title: venueName,
       riseOnHover: true,
       riseOffSet: 250

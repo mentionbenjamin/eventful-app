@@ -54,6 +54,7 @@ Events.prototype.getSearchData = function (criteria) {
 Events.prototype.bindEvents = function () {
   PubSub.subscribe('SelectView:form-input-submitted', (evt) => {
     const newEvents = this.getSearchData(evt.detail);
+    
   });
 };
 
