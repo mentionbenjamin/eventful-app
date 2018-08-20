@@ -61,6 +61,11 @@ Events.prototype.bindEvents = function () {
     const eventToSave = evt.detail;
     this.saveNewEvent(eventToSave);
   })
+
+  PubSub.subscribe('SavedEventView:delete-button-pressed', (evt) =>{
+    this.deleteEvent(evt.detail);
+    console.log(evt.detail);
+  });
 };
 
 Events.prototype.saveNewEvent = function (eventDetails) {
@@ -70,6 +75,16 @@ Events.prototype.saveNewEvent = function (eventDetails) {
     PubSub.publish('Events:saved-event-list', events);
   })
   .catch(console.error);
+};
+
+Events.prototype.deleteEvent = function (eventId) {
+  const request = new Request(this.url);
+  request.delete(eventId)
+  .then((events)=> {
+    PubSub.publish('Events:saved-event-list', events);
+  })
+  .catch(console.error);
+
 };
 
 
