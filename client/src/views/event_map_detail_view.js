@@ -14,11 +14,11 @@ EventMapDetailView.prototype.bindEvents = function () {
 }
 
 EventMapDetailView.prototype.renderEventDetails = function (event) {
-    this.container.innerHTML = " ";
 
     const detailsDiv = document.createElement('div');
     detailsDiv.classList.add("eventDetails");
-
+    detailsDiv.innerHTML = " ";
+    
     const eventName = document.createElement('h4');
     eventName.textContent = `${event.eventName}`;
     detailsDiv.appendChild(eventName);
