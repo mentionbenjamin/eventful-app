@@ -12,3 +12,27 @@ body {
   position: relative;
  display: inline-block;
 }
+
+/* #list-panel {
+  width:100px;
+  height:100px;
+  background: #ccc;
+  overflow: hidden;
+}
+
+.search-results {
+  width:auto;
+  white-space: nowrap;
+  -webkit-animation: countNumber 2s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-timing-function: steps(10);
+}
+
+@-webkit-keyframes countNumber {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: -1000px;
+  }
+} */

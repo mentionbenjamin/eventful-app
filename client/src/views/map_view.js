@@ -1,5 +1,7 @@
 const PubSub = require('../helpers/pub_sub.js');
 const linkifyjsHtml = require('linkifyjs/html');
+const event_list_view = require('./event_list_view.js');
+
 const MapView = function (container) {
   this.container = container;
 }
@@ -23,8 +25,9 @@ MapView.prototype.bindEvents = function () {
     const longt = eventData[0].venue.longitude;
     myMap = L.map('mapid', {
     center: [latt, longt],
-    zoom: 10
-    zoomAnimation: true
+    zoom: 10,
+    zoomAnimation: true,
+    duration: 2
   })
   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -68,7 +71,7 @@ MapView.prototype.bindEvents = function () {
   }
 
   function onMapClickZoom(e){
-    myMap.setView(e.latlng, 15);
+    myMap.setView(e.latlng, 12);
   };
 
 module.exports = MapView;
