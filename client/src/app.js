@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mapView = new MapView(mapContainer);
   mapView.bindEvents();
 
-  const mapDetailContainer = document.querySelector('#event-container');
+  const mapDetailContainer = document.querySelector('#popup-event-details');
   const mapDetailView = new EventMapDetailView( mapDetailContainer);
   mapDetailView.bindEvents();
 
