@@ -3,6 +3,7 @@ const SelectView = require('./views/select_view.js');
 const leaflet = require('leaflet');
 const MapView = require('./views/map_view.js');
 const EventListView = require('./views/event_list_view.js');
+const EventMapDetailView = require('./views/event_map_detail_view.js');
 
 
 
@@ -25,5 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const mapContainer = document.querySelector('#map-container');
   const mapView = new MapView(mapContainer);
   mapView.bindEvents();
+
+  const mapDetailContainer = document.querySelector('.eventDetails');
+  const mapDetailView = new EventMapDetailView(mapDetailContainer);
+  mapDetailView.bindEvents();
 
 });

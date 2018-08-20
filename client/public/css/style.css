@@ -12,3 +12,9 @@ body {
   position: relative;
  display: inline-block;
 }
+ .eventDetails {
+   height: 250px;
+   width: 250px;
+   float: left;
+   justify-content: center;
+ }
