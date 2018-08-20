@@ -47,7 +47,7 @@ EventItemView.prototype.saveEvent = function (event, container){
       price: event.entryprice
     }
     console.log(newEvent);
-  })
+  });
 }
 
 
