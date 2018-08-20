@@ -29,8 +29,23 @@ SavedEventView.prototype.render = function(events){
     eventPrice.textContent = events[i].price;
     this.container.appendChild(eventPrice);
 
+    const deleteButton = document.createElement('button');
+    deleteButton.classList.add('delete-btn');
+    deleteButton.value = events[i].id;
+
+    deleteButton.addEventListener('click')
   }
   return this.container;
 };
+
+SavedEventView.prototype.createDeleteButton(eventId){
+  const deleteButton = document.createElement('button');
+  deleteButton.classList.add('delete-btn');
+  deleteButton.value = eventId;
+
+  deleteButton.addEventListener('click', (evt) => {
+    PubSub.publish('SavedEventView:delete-button-pressed', evt.target.value)
+  });
+}
 
 module.exports = SavedEventView;
