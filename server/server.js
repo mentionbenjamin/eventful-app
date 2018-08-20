@@ -2,10 +2,12 @@ const express = require('express');
 const app = express();
 const fetch = require('node-fetch')
 const ApiKey = require('../api_key.js');
+const MongoClient = require('mongodb').MongoClient;
 
 const apiKey = new ApiKey();
 
 var port = process.env.PORT || 3000;
+
 
 app.use(express.static('client/public'))
 
