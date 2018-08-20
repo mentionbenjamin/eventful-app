@@ -10,23 +10,20 @@ EventListView.prototype.bindEvents = function() {
     const items = evt.detail;
     this.renderList(items);
     console.log(items.length);
-    // PubSub.publish('Events:events-length', items.length);
   });
 };
 
 EventListView.prototype.renderList = function(items) {
   this.emptyList();
-  eventsLength = items.length;
+  const eventsLength = items.length;
   const eventCounter = document.createElement("h1");
   const resultsTab = document.createElement("button");
   resultsTab.setAttribute("id", "defaultOpen");
   resultsTab.setAttribute("class", "tablinks")
-  // resultsTab.setAttribute("onclick", "openTab(event, 'search')");
   resultsTab.innerHTML = "Results";
   const savedTab = document.createElement("button");
   savedTab.setAttribute("id", 'favouritesButton');
   savedTab.setAttribute("class", "tablinks");
-  // savedTab.setAttribute("onclick", "openTab(event, 'favourites')");
   resultsTab.addEventListener('click', () => {
     openTab(event, "search");
   })
@@ -63,7 +60,7 @@ EventListView.prototype.renderItem = function(item) {
   return eventItem;
 };
 
-function openTab(evt, cityName) {
+function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
@@ -73,17 +70,9 @@ function openTab(evt, cityName) {
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
-    document.getElementById(cityName).style.display = "block";
+    document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
 }
-// document.getElementById("defaultOpen").click();
-
-
-
-// var event = document.createEvent("Event");
-// event.initEvent("click", false, true);
-// document.getElementById("defaultOpen").dispatchEvent(event);
-
 
 
 module.exports = EventListView;
