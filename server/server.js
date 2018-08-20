@@ -5,6 +5,7 @@ const ApiKey = require('../api_key.js');
 const MongoClient = require('mongodb').MongoClient;
 const createRouter = require('./helpers/create_router.js');
 const path = require('path');
+const parser = require('body-parser');
 
 const apiKey = new ApiKey();
 
