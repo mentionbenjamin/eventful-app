@@ -1,16 +1,17 @@
 const PubSub = require('../helpers/pub_sub.js');
 const Cities = require('../models/uk_cities.js');
-const cityList = new Cities();
+const cities = new Cities();
 
 const SelectView = function (element) {
   this.element = element;
 };
 
 SelectView.prototype.bindEvents = function () {
+  this.populateSelect();
+  this.populateCityList(cities.cityList);
   PubSub.subscribe('Events:event-data-loaded', (evt) => {
     const events = evt.detail;
-    // const categoryNames = this.getCategoryNames(events);
-    // this.populate(categoryNames);
+
   })
   this.element.addEventListener('submit', (evt) => {
     evt.preventDefault();
@@ -24,19 +25,33 @@ SelectView.prototype.bindEvents = function () {
   })
 };
 
-// SelectView.prototype.populate = function (categories) {
-//   for (category of categories) {
-//     const option = document.createElement('option');
-//     option.textContent = category;
-//     const categorySelect = document.querySelector('#category');
-//     categorySelect.appendChild(option);
-//   }
-// };
+SelectView.prototype.populateSelect = function () {
+  const categorySelect = document.querySelector('select#category');
+  console.log(categorySelect);
 
-SelectView.prototype.getCategoryNames = function (events) {
-  return events
-    .map(event => event.EventCode)
-    .filter((category, index, categories) => categories.indexOf(category) === index);
+  const categories = [ {name: "Live Music", value: "LIVE" }, {name: "Festivals", value: "FEST" }, {name: "Comedy", value: "COMEDY" }, {name: "Theatre", value: "THEATRE" }, {name: "Exhibitions", value: "EXHIB" }];
+
+  categories.forEach((category) => {
+    const option = this.createOption(category);
+    categorySelect.appendChild(option);
+  });
+};
+
+SelectView.prototype.createOption = function (category) {
+  const option = document.createElement('option');
+  option.textContent = category.name;
+  option.value = category.value;
+  return option;
+};
+
+
+SelectView.prototype.populateCityList = function (cities) {
+  cities.forEach(function(city){
+  const option = document.createElement('option');
+  option.value = city;
+  const cityList = document.querySelector('#cities')
+  cityList.appendChild(option)
+  });
 };
 
 SelectView.prototype.createData = function (category, location, mindate, maxdate) {

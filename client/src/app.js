@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const events = new Events();
 
-  // events.getData('Manchester');
   events.bindEvents();
 
   const eventListPanel = document.querySelector('#list-panel');
