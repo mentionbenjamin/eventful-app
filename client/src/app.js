@@ -15,10 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const selectView = new SelectView(form);
   selectView.bindEvents();
 
-  const events = new Events();
-
-  // events.getData('Manchester');
-  events.bindEvents();
 
   const eventListPanel = document.querySelector('#list-panel');
   const eventListView = new EventListView(eventListPanel);
@@ -35,5 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedEventContainer = document.querySelector('#saved-events');
   const savedEventView = new SavedEventView(savedEventContainer);
   savedEventView.bindEvents();
+
+  const events = new Events();
+
+  // events.getData('Manchester');
+  events.bindEvents();
+  events.getSavedData();
 
 });

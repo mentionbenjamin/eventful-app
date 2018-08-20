@@ -1,5 +1,6 @@
 const Request = require('../helpers/request.js');
 const PubSub = require('../helpers/pub_sub.js');
+const SavedEventView = require('../views/saved_view.js');
 
 
 const Events = function () {
@@ -63,10 +64,19 @@ Events.prototype.bindEvents = function () {
   })
 
   PubSub.subscribe('SavedEventView:delete-button-pressed', (evt) =>{
+
     this.deleteEvent(evt.detail);
     console.log(evt.detail);
   });
 };
+
+Events.prototype.getSavedData = function() {
+  const request = new Request(this.url);
+  request.get()
+  .then((events) =>{
+    PubSub.publish('Events:saved-event-list', events);
+  })
+}
 
 Events.prototype.saveNewEvent = function (eventDetails) {
   const request = new Request(this.url);
@@ -79,6 +89,8 @@ Events.prototype.saveNewEvent = function (eventDetails) {
 
 Events.prototype.deleteEvent = function (eventId) {
   const request = new Request(this.url);
+  // const savedView = new SavedEventView(this.newEvents);
+  // savedView.render();
   request.delete(eventId)
   .then((events)=> {
     PubSub.publish('Events:saved-event-list', events);

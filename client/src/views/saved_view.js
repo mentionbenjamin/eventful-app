@@ -9,17 +9,18 @@ SavedEventView.prototype.bindEvents = function(){
   PubSub.subscribe('Events:saved-event-list', (evt) =>{
     const savedEvents = evt.detail;
     console.log(savedEvents);
-    this.renderList(savedEvents);
+    this.container.innerHTML = " ";
+    this.render(savedEvents);
   });
 }
 
-SavedEventView.prototype.renderList = function (savedEvents) {
-    const eventTitle = document.createElement('h1');
-    eventTitle.textContent = saveEvents.name;
-    this.container.appendChild(eventTitle)
-
-    return this.container;
-}
+// SavedEventView.prototype.renderList = function (savedEvents) {
+//     const eventTitle = document.createElement('h1');
+//     eventTitle.textContent = savedEvents[1].name;
+//     this.container.appendChild(eventTitle)
+//
+//     return this.container;
+// }
 
 SavedEventView.prototype.render = function(events){
   for(var i = 0; i< events.length; i++){
@@ -52,6 +53,7 @@ SavedEventView.prototype.createDeleteButton = function(eventId, container){
   deleteButton.addEventListener('click', (evt) => {
     PubSub.publish('SavedEventView:delete-button-pressed', evt.target.value)
     console.log(evt.target.value);
+
   });
 }
 
