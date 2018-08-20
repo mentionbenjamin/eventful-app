@@ -9,8 +9,16 @@ SavedEventView.prototype.bindEvents = function(){
   PubSub.subscribe('Events:saved-event-list', (evt) =>{
     const savedEvents = evt.detail;
     console.log(savedEvents);
-    this.render(savedEvents);
+    this.renderList(savedEvents);
   });
+}
+
+SavedEventView.prototype.renderList = function (savedEvents) {
+    const eventTitle = document.createElement('h1');
+    eventTitle.textContent = saveEvents.name;
+    this.container.appendChild(eventTitle)
+
+    return this.container;
 }
 
 SavedEventView.prototype.render = function(events){

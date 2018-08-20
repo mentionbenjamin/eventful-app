@@ -84,7 +84,6 @@ Events.prototype.deleteEvent = function (eventId) {
     PubSub.publish('Events:saved-event-list', events);
   })
   .catch(console.error);
-
 };
 
 
