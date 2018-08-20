@@ -36,9 +36,17 @@ EventItemView.prototype.createTextElement = function (elementType, text) {
 EventItemView.prototype.saveEvent = function (event, container){
   const saveButton = document.createElement('p')
   saveButton.textContent = `I am going to ${event.eventname}!`;
+  saveButton.value = event;
+  console.log(saveButton.value);
   container.appendChild(saveButton);
   saveButton.addEventListener('click', (evt)=>{
-    console.log(evt.detail);
+    const newEvent = {
+      name: event.eventname,
+      venue: event.venue.name,
+      date: event.date,
+      price: event.entryprice
+    }
+    console.log(newEvent);
   })
 }
 
