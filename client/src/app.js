@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const mapView = new MapView(mapContainer);
   mapView.bindEvents();
 
-  const mapDetailContainer = document.querySelector('.eventDetails');
-  const mapDetailView = new EventMapDetailView(mapDetailContainer);
+  const mapDetailContainer = document.querySelector('#event-container');
+  const mapDetailView = new EventMapDetailView( mapDetailContainer);
   mapDetailView.bindEvents();
 
 });
