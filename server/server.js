@@ -16,7 +16,7 @@ MongoClient.connect('mongodb://localhost:27017')
 .then((client) =>{
   const db = client.db('saved_events');
   const eventsCollection = db.collection('events');
-  const eventRouter = createRouter(eventsCollection);
+  const eventsRouter = createRouter(eventsCollection);
   app.use('/api/saved-events', eventsRouter);
 })
 .catch(console.err);
