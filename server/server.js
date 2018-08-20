@@ -15,7 +15,7 @@ MongoClient.connect('mongodb://localhost:27017')
   const db = client.db('saved_events');
   const eventsCollection = db.collection('events');
   const eventRouter = CreateRouter(eventsCollection);
-  app.use('/saved-events');
+  app.use('/saved-events', eventsRouter);
 })
 
 app.get('/', function(req, res){
