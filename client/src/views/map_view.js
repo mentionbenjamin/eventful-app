@@ -42,7 +42,7 @@ MapView.prototype.bindEvents = function () {
     const venueLat = eventInformation[i].venue.latitude;
     const venueLongt = eventInformation[i].venue.longitude;
     const eventMarker = L.marker([venueLat, venueLongt],{
-      opacity: 0.5,
+      opacity: 1,
       title: venueName,
       riseOnHover: true,
       riseOffSet: 250
