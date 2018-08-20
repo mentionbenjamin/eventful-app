@@ -3,20 +3,24 @@ const app = express();
 const fetch = require('node-fetch')
 const ApiKey = require('../api_key.js');
 const MongoClient = require('mongodb').MongoClient;
-const CreateRouter = require('./helpers/create_router.js');
+const createRouter = require('./helpers/create_router.js');
+const path = require('path');
 
 const apiKey = new ApiKey();
 
 var port = process.env.PORT || 3000;
 
 app.use(express.static('client/public'))
+
 MongoClient.connect('mongodb://localhost:27017')
 .then((client) =>{
   const db = client.db('saved_events');
   const eventsCollection = db.collection('events');
-  const eventRouter = CreateRouter(eventsCollection);
-  app.use('/saved-events', eventsRouter);
+  const eventRouter = createRouter(eventsCollection);
+  app.use('/api/saved-events', eventsRouter);
 })
+.catch(console.err);
+
 
 app.get('/', function(req, res){
  res.sendFile('index.html');
