@@ -21,15 +21,15 @@ EventListView.prototype.renderList = function(items) {
   const resultsTab = document.createElement("button");
   resultsTab.setAttribute("id", "defaultOpen");
   resultsTab.setAttribute("class", "tablinks")
-  // resultsTab.setAttribute("onclick", openTab(event, 'search'));
-  resultsTab.addEventListener('click', () => {
-    openTab(event, "search");
-  })
+  // resultsTab.setAttribute("onclick", "openTab(event, 'search')");
   resultsTab.innerHTML = "Results";
   const savedTab = document.createElement("button");
   savedTab.setAttribute("id", 'favouritesButton');
   savedTab.setAttribute("class", "tablinks");
-  // savedTab.setAttribute("onclick", openTab(event, 'favourites'));
+  // savedTab.setAttribute("onclick", "openTab(event, 'favourites')");
+  resultsTab.addEventListener('click', () => {
+    openTab(event, "search");
+  })
   savedTab.addEventListener('click', () => {
     openTab(event, "favourites");
   })
@@ -50,6 +50,7 @@ EventListView.prototype.renderList = function(items) {
   });
   this.container.appendChild(listDiv);
   this.container.appendChild(favourites)
+  resultsTab.click();
 };
 
 EventListView.prototype.emptyList = function(items) {
@@ -75,8 +76,13 @@ function openTab(evt, cityName) {
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
 }
+// document.getElementById("defaultOpen").click();
 
-document.getElementById("defaultOpen").click();
+
+
+// var event = document.createEvent("Event");
+// event.initEvent("click", false, true);
+// document.getElementById("defaultOpen").dispatchEvent(event);
 
 
 

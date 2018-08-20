@@ -46,4 +46,5 @@ button:hover {
 
 button.active {
     background-color: #008CBA;
+    color: white;
 }
