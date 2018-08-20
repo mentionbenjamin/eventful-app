@@ -24,14 +24,19 @@ EventListView.prototype.renderList = function(items) {
   const savedTab = document.createElement("button");
   savedTab.setAttribute("id", "favourites");
   savedTab.innerHTML = "Saved";
+  resultsTab.addEventListener('click', () => {
+    resultsTab.innerHTML = "Switched";
+  })
+  const listDiv = document.createElement("div");
   eventCounter.textContent = `${eventsLength} events found`;
   this.container.appendChild(resultsTab);
   this.container.appendChild(savedTab);
-  this.container.appendChild(eventCounter);
+  listDiv.appendChild(eventCounter);
   items.forEach((item) => {
     const eventSearchResult = this.renderItem(item);
-    this.container.appendChild(eventSearchResult);
+    listDiv.appendChild(eventSearchResult);
   });
+  this.container.appendChild(listDiv);
 };
 
 EventListView.prototype.emptyList = function(items) {
@@ -44,4 +49,7 @@ EventListView.prototype.renderItem = function(item) {
   return eventItem;
 };
 
+function switchTabs (tab) {
+  tab.innerHTML = "Switched";
+}
 module.exports = EventListView;
