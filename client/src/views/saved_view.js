@@ -14,14 +14,6 @@ SavedEventView.prototype.bindEvents = function(){
   });
 }
 
-// SavedEventView.prototype.renderList = function (savedEvents) {
-//     const eventTitle = document.createElement('h1');
-//     eventTitle.textContent = savedEvents[1].name;
-//     this.container.appendChild(eventTitle)
-//
-//     return this.container;
-// }
-
 SavedEventView.prototype.render = function(events){
   for(var i = 0; i< events.length; i++){
 

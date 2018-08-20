@@ -35,6 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // events.getData('Manchester');
   events.bindEvents();
-  events.getSavedData();
+  // events.getSavedData();
 
 });

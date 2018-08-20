@@ -1,4 +1,5 @@
 const PubSub = require('../helpers/pub_sub.js');
+const MaterialIcons = require('material-design-icons');
 
 const EventItemView = function() {
 
@@ -34,8 +35,9 @@ EventItemView.prototype.createTextElement = function (elementType, text) {
 };
 
 EventItemView.prototype.saveEvent = function (event, container){
-  const saveButton = document.createElement('p')
-  saveButton.textContent = `I am going to ${event.eventname}!`;
+  const saveButton = document.createElement('i')
+  saveButton.classList.add('material-icons');
+  saveButton.innerHTML = "star-rate";
   saveButton.value = event;
   console.log(saveButton.value);
   container.appendChild(saveButton);
