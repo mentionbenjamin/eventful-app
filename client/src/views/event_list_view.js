@@ -19,8 +19,10 @@ EventListView.prototype.renderList = function(items) {
   eventsLength = items.length;
   const eventCounter = document.createElement("h1");
   const resultsTab = document.createElement("button");
+  resultsTab.setAttribute("id", "results");
   resultsTab.innerHTML = "Results";
   const savedTab = document.createElement("button");
+  savedTab.setAttribute("id", "favourites");
   savedTab.innerHTML = "Saved";
   eventCounter.textContent = `${eventsLength} events found`;
   this.container.appendChild(resultsTab);
