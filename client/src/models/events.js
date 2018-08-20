@@ -66,9 +66,9 @@ Events.prototype.bindEvents = function () {
 Events.prototype.saveNewEvent = function (eventDetails) {
   const request = new Request(this.url);
   request.post(eventDetails)
-  .then(events) => {
+  .then((events) => {
     PubSub.publish('Events:saved-event-list', events);
-  }
+  })
   .catch(console.error);
 };
 
