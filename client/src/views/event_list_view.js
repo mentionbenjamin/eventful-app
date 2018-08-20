@@ -19,15 +19,27 @@ EventListView.prototype.renderList = function(items) {
   eventsLength = items.length;
   const eventCounter = document.createElement("h1");
   const resultsTab = document.createElement("button");
-  resultsTab.setAttribute("id", "results");
+  resultsTab.setAttribute("id", "defaultOpen");
+  resultsTab.setAttribute("class", "tablinks")
+  // resultsTab.setAttribute("onclick", openTab(event, 'search'));
+  resultsTab.addEventListener('click', () => {
+    openTab(event, "search");
+  })
   resultsTab.innerHTML = "Results";
   const savedTab = document.createElement("button");
-  savedTab.setAttribute("id", "favourites");
-  savedTab.innerHTML = "Saved";
-  resultsTab.addEventListener('click', () => {
-    resultsTab.innerHTML = "Switched";
+  savedTab.setAttribute("id", 'favouritesButton');
+  savedTab.setAttribute("class", "tablinks");
+  // savedTab.setAttribute("onclick", openTab(event, 'favourites'));
+  savedTab.addEventListener('click', () => {
+    openTab(event, "favourites");
   })
+  savedTab.innerHTML = "Saved";
   const listDiv = document.createElement("div");
+  listDiv.setAttribute("class", "tabcontent");
+  listDiv.setAttribute("id", "search");
+  const favourites = document.createElement("div");
+  favourites.setAttribute("class", "tabcontent");
+  favourites.setAttribute("id", "favourites");
   eventCounter.textContent = `${eventsLength} events found`;
   this.container.appendChild(resultsTab);
   this.container.appendChild(savedTab);
@@ -37,6 +49,7 @@ EventListView.prototype.renderList = function(items) {
     listDiv.appendChild(eventSearchResult);
   });
   this.container.appendChild(listDiv);
+  this.container.appendChild(favourites)
 };
 
 EventListView.prototype.emptyList = function(items) {
@@ -49,7 +62,22 @@ EventListView.prototype.renderItem = function(item) {
   return eventItem;
 };
 
-function switchTabs (tab) {
-  tab.innerHTML = "Switched";
+function openTab(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
 }
+
+document.getElementById("defaultOpen").click();
+
+
+
 module.exports = EventListView;

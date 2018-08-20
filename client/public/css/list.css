@@ -37,6 +37,13 @@ button:hover {
   color: white;
 }
 
-/* #results {
-  color: pink;
-} */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+button.active {
+    background-color: #008CBA;
+}
