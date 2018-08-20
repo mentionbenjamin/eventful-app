@@ -6,6 +6,7 @@
   <title>Event Map App</title>
   <script src="./js/bundle.js"></script>
   <link href="./css/style.css" rel="stylesheet">
+  <link href="./css/list.css" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
 integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
 crossorigin=""/>
@@ -109,15 +110,21 @@ crossorigin=""/>
     <input type="submit" value="Save" id="save"/>
   </form>
 
+<div id= "event-container">
+  <div id="list-panel">
+    <!-- <div id="tab" class="tab">
+      <button class="tablinks">London</button>
+      <button class="tablinks">Paris</button>
+    </div> -->
+  </div>
  <div id= "map-container">
-  <div id= "mapid"></div>
+
       <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
        integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
        crossorigin=""></script>
-  </div>
 
-  <div id="list-panel">
-  </div>
+
+</div>
 
   <div class="eventDetails">
 

@@ -1,11 +1,17 @@
 #mapid {
   height: 500px;
-  width:70%;
+  width:65%;
+  float: right;
+  overflow: hidden;
+  margin-top:20px;
+  border: 5px solid white;
 }
 
 body {
   height: auto;
   width: auto;
+  font-family: arial;
+  margin-left: 20px;
 
 }
 #event-form {

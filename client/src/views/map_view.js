@@ -9,13 +9,11 @@ MapView.prototype.bindEvents = function () {
   PubSub.subscribe('Events:event-data-loaded', (evt) => {
    this.createMap(evt.detail);
    this.setMapMarkers(evt.detail);
-   console.log(evt);
-
   });
-
 }
 
   MapView.prototype.createMap = function (eventData) {
+    document.getElementById('map-container').innerHTML = "<div id ='mapid'></div>"
     const latt = eventData[0].venue.latitude;
     const longt = eventData[0].venue.longitude;
     myMap = L.map('mapid', {
@@ -33,16 +31,10 @@ MapView.prototype.bindEvents = function () {
     const eventInformation = eventData;
     for(var i = 0; i <eventInformation.length; i++){
     const markerLayer =  L.layerGroup().addTo(myMap);
-    // const venueName = eventInformation[i].venue.name.toString();
-    // const eventType = eventInformation[i].EventCode;
-    // const eventName = eventInformation[i].eventname;
-    // const eventLinkText = eventInformation[i].link;
-    // const eventLinkURL = linkifyjsHtml(eventLinkText);
-    // const eventImage = eventInformation[i].imageurl;
     const venueLat = eventInformation[i].venue.latitude;
     const venueLongt = eventInformation[i].venue.longitude;
     const eventMarker = L.marker([venueLat, venueLongt],{
-      // title: venueName,
+      opacity: 1,
       riseOnHover: true,
       riseOffSet: 250
     })
@@ -51,7 +43,6 @@ MapView.prototype.bindEvents = function () {
     eventMarker.eventType = eventInformation[i].EventCode;
     eventMarker.eventName =eventInformation[i].eventname;
     eventMarker.linkURL  = eventInformation[i].link;
-    // eventMarker.linkURL = linkifyjsHtml(eventlink);
     eventMarker.eventImage = eventInformation[i].imageurl;
     eventMarker.price = eventInformation[i].entryprice;
     eventMarker.description = eventInformation[i].description;
@@ -59,21 +50,12 @@ MapView.prototype.bindEvents = function () {
 
 
     eventMarker.addTo(markerLayer).on('click', onMapClick)
-    // .bindPopup(`Event: ${eventName} | Venue: ${venueName} | Type: ${eventType} | Link: ${eventLinkURL}`);
-    // popup = L.popup({
-    //  keepInView: true,
-    //  className: "popup"
-    // })
     }
   };
 
   function onMapClick(e) {
     console.log(e);
     PubSub.publish('MapView:pin-click', e.target);
-
-    // popup
-    // .setLatLng(e.latlng)
-    // .openOn(myMap);
   }
 
 module.exports = MapView;
