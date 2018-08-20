@@ -1,0 +1,22 @@
+#list-panel {
+  border: 1px solid white;
+  margin-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 30%;
+  overflow: scroll;
+  height: 500px;
+  float: left;
+}
+
+#event-item {
+  padding: 5px 0px;
+}
+
+#event-item:hover {
+  background-color: #f5f5f5;
+}
+
+#event-container {
+  width: 100%;
+}
