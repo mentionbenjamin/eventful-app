@@ -11,7 +11,8 @@ const apiKey = new ApiKey();
 
 var port = process.env.PORT || 3000;
 
-app.use(express.static('client/public'))
+app.use(express.static('client/public'));
+app.use(parser.json());
 
 MongoClient.connect('mongodb://localhost:27017')
 .then((client) =>{
