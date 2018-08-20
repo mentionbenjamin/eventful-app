@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const selectView = new SelectView(form);
   selectView.bindEvents();
 
+  const events = new Events();
+
+  events.bindEvents();
 
   const eventListPanel = document.querySelector('#list-panel');
   const eventListView = new EventListView(eventListPanel);
@@ -24,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mapView = new MapView(mapContainer);
   mapView.bindEvents();
 
-  const mapDetailContainer = document.querySelector('#event-container');
+  const mapDetailContainer = document.querySelector('#popup-event-details');
   const mapDetailView = new EventMapDetailView( mapDetailContainer);
   mapDetailView.bindEvents();
 
