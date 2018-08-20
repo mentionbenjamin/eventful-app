@@ -9,7 +9,7 @@ EventListView.prototype.bindEvents = function() {
   PubSub.subscribe('Events:event-data-loaded', (evt) => {
     const items = evt.detail;
     this.renderList(items);
-    this.detailsOnClick();
+    // this.detailsOnClick();
     console.log(items.length);
     // PubSub.publish('Events:events-length', items.length);
   });
@@ -33,12 +33,12 @@ EventListView.prototype.renderList = function(items) {
   });
 };
 
-EventListView.prototype.detailsOnClick = function(){
-  this.container.addEventListener('click', (evt) =>{
-    PubSub.publish('EventListView: selected-event-clicked', evt.details);
-    console.log(evt.detail);
-  })
-}
+// EventListView.prototype.detailsOnClick = function(){
+//   this.container.addEventListener('click', (evt) =>{
+//     PubSub.publish('EventListView: selected-event-clicked', evt.details);
+//     console.log(evt.detail);
+//   })
+// }
 
 EventListView.prototype.emptyList = function(items) {
   this.container.innerHTML = '';
