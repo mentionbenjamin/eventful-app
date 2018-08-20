@@ -35,8 +35,9 @@ EventMapDetailView.prototype.renderEventDetails = function (event) {
     price.textContent = `${event.price}`;
     this.container.appendChild(price);
 
-    const link = document.createElement('p');
-    link.textContent = `${event.link}`;
+    const link = document.createElement('a');
+    link.textContent = "Buy tickets here";
+    link.href = `${event.linkURL}`;
     this.container.appendChild(link);
 
   return this.container;
