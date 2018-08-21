@@ -11,6 +11,7 @@ SelectView.prototype.bindEvents = function () {
   this.populateCityList(cities.cityList);
   PubSub.subscribe('Events:event-data-loaded', (evt) => {
     const events = evt.detail;
+    console.log(events);
 
   })
   this.element.addEventListener('submit', (evt) => {

@@ -8,31 +8,47 @@ const SavedEventView = function(container) {
 SavedEventView.prototype.bindEvents = function(){
   PubSub.subscribe('Events:saved-event-list', (evt) =>{
     const savedEvents = evt.detail;
-    console.log(savedEvents);
-    this.container.innerHTML = " ";
-    this.render(savedEvents);
+  //   this.render(savedEvents);
+
+    PubSub.subscribe('EventListView:saved-list-tab-clicked', (evt) =>{
+      const favourites = document.getElementById('favourites');
+      favourites.innerHTML = ""
+      // this.container.innerHTML = " "
+      this.render(savedEvents);
+      console.log(evt);
+    });
   });
 }
 
 SavedEventView.prototype.render = function(events){
   for(var i = 0; i< events.length; i++){
 
+    const favourites = document.getElementById('favourites');
+
+
+    savedDiv = document.createElement('div');
+    savedDiv.id = "saved-items";
+    favourites.appendChild(savedDiv);
+
+
     const eventTitle = document.createElement('p');
-    eventTitle.textContent = events[i].name;
-    this.container.appendChild(eventTitle);
+    eventTitle.textContent = `Event: ${events[i].name}`;
+    savedDiv.appendChild(eventTitle);
 
     const eventVenue = document.createElement('p');
-    eventVenue.textContent = events[i].venue;
-    this.container.appendChild(eventVenue);
+    eventVenue.textContent = `Venue: ${events[i].venue}`;
+    savedDiv.appendChild(eventVenue);
 
 
     const eventPrice = document.createElement('p');
-    eventPrice.textContent = events[i].price;
-    this.container.appendChild(eventPrice);
+    eventPrice.textContent = `Price: ${events[i].price}`;
+    savedDiv.appendChild(eventPrice);
 
-    this.createDeleteButton(events[i]._id, this.container);
+    this.createDeleteButton(events[i]._id, savedDiv);
+
+    this.appenedLine(savedDiv);
   }
-  return this.container;
+  return savedDiv;
 };
 
 SavedEventView.prototype.createDeleteButton = function(eventId, container){
@@ -45,9 +61,12 @@ SavedEventView.prototype.createDeleteButton = function(eventId, container){
 
   deleteButton.addEventListener('click', (evt) => {
     PubSub.publish('SavedEventView:delete-button-pressed', evt.target.value)
-    console.log(evt.target.value);
-
   });
 }
+
+SavedEventView.prototype.appenedLine = function(container){
+  const line = document.createElement('hr');
+  container.appendChild(line);
+};
 
 module.exports = SavedEventView;

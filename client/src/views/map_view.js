@@ -10,6 +10,12 @@ MapView.prototype.bindEvents = function () {
    this.createMap(evt.detail);
    this.setMapMarkers(evt.detail);
   });
+
+  // PubSub.subscribe('Events:saved-event-list', (evt) =>{
+  //  this.createMapSaved(evt.detail);
+  //  this.setMapMarkersSaved(evt.detail);
+  //
+  // });
 }
 
   MapView.prototype.createMap = function (eventData) {
@@ -17,13 +23,34 @@ MapView.prototype.bindEvents = function () {
     const latt = eventData[0].venue.latitude;
     const longt = eventData[0].venue.longitude;
     myMap = L.map('mapid', {
-    center: [latt, longt],
-    zoom: 10
-  })
+    center: [54.297293, -1.296386],
+    zoom: 5
+  }).flyTo([latt, longt], 11, true, 6);
+  // myMap.flyTo([latt,longt],{
+  //   animate: true,
+  //   duation: 1
+  // });
+
   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(myMap);
   };
+
+
+  // MapView.prototype.createMapSaved = function (eventData) {
+  //   document.getElementById('map-container').innerHTML = "<div id ='mapid'></div>"
+  //   const latt = eventData[0].lat;
+  //   const longt = eventData[0].longt;
+  //   myMap = L.map('mapid', {
+  //   center: [latt, longt],
+  //   zoom: 10
+  // }).flyTo([latt,longt])
+  // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+  //       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+  //   }).addTo(myMap);
+  // };
+
+
 
   MapView.prototype.setMapMarkers = function (eventData) {
 
@@ -52,6 +79,37 @@ MapView.prototype.bindEvents = function () {
     eventMarker.addTo(markerLayer).on('click', onMapClick)
     }
   };
+
+  // MapView.prototype.setMapMarkersSaved = function (eventData) {
+  //   const eventInformation = eventData;
+  //   for(var i = 0; i <eventInformation.length; i++){
+  //   const markerLayer =  L.layerGroup().addTo(myMap);
+  //   const venueLat = eventInformation[i].lat;
+  //   const venueLongt = eventInformation[i].longt;
+  //   const eventMarker = L.marker([venueLat, venueLongt],{
+  //     opacity: 1,
+  //     riseOnHover: true,
+  //     riseOffSet: 250
+  //   })
+  //   eventMarker.customId = Math.floor((Math.random() * 100) + 1);
+  //   eventMarker.venueName = eventInformation[i].venue;
+  //   // eventMarker.eventType = eventInformation[i].EventCode;
+  //   // eventMarker.eventName =eventInformation[i].eventname;
+  //   // eventMarker.linkURL  = eventInformation[i].link;
+  //   // eventMarker.eventImage = eventInformation[i].imageurl;
+  //   // eventMarker.price = eventInformation[i].entryprice;
+  //   // eventMarker.description = eventInformation[i].description;
+  //   // eventMarker.date = eventInformation[i].date;
+  //
+  //
+  //   eventMarker.addTo(markerLayer).on('click', onMapClick)
+  //   }
+  // };
+
+
+
+
+
 
   function onMapClick(e) {
     console.log(e);
