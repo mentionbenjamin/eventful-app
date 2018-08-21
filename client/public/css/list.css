@@ -38,23 +38,24 @@
 }
 
 .tabcontent {
-    display: none;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-top: none;
-    overflow: scroll;
-    height: 400px;
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+  overflow: scroll;
+  height: 400px;
 }
 
 .tablinks:active {
-    background-color: #008CBA;
-    color: white;
+  background-color: #008CBA;
+  color: white;
 }
 
 .material-icons:hover {
   text-decoration: none;
   position: relative;
   top: 4px;
-  -webkit-transform:rotate(360deg);
-          transform: rotate(360deg);
+  /* -webkit-transform:rotate(360deg);
+  transform: rotate(360deg); */
+  
 }
