@@ -6,8 +6,6 @@ const EventListView = function(container) {
   this.container = container;
 };
 
-const savedView = new SavedEventView(this.container);
-
 EventListView.prototype.bindEvents = function() {
   PubSub.subscribe('Events:event-data-loaded', (evt) => {
     const items = evt.detail;
@@ -54,6 +52,7 @@ EventListView.prototype.renderList = function(items) {
   resultsTab.click();
   savedTab.addEventListener('click', (evt) => {
     PubSub.publish('EventListView:saved-list-tab-clicked', evt.target);
+    console.log(evt.target);
   })
 };
 
@@ -73,6 +72,12 @@ EventListView.prototype.renderItem = function(item) {
   const eventItem = eventItemView.render(item);
   return eventItem;
 };
+
+SavedEventView.prototype.renderItem = function(savedEvents) {
+  const savedEventsView = new SavedEventView
+}
+
+
 
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;

@@ -20,22 +20,25 @@ SavedEventView.prototype.bindEvents = function(){
 SavedEventView.prototype.render = function(events){
   for(var i = 0; i< events.length; i++){
 
+    const savedEventsDiv = document.createElement('div');
+    savedEventsDiv.id = 'saved-events'
+
     const eventTitle = document.createElement('p');
     eventTitle.textContent = events[i].name;
-    this.container.appendChild(eventTitle);
+    savedEventsDiv.appendChild(eventTitle);
 
     const eventVenue = document.createElement('p');
     eventVenue.textContent = events[i].venue;
-    this.container.appendChild(eventVenue);
+    savedEventsDiv.appendChild(eventVenue);
 
 
     const eventPrice = document.createElement('p');
     eventPrice.textContent = events[i].price;
-    this.container.appendChild(eventPrice);
+    savedEventsDiv.appendChild(eventPrice);
 
-    this.createDeleteButton(events[i]._id, this.container);
+    this.createDeleteButton(events[i]._id, savedEventsDiv);
   }
-  return this.container;
+  return savedEventsDiv;
 };
 
 SavedEventView.prototype.createDeleteButton = function(eventId, container){
