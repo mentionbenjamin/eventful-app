@@ -59,7 +59,7 @@ EventMapDetailView.prototype.renderEventDetails = function (event) {
     dateTimeContainer.appendChild(dateTimeTitle);
 
     const dateInfo = this.createTextElement('p', event.date);
-    const timeInfo = this.createTextElement('p', event.doorsopen);
+    const timeInfo = this.createTextElement('p', event.time.doorsopen);
 
     dateTimeContainer.appendChild(dateInfo);
     dateTimeContainer.appendChild(timeInfo);
