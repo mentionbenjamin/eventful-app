@@ -11,6 +11,9 @@ EventMapDetailView.prototype.bindEvents = function () {
     this.renderEventDetails(event.detail);
     console.log(event.detail);
   })
+  PubSub.subscribe('EventListView: selected-event-clicked', (evt)=>{
+    this.renderEventDetails(evt.detail);
+  });
 }
 
 EventMapDetailView.prototype.renderEventDetails = function (event) {

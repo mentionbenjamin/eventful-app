@@ -18,13 +18,10 @@ const createRouter = function(collection) {
 
   router.post('/', (req, res) => {
     const newData = req.body;
-    collection
-      .insertOne(newData)
+    collection.insertOne(newData)
       .then((result) => {
-        collection
-          .find()
-          .toArray()
-          .then((docs) => res.json(docs));
+      collection.find().toArray()
+        .then((docs) => res.json(docs));
       })
       .catch((err) => {
         console.error(err);

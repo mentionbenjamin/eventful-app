@@ -9,6 +9,7 @@ EventListView.prototype.bindEvents = function() {
   PubSub.subscribe('Events:event-data-loaded', (evt) => {
     const items = evt.detail;
     this.renderList(items);
+    // this.detailsOnClick();
     console.log(items.length);
   });
 };
@@ -49,6 +50,13 @@ EventListView.prototype.renderList = function(items) {
   this.container.appendChild(favourites)
   resultsTab.click();
 };
+
+// EventListView.prototype.detailsOnClick = function(){
+//   this.container.addEventListener('click', (evt) =>{
+//     PubSub.publish('EventListView: selected-event-clicked', evt.details);
+//     console.log(evt.detail);
+//   })
+// }
 
 EventListView.prototype.emptyList = function(items) {
   this.container.innerHTML = '';

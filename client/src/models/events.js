@@ -1,11 +1,13 @@
 const Request = require('../helpers/request.js');
 const PubSub = require('../helpers/pub_sub.js');
+const SavedEventView = require('../views/saved_view.js');
 
 
 const Events = function () {
   this.events = [];
   this.town = null;
   this.newEvents = [];
+  this.url = 'http://localhost:3000/api/saved-events'
 }
 
 // receiving the two API's
@@ -55,6 +57,45 @@ Events.prototype.bindEvents = function () {
   PubSub.subscribe('SelectView:form-input-submitted', (evt) => {
     const newEvents = this.getSearchData(evt.detail);
   });
+
+  PubSub.subscribe('EventItemView:event-to-save-data', (evt) =>{
+    const eventToSave = evt.detail;
+    this.saveNewEvent(eventToSave);
+  })
+
+  PubSub.subscribe('SavedEventView:delete-button-pressed', (evt) =>{
+
+    this.deleteEvent(evt.detail);
+    console.log(evt.detail);
+  });
+};
+
+Events.prototype.getSavedData = function() {
+  const request = new Request(this.url);
+  request.get()
+  .then((events) =>{
+    PubSub.publish('Events:saved-event-list', events);
+  })
+}
+
+Events.prototype.saveNewEvent = function (eventDetails) {
+  const request = new Request(this.url);
+  request.post(eventDetails)
+  .then((events) => {
+    PubSub.publish('Events:saved-event-list', events);
+  })
+  .catch(console.error);
+};
+
+Events.prototype.deleteEvent = function (eventId) {
+  const request = new Request(this.url);
+  // const savedView = new SavedEventView(this.newEvents);
+  // savedView.render();
+  request.delete(eventId)
+  .then((events)=> {
+    PubSub.publish('Events:saved-event-list', events);
+  })
+  .catch(console.error);
 };
 
 
