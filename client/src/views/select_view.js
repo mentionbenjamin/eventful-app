@@ -21,10 +21,19 @@ SelectView.prototype.bindEvents = function () {
     const maxdate = event.target['maxdate'].value;
     data = this.createData(category, location, mindate, maxdate);
     document.getElementById('form').id = 'new-form';
+
     sentenceTexts = document.getElementsByClassName('sentence-text');
     for (sentence of sentenceTexts) {
       sentence.style.fontSize = "30px";
     };
+
+    eventsDropdown = document.getElementsByClassName('custom-select');
+    for (dropdown of eventsDropdown) {
+      dropdown.style.width = "157px";
+      dropdown.style.fontSize = "30px";
+    };
+
+
 
     PubSub.publish('SelectView:form-input-submitted', data);
 
