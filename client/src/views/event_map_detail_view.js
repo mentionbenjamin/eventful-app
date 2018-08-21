@@ -17,6 +17,7 @@ EventMapDetailView.prototype.bindEvents = function () {
 }
 
 EventMapDetailView.prototype.renderEventDetails = function (event) {
+  console.log(event);
     this.container.innerHTML = " ";
 
     const detailsDiv = document.createElement('div');
@@ -57,9 +58,12 @@ EventMapDetailView.prototype.renderEventDetails = function (event) {
     dateTimeTitle.classList.add("date-time-title");
     dateTimeContainer.appendChild(dateTimeTitle);
 
-    const dateTimeInfo = document.createElement('p');
-    dateTimeInfo.textContent = `${event.date}`;
-    dateTimeContainer.appendChild(dateTimeInfo);
+    const dateInfo = this.createTextElement('p', event.date);
+    const timeInfo = this.createTextElement('p', event.doorsopen);
+
+    dateTimeContainer.appendChild(dateInfo);
+    dateTimeContainer.appendChild(timeInfo);
+
 
 // PRICE INFO
     const entryPriceContainer = document.createElement('div');

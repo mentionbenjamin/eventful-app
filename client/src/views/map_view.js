@@ -74,6 +74,8 @@ MapView.prototype.bindEvents = function () {
     eventMarker.price = eventInformation[i].entryprice;
     eventMarker.description = eventInformation[i].description;
     eventMarker.date = eventInformation[i].date;
+    eventMarker.time = eventInformation[i].openingtimes;
+
 
 
     eventMarker.addTo(markerLayer).on('click', onMapClick)
