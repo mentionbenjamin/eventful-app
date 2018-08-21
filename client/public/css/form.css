@@ -1,0 +1,296 @@
+.clear { clear:both;}
+
+
+
+html, body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+input:focus {
+  outline: none;
+}
+
+
+
+
+/* --- BODY BORDER --- */
+/* .border {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border: 15px solid #ff5e62;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  z-index: -1;
+} */
+/* --- FORM WRAPPERS --- */
+.form-grand-parent {
+  display: table;
+  height: 100%;
+  margin: 0 auto;
+
+}
+#new-form-grand-parent {
+  position: relative;
+  top: 30px;
+  left: 30px;
+}
+.form-parent {
+  display:table-cell;
+  vertical-align:middle;
+}
+#new-form-parent {
+  position: absolute;
+}
+
+/* --- MAIN FORM --- */
+#form {
+  margin: 70px;
+  max-width: 900px;
+  max-height: 700px;
+  text-align: center;
+}
+.sentence-text {
+  font: 50px helvetica;
+  font-weight: 600;
+  padding: 7px 0px;
+  display: inline-block;
+}
+/* .small-sentence-text {
+  font: 30px helvetica;
+  font-weight: 600;
+  padding: 7px 0px;
+  display: inline-block;
+} */
+
+
+
+/* --- ANY EVENT START--- */
+
+.event-container {
+  display: inline-block;
+}
+/*the container must be positioned relative:*/
+.custom-select {
+  position: relative;
+  font-family: helvetica;
+  font-weight: 600;
+  font-size: 50px;
+  width: 260px;
+}
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+.select-selected {
+  background-color: white;
+}
+/*style the items (options), including the selected item:*/
+.select-items div, .select-selected {
+  padding: 7px 0px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.4s ease-in-out;
+  top: -44px;
+  height: 29.7px;
+}
+.select-items div:hover, .select-selected {
+  color: #ff5e62;
+}
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background-color: white;
+}
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+.select-items div:hover, .same-as-selected {
+   /* background-color: rgba(0, 0, 0, 0.1); */
+}
+.select-items div {
+  display: inline-block;
+  position: relative;
+}
+.select-items div:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  background: #ff5e62;
+  height: 6px;
+  transition-property: right;
+  transition-duration: 0.4s;
+  transition-timing-function: ease-out;
+}
+.select-items div:hover:before,
+.select-items div:focus:before,
+.select-items div:active:before {
+  right: 0;
+}
+
+/* --- ANY EVENT END--- */
+
+/* --- DATE --- */
+.form-min-date,
+.form-max-date {
+  font-family: helvetica;
+  font-weight: 600;
+  font-size: 50px;
+  border: none;
+  width: 339px;
+  text-align: center;
+  color: #ff5e62;
+  padding: 7px 0px;
+  margin-top: 10px;
+  padding-left: 15px;
+}
+
+input[type="date"] {
+  text-transform: uppercase;
+}
+input[type="date"]:hover {
+  cursor: pointer;
+}
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-inner-spin-button{
+    display: none;
+}
+
+/* --- FORM LOCATION - START --- */
+
+/* --- LOCATION --- */
+.form-location {
+  font: 50px helvetica;
+  font-weight: 600;
+  border: none;
+  width: 230px;
+  max-width: 450px;
+  color: #ff5e62;
+  padding: 4px 5px 8px 13px;
+}
+.form-location:hover {
+  cursor: pointer;
+}
+.form-location::-webkit-calendar-picker-indicator {
+  display: none;
+}
+.form-location::placeholder {
+  color: #ff5e62;
+}
+
+/* --- FORM LOCATION - END --- */
+
+
+
+
+
+/* --- SUBMIT BUTTON - START --- */
+.button-container {
+  position: absolute;
+}
+button,
+button::after {
+	transition: all 0.3s;
+}
+button {
+  background: none;
+  border: 3px solid #ff5e62;
+  color: #ff5e62;
+  font: helvetica;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 1em auto;
+  padding: 10px 20px;
+  position: relative;
+  text-transform: uppercase;
+}
+.save-button::before,
+.save-button::after {
+  background: #ff5e62;
+  content: '';
+  position: absolute;
+  z-index: -1;
+}
+.save-button:hover {
+  color: white;
+  cursor: pointer;
+}
+.save-button::after {
+  height: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.save-button:hover:after {
+  height: 100%;
+}
+
+/* --- SUBMIT BUTTON - END --- */
+
+
+
+
+
+
+
+
+
+#new-form {
+  max-width: 80%;
+  height: 200px;
+  border: 1px solid red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.page-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+}
+.page-grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.page-form-container {
+  grid-column-start: 1;
+  grid-column-end: 12;
+  padding: 30px;
+}
+.page-list-container {
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+.page-map-container {
+  grid-column-start: 4;
+  grid-column-end: 12;
+}
