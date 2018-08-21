@@ -21,18 +21,18 @@ SelectView.prototype.bindEvents = function () {
     const maxdate = event.target['maxdate'].value;
     data = this.createData(category, location, mindate, maxdate);
     document.getElementById('form').id = 'new-form';
-
+    // sentence words
     sentenceTexts = document.getElementsByClassName('sentence-text');
     for (sentence of sentenceTexts) {
       sentence.style.fontSize = "30px";
     };
-
+    // events dropdown
     eventsDropdown = document.getElementsByClassName('custom-select');
     for (dropdown of eventsDropdown) {
       dropdown.style.width = "157px";
       dropdown.style.fontSize = "30px";
     };
-
+    // mindate & maxdate
     minDateStyle = document.getElementsByClassName('form-min-date');
     minDateStyle[0].style.width = "212px";
     minDateStyle[0].style.fontSize = "30px";
@@ -41,11 +41,26 @@ SelectView.prototype.bindEvents = function () {
     maxDateStyle[0].style.fontSize = "30px";
     maxDateStyle[0].style.paddingLeft = "0px";
     maxDateStyle[0].style.paddingTop = "10px";
-
-
+    // location search
     formLocation = document.getElementsByClassName('form-location');
     formLocation[0].style.width = "175px";
     formLocation[0].style.fontSize = "30px";
+    // form container
+    formGrandParent = document.getElementsByClassName('form-grand-parent');
+    formParent = document.getElementsByClassName('form-parent');
+    formGrandParent[0].setAttribute('id', 'new-form-grand-parent');
+    formParent[0].setAttribute('id', 'new-form-parent');
+
+
+    formGrandParent[0].style.top = "30px";
+    formGrandParent[0].style.left = "30px";
+    formGrandParent[0].style.margin = "0px";
+    formParent[0].style.top = "30px";
+    formParent[0].style.left = "30px";
+
+    // document.getElementById('new-form').style.
+
+
 
 
 

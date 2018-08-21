@@ -9,7 +9,7 @@ input:focus {
   outline: none;
 }
 /* --- BODY BORDER --- */
-.border {
+/* .border {
   position: fixed;
   top: 0;
   left: 0;
@@ -20,17 +20,26 @@ input:focus {
   padding: 0;
   box-sizing: border-box;
   z-index: -1;
-}
+} */
 /* --- FORM WRAPPERS --- */
 .form-grand-parent {
   display: table;
   height: 100%;
   margin: 0 auto;
 }
+#new-form-grand-parent {
+  position: relative;
+  top: 30px;
+  left: 30px;
+}
 .form-parent {
   display:table-cell;
   vertical-align:middle;
 }
+#new-form-parent {
+  position: absolute;
+}
+
 /* --- MAIN FORM --- */
 #form {
   margin: 70px;
@@ -232,5 +241,7 @@ button:hover {
 
 
 #new-form {
-  color: aquamarine;
+  width: 1300px;
+  position: absolute;
+  border: 1px solid red;
 }
