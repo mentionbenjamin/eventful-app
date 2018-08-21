@@ -44,6 +44,12 @@ input:focus {
   padding: 7px 0px;
   display: inline-block;
 }
+/* .small-sentence-text {
+  font: 30px helvetica;
+  font-weight: 600;
+  padding: 7px 0px;
+  display: inline-block;
+} */
 
 
 
@@ -216,3 +222,15 @@ button:hover {
 }
 
 /* --- SUBMIT BUTTON - END --- */
+
+
+
+
+
+
+
+
+
+#new-form {
+  color: aquamarine;
+}

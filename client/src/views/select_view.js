@@ -20,6 +20,12 @@ SelectView.prototype.bindEvents = function () {
     const mindate = event.target['mindate'].value;
     const maxdate = event.target['maxdate'].value;
     data = this.createData(category, location, mindate, maxdate);
+    document.getElementById('form').id = 'new-form';
+    sentenceTexts = document.getElementsByClassName('sentence-text');
+    for (sentence of sentenceTexts) {
+      sentence.style.fontSize = "30px";
+    };
+
     PubSub.publish('SelectView:form-input-submitted', data);
 
   })
@@ -52,7 +58,7 @@ SelectView.prototype.populateCityList = function (cities) {
   cityList.appendChild(option)
   });
 
-  // 
+  //
   //
   // const list = document.getElementById('cities');
   //
