@@ -61,7 +61,6 @@ SelectView.prototype.bindEvents = function () {
     // formParent[0].style.left = "30px";
 
     eventContainer = document.getElementsByClassName('event-container');
-    eventContainer[0].style.width = '100%';
 
 
 
