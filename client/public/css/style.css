@@ -27,7 +27,8 @@ body {
    /* border: 10px solid #ff5e62; */
    background-color: white;
    z-index: 900;
-   position: flex;
+   position: relative;
+   bottom: 500px;
    grid-column-start: 4;
    grid-column-end: 12;
 }
@@ -38,7 +39,7 @@ body {
    grid-gap: 10px;
    border: 10px solid #ff5e62;
    background-color: white;
-   z-index: 900;
+   z-index: 1000;
  }
  .event-details > div {
    max-height: 500px;
