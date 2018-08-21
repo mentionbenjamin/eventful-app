@@ -56,6 +56,7 @@
   font-size: 120%;
   cursor: pointer;
   width: 50%;
+  margin-top: 20px;
 }
 .tablinks:hover {
   color: white;
@@ -66,7 +67,7 @@
   overflow: scroll;
   height: 400px;
 }
-.tablinks:active {
+.tablinks.active {
   background-color: #008CBA;
   color: white;
 }
