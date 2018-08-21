@@ -18,7 +18,7 @@ MapView.prototype.bindEvents = function () {
     const longt = eventData[0].venue.longitude;
     myMap = L.map('mapid', {
     center: [latt, longt],
-    zoom: 10
+    zoom: 12
   })
   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

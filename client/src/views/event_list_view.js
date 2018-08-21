@@ -10,14 +10,16 @@ EventListView.prototype.bindEvents = function() {
     const items = evt.detail;
     this.renderList(items);
     console.log(items.length);
+    animateValue("eventCounter", 0, items.length, 2000);
     // PubSub.publish('Events:events-length', items.length);
   });
 };
 
 EventListView.prototype.renderList = function(items) {
   this.emptyList();
-  eventsLength = items.length;
+  const eventsLength = items.length;
   const eventCounter = document.createElement("h1");
+  eventCounter.id = "eventCounter";
   const resultsTab = document.createElement("button");
   resultsTab.innerHTML = "Results";
   const savedTab = document.createElement("button");
@@ -41,5 +43,23 @@ EventListView.prototype.renderItem = function(item) {
   const eventItem = eventItemView.render(item);
   return eventItem;
 };
+
+
+
+function animateValue(id, start, end, duration) {
+    const range = end - start;
+    const current = start;
+    const increment = end > start? 1 : -1;
+    const stepTime = Math.abs(Math.floor(duration / range));
+    const obj = document.getElementById(id);
+    const timer = setInterval(function() {
+        current += increment;
+        obj.innerHTML = current;
+        if (current == end) {
+            clearInterval(timer);
+        }
+    }, stepTime);
+}
+
 
 module.exports = EventListView;
