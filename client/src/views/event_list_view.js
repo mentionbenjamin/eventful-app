@@ -20,6 +20,7 @@ EventListView.prototype.bindEvents = function() {
 
 EventListView.prototype.renderList = function(items) {
   this.emptyList();
+
   const eventsLength = items.length;
   const eventCounter = document.createElement("h1");
   const resultsTab = document.createElement("button");
@@ -50,7 +51,7 @@ EventListView.prototype.renderList = function(items) {
     const eventSearchResult = this.renderItem(item);
     listDiv.appendChild(eventSearchResult);
   });
-  
+
   this.container.appendChild(listDiv);
   this.container.appendChild(favourites)
   resultsTab.click();
@@ -59,6 +60,11 @@ EventListView.prototype.renderList = function(items) {
     console.log(evt.target);
   })
 };
+
+// EventsListView.prototype.renderSavedEventsOnLoad = function(data) {
+//   const savedEvents = this.renderSavedItems(data);
+//   return savedEvents;
+// }
 
 // EventListView.prototype.detailsOnClick = function(){
 //   this.container.addEventListener('click', (evt) =>{
