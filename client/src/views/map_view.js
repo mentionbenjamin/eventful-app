@@ -17,9 +17,9 @@ MapView.prototype.bindEvents = function () {
     const latt = eventData[0].venue.latitude;
     const longt = eventData[0].venue.longitude;
     myMap = L.map('mapid', {
-    center: [latt, longt],
+    center: [54.297293, -1.296386],
     zoom: 5
-  }).flyTo([latt, longt], 12)
+  }).flyTo([latt, longt], 11, true, 6);
   // myMap.flyTo([latt,longt],{
   //   animate: true,
   //   duation: 1
