@@ -47,3 +47,28 @@ body {
    font-weight: 200;
    line-height: 30px;
  }
+
+ .right-info-container {
+   grid-column-start: 5;
+   grid-column-end: 7;
+   padding: 50px 30px 50px 0px;
+ }
+
+
+.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    background: none;
+    border: 3px solid #ff5e62;
+    color: #ff5e62;
+    font: helvetica;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 1em auto;
+    padding: 10px 30px;
+    position: relative;
+    text-transform: uppercase;
+}
