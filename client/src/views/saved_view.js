@@ -8,9 +8,12 @@ const SavedEventView = function(container) {
 SavedEventView.prototype.bindEvents = function(){
   PubSub.subscribe('Events:saved-event-list', (evt) =>{
     const savedEvents = evt.detail;
-    console.log(savedEvents);
     this.container.innerHTML = " ";
     this.render(savedEvents);
+    PubSub.subscribe('EventListView:saved-list-tab-clicked', (evt) =>{
+      console.log(evt.target);
+      this.render(savedEvents);
+    });
   });
 }
 

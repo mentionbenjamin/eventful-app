@@ -1,9 +1,12 @@
 const PubSub = require('../helpers/pub_sub.js');
 const EventItemView = require('./event_item_view.js');
+const SavedEventView = require('./saved_view.js');
 
 const EventListView = function(container) {
   this.container = container;
 };
+
+const savedView = new SavedEventView(this.container);
 
 EventListView.prototype.bindEvents = function() {
   PubSub.subscribe('Events:event-data-loaded', (evt) => {
@@ -49,6 +52,9 @@ EventListView.prototype.renderList = function(items) {
   this.container.appendChild(listDiv);
   this.container.appendChild(favourites)
   resultsTab.click();
+  savedTab.addEventListener('click', (evt) => {
+    PubSub.publish('EventListView:saved-list-tab-clicked', evt.target);
+  })
 };
 
 // EventListView.prototype.detailsOnClick = function(){

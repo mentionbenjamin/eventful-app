@@ -15,6 +15,7 @@
 
 #event-item:hover {
   background-color: #f5f5f5;
+  cursor: pointer;
 }
 
 #event-container {
@@ -35,6 +36,7 @@ button:hover {
   background-color: #008CBA;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   color: white;
+  cursor: pointer;
 }
 
 .tabcontent {
