@@ -111,6 +111,7 @@ input:focus {
   right: 0;
   z-index: 99;
   background-color: white;
+  text-align: center;
 }
 /*hide the items when the select box is closed:*/
 .select-hide {
@@ -214,7 +215,6 @@ button {
   font: helvetica;
   font-size: 14px;
   font-weight: bold;
-  margin: 1em auto;
   padding: 10px 20px;
   position: relative;
   text-transform: uppercase;
@@ -251,7 +251,7 @@ button {
 
 
 #new-form {
-  max-width: 80%;
+  max-width: 389px;
   border: 1px solid red;
 }
 

@@ -21,15 +21,20 @@
   margin-top: 300px;
 }
 .events-found-counter {
-  font: 96px helvetica;
+  font: 103px helvetica;
   font-weight: 600;
-  color: black;
+  color: #121212;
   margin-top: 5px !important;
   margin-bottom: 5px !important;
-  padding-left: 30px;
+  padding-left: 29px;
 }
 .events-found {
-  border: 1px solid red;
+  font: 14px helvetica;
+  font-weight: 600;
+  color: #121212;
+  margin-left: 30px;
+  margin-top: -13px;
+  margin-bottom: 19px;
 }
 .list-date {
   font: 11px helvetica;
@@ -37,9 +42,9 @@
   margin-bottom: -10px;
 }
 .list-event-name {
-  color: black;
+  color: #121212;
   text-transform: uppercase;
-  font: 16px helvetica;
+  font: 18px helvetica;
   font-weight: 600;
   width: 90%;
 }
@@ -52,11 +57,10 @@
 .tablinks {
   outline: none;
   padding: 10px;
-  border: 1px solid black;
-  font-size: 120%;
+  border: 1px solid #121212;
+  font-size: 12px;
   cursor: pointer;
-  width: 50%;
-  margin-top: 20px;
+  width: 112px;
 }
 .tablinks:hover {
   color: white;
@@ -70,6 +74,9 @@
 .tablinks.active {
   background-color: #008CBA;
   color: white;
+}
+#defaultOpen {
+  margin-left: 30px;
 }
 .material-icons:hover {
   text-decoration: none;

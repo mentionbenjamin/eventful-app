@@ -50,7 +50,7 @@ EventListView.prototype.renderList = function(items) {
   eventCounter.textContent = `${eventsLength}`;
   eventCounter.classList.add('events-found-counter');
   const eventsFound = document.createElement("p");
-  eventsFound.textContent = `Events found`;
+  eventsFound.textContent = `EVENTS FOUND`;
   eventsFound.classList.add('events-found');
 
 
@@ -58,6 +58,7 @@ EventListView.prototype.renderList = function(items) {
   this.container.appendChild(resultsTab);
   this.container.appendChild(savedTab);
   listDiv.appendChild(eventCounter);
+  listDiv.appendChild(eventsFound);
   items.forEach((item) => {
     const eventSearchResult = this.renderItem(item);
     listDiv.appendChild(eventSearchResult);
