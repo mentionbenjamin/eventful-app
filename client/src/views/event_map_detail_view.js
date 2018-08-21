@@ -84,10 +84,15 @@ EventMapDetailView.prototype.renderEventDetails = function (event) {
     entryPriceTitle.textContent = "ADDRESS";
     addressContainer.appendChild(entryPriceTitle);
 
-    // const address = document.createElement('span');
-    // address.classList.add("address-info");
-    // address.textContent = `${event.venue.name}${event.venue.address}${event.venue.town}${event.venue.postcode}`;
-    // addressContainer.appendChild(address);
+    const address = document.createElement('span');
+    address.classList.add("address-info");
+    console.log(event.venue);
+    address.textContent =
+    `${event.venue.name}
+     ${event.venue.address}
+     ${event.venue.town}
+     ${event.venue.postcode}`;
+    addressContainer.appendChild(address);
 
     // const saveContainer = document.createElement('div');
     // const ticketsButton = document.createElement('button');

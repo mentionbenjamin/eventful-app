@@ -39,7 +39,7 @@ MapView.prototype.bindEvents = function () {
       riseOffSet: 250
     })
     eventMarker.customId = Math.floor((Math.random() * 100) + 1);
-    eventMarker.venueName = eventInformation[i].venue.name.toString();
+    eventMarker.venue = eventInformation[i].venue;
     eventMarker.eventType = eventInformation[i].EventCode;
     eventMarker.eventName =eventInformation[i].eventname;
     eventMarker.linkURL  = eventInformation[i].link;
