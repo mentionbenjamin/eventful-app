@@ -9,8 +9,8 @@ EventItemView.prototype.render = function (event) {
   const eventContainer = document.createElement('div');
   eventContainer.id = 'event-item';
 
-
-  const eventName = this.createTextElement('h4', `Event: ${event.eventname}`);
+  const eventName = this.createTextElement('p', `Event: ${event.eventname}`);
+  eventName.classList.add('list-event-name');
   eventContainer.appendChild(eventName);
 
   const venue = this.createTextElement('p',`Venue: ${event.venue.name}`);

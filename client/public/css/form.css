@@ -200,6 +200,7 @@ input[type="date"]::-webkit-inner-spin-button{
 /* --- SUBMIT BUTTON - START --- */
 .button-container {
   position: absolute;
+  clear: both;
 }
 button,
 button::after {

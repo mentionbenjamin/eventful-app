@@ -22,6 +22,16 @@
   margin-top: 300px;
 }
 
+.list-event-name {
+  color: red;
+  text-transform: uppercase;
+  font: 11px helvetica;
+  font-weight: 600;
+}
+
+
+
+
 .tablinks {
   outline: none;
   padding: 10px;
@@ -39,7 +49,6 @@
 
 .tabcontent {
   display: none;
-  padding: 6px 12px;
   border: 1px solid #ccc;
   border-top: none;
   overflow: scroll;
@@ -57,5 +66,5 @@
   top: 4px;
   /* -webkit-transform:rotate(360deg);
   transform: rotate(360deg); */
-  
+
 }

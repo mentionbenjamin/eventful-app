@@ -128,7 +128,7 @@ EventMapDetailView.prototype.renderEventDetails = function (event) {
     })
     detailsDiv.appendChild(closeIcon);
 
-    this.container.appendChild(detailsDiv)
+    this.container.appendChild(detailsDiv);
 
   return this.container;
 };
