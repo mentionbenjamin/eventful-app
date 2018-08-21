@@ -18,12 +18,32 @@ body {
   position: relative;
  display: inline-block;
 }
- .eventDetails {
-  width: 65%;
-  height: 500px;
-  position: absolute;
-  top: 100px;
-  left: 200px;
-  border: 2px solid red;
-  z-index: 10;
+ #event-details {
+   display: grid;
+   grid-template-columns: auto;
+   grid-template-rows: auto;
+   grid-gap: 10px;
+   border: 10px solid #ff5e62;
+   background-color: white;
+   z-index: -900;
+ }
+ #event-details > div {
+   max-height: 500px;
+ }
+
+ .left-description-container {
+   grid-column-start: 1;
+   grid-column-end: 5;
+   padding: 50px 30px 60px 70px;
+ }
+ .left-title {
+   text-align: left;
+   font: 60px helvetica;
+   font-weight: 600;
+   padding-bottom: 30px;
+ }
+ .left-description {
+   font: 15px helvetica;
+   font-weight: 200;
+   line-height: 30px;
  }

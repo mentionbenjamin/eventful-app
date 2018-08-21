@@ -20,11 +20,23 @@ EventMapDetailView.prototype.renderEventDetails = function (event) {
     this.container.innerHTML = " ";
 
     const detailsDiv = document.createElement('div');
-    detailsDiv.classList.add("eventDetails");
+    detailsDiv.id = "event-details";
+
+    const leftDescriptionContainer = document.createElement('div');
+    leftDescriptionContainer.classList.add("left-description-container");
+    detailsDiv.appendChild(leftDescriptionContainer);
+
+    const leftTitle = document.createElement('div');
+    leftTitle.classList.add("left-title");
+    leftDescriptionContainer.appendChild(leftTitle);
+
+    const leftDescription = document.createElement('div');
+    leftDescription.classList.add("left-title");
+    leftDescriptionContainer.appendChild(leftDescription);
 
     const eventName = document.createElement('h4');
     eventName.textContent = `${event.eventName}`;
-    detailsDiv.appendChild(eventName);
+    leftTitle.appendChild(eventName);
 
     const eventType = document.createElement('p');
     eventType.textContent = `${event.eventType}`;
@@ -36,7 +48,7 @@ EventMapDetailView.prototype.renderEventDetails = function (event) {
 
     const description = document.createElement('p');
     description.textContent = `${event.description}`;
-    detailsDiv.appendChild(description);
+    leftDescription.appendChild(description);
 
     const price = document.createElement('p');
     price.textContent = `${event.price}`;
