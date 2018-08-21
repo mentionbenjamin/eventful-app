@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const mapDetailView = new EventMapDetailView( mapDetailContainer);
   mapDetailView.bindEvents();
 
-  const savedEventContainer =
   const savedEventView = new SavedEventView();
   savedEventView.bindEvents();
 

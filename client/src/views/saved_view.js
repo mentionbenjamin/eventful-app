@@ -1,14 +1,13 @@
 const PubSub = require('../helpers/pub_sub.js');
 
 
-const SavedEventView = function(container) {
-  this.container = container;
+const SavedEventView = function() {
+  this.container = null;
 }
 
 SavedEventView.prototype.bindEvents = function(){
   PubSub.subscribe('Events:saved-event-list', (evt) =>{
     const savedEvents = evt.detail;
-    this.container.innerHTML = " ";
     this.render(savedEvents);
     PubSub.subscribe('EventListView:saved-list-tab-clicked', (evt) =>{
       console.log(evt.target);
@@ -20,25 +19,26 @@ SavedEventView.prototype.bindEvents = function(){
 SavedEventView.prototype.render = function(events){
   for(var i = 0; i< events.length; i++){
 
-    const savedEventsDiv = document.createElement('div');
-    savedEventsDiv.id = 'saved-events'
+    this.container = document.getElementById('favourites');
+    this.id = 'saved-events'
+    this.innerHTML = ""
 
     const eventTitle = document.createElement('p');
     eventTitle.textContent = events[i].name;
-    savedEventsDiv.appendChild(eventTitle);
+    this.container.appendChild(eventTitle);
 
     const eventVenue = document.createElement('p');
     eventVenue.textContent = events[i].venue;
-    savedEventsDiv.appendChild(eventVenue);
+    this.container.appendChild(eventVenue);
 
 
     const eventPrice = document.createElement('p');
     eventPrice.textContent = events[i].price;
-    savedEventsDiv.appendChild(eventPrice);
+    this.container.appendChild(eventPrice);
 
-    this.createDeleteButton(events[i]._id, savedEventsDiv);
+    this.createDeleteButton(events[i]._id, this.container);
   }
-  return savedEventsDiv;
+  return this.container;
 };
 
 SavedEventView.prototype.createDeleteButton = function(eventId, container){
