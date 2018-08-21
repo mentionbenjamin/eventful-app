@@ -48,51 +48,60 @@ crossorigin=""/>
 
 
 
-  <form id="form" autocomplete="off">
+  <div class="border"></div>
 
-      <div class="sentence-text">I fancy</div>
 
-      <div class="event-container">
-        <div class="custom-select">
-          <select id="category">
-             <option value="" selected disabled hidden>any event</option>
-             <option value="COMEDY">comedies</option>
-             <option value="THEATRE">the theatre</option>
-             <option value="LIVE">live music</option>
-             <option value="FEST">festivals</option>
-          </select>
+  <div class="form-grand-parent">
+    <div class="form-parent">
+      <form id="form" autocomplete="off">
+
+        <div class="sentence-text">I fancy</div>
+
+        <div class="event-container">
+          <div class="custom-select">
+            <select id="category">
+               <option value="" selected disabled hidden>any event</option>
+               <option value="FEST">festival</option>
+               <option value="COMEDY">comedy</option>
+               <option value="LIVE">live music</option>
+               <option value="COMEDY">theatre</option>
+            </select>
+          </div>
         </div>
-      </div>
 
-      <div class="sentence-text">between</div>
+        <div class="sentence-text">between</div>
 
-      <br>
+        <br>
 
-      <input id="mindate" type="date" required/>
+        <input id="mindate" class="form-min-date" type="date" required/>
 
-      <div class="sentence-text">&</div>
+        <div class="sentence-text">&</div>
 
-      <input id="maxdate" type="date" required/>
+        <input id="mqxdate" class="form-max-date" type="date" required/>
 
-      <br>
+        <br>
 
-      <div class="sentence-text">in</div>
+        <div class="sentence-text">in</div>
 
-      <input type="text" id="location" class="width-dynamic" list="cities" placeholder="any place." required/>
-      <datalist id="cities"></datalist>
+        <input type="text" id="location" class="form-location" class="width-dynamic" list="cities" placeholder="any place" required/>
+  <datalist id="cities"></datalist>
+
+        <br>
+
+  <!--       <input type="submit" value="Submit">
+   -->
+        <br>
+
+        <div class="save-container">
+           <button class="save-button">search</button>
+        </div>
 
 
+      </form>
+    </div>
+  </div>
 
 
-      <div class="save-container">
-         <input type="submit" class="save-button" id="save" value="search"/>
-      </div>
-
-
-
-
-
-    </form>
 
 
 

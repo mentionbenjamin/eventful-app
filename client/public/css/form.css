@@ -1,35 +1,72 @@
+html, body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+input:focus {
+  outline: none;
+}
+/* --- BODY BORDER --- */
+.border {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border: 15px solid #ff5e62;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  z-index: -1;
+}
+/* --- FORM WRAPPERS --- */
+.form-grand-parent {
+  display: table;
+  height: 100%;
+  margin: 0 auto;
+}
+.form-parent {
+  display:table-cell;
+  vertical-align:middle;
+}
 /* --- MAIN FORM --- */
-#search-form {
+#form {
   margin: 70px;
   max-width: 900px;
   max-height: 700px;
+  text-align: center;
 }
 .sentence-text {
-  font: 30px helvetica;
+  font: 50px helvetica;
   font-weight: 600;
   padding: 7px 0px;
   display: inline-block;
 }
 
+
+
 /* --- ANY EVENT START--- */
 
 .event-container {
   display: inline-block;
-  text-align: center;
 }
+/*the container must be positioned relative:*/
 .custom-select {
   position: relative;
   font-family: helvetica;
   font-weight: 600;
-  font-size: 30px;
-  width: 157px;
+  font-size: 50px;
+  width: 260px;
 }
 .custom-select select {
-  display: none;
+  display: none; /*hide original SELECT element:*/
 }
 .select-selected {
   background-color: white;
 }
+/*style the items (options), including the selected item:*/
 .select-items div, .select-selected {
   padding: 7px 0px;
   cursor: pointer;
@@ -41,6 +78,7 @@
 .select-items div:hover, .select-selected {
   color: #ff5e62;
 }
+/*style items (options):*/
 .select-items {
   position: absolute;
   top: 100%;
@@ -49,6 +87,7 @@
   z-index: 99;
   background-color: white;
 }
+/*hide the items when the select box is closed:*/
 .select-hide {
   display: none;
 }
@@ -67,7 +106,7 @@
   right: 100%;
   bottom: 0;
   background: #ff5e62;
-  height: 4px;
+  height: 6px;
   transition-property: right;
   transition-duration: 0.4s;
   transition-timing-function: ease-out;
@@ -80,21 +119,21 @@
 
 /* --- ANY EVENT END--- */
 
-/* --- MIN DATE --- */
-#mindate,
-#maxdate {
+/* --- DATE --- */
+.form-min-date,
+.form-max-date {
   font-family: helvetica;
   font-weight: 600;
-  font-size: 30px;
+  font-size: 50px;
   border: none;
-  width: 212px;
+  width: 339px;
+  text-align: center;
   color: #ff5e62;
   padding: 7px 0px;
   margin-top: 10px;
+  padding-left: 15px;
 }
-#maxdate {
-  padding-left: -10px !important;
-}
+
 input[type="date"] {
   text-transform: uppercase;
 }
@@ -103,33 +142,28 @@ input[type="date"]:hover {
 }
 input[type="date"]::-webkit-calendar-picker-indicator,
 input[type="date"]::-webkit-inner-spin-button{
-  display: none;
+    display: none;
 }
-
-
-
-
-
 
 /* --- FORM LOCATION - START --- */
 
 /* --- LOCATION --- */
-#location {
-  font: 30px helvetica;
+.form-location {
+  font: 50px helvetica;
   font-weight: 600;
   border: none;
-  width: 175px;
+  width: 230px;
   max-width: 450px;
   color: #ff5e62;
   padding: 4px 5px 8px 13px;
 }
-#location:hover {
+.form-location:hover {
   cursor: pointer;
 }
-#location::-webkit-calendar-picker-indicator {
+.form-location::-webkit-calendar-picker-indicator {
   display: none;
 }
-#location::placeholder {
+.form-location::placeholder {
   color: #ff5e62;
 }
 
@@ -140,34 +174,34 @@ input[type="date"]::-webkit-inner-spin-button{
 
 
 /* --- SUBMIT BUTTON - START --- */
-.save-container {
+.button-container {
   position: absolute;
 }
-#save,
-#save::after {
+button,
+button::after {
 	transition: all 0.3s;
 }
-#save {
+button {
   background: none;
   border: 3px solid #ff5e62;
   color: #ff5e62;
   display: block;
   font: helvetica;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
   margin: 1em auto;
-  padding: 10px 30px;
+  padding: 10px 20px;
   position: relative;
   text-transform: uppercase;
 }
-#save::before,
-#save::after {
+button::before,
+button::after {
   background: #ff5e62;
   content: '';
   position: absolute;
   z-index: -1;
 }
-#save:hover {
+button:hover {
   color: white;
   cursor: pointer;
 }
