@@ -21,7 +21,9 @@ SelectView.prototype.bindEvents = function () {
     const mindate = event.target['mindate'].value;
     const maxdate = event.target['maxdate'].value;
     data = this.createData(category, location, mindate, maxdate);
-    document.getElementById('form').id = 'new-form';
+    if (document.getElementById('form') != null){
+      document.getElementById('form').id = 'new-form';
+    }
     // sentence words
     sentenceTexts = document.getElementsByClassName('sentence-text');
     for (sentence of sentenceTexts) {
@@ -48,33 +50,8 @@ SelectView.prototype.bindEvents = function () {
     formLocation = document.getElementsByClassName('form-location');
     formLocation[0].style.width = "250px";
     formLocation[0].style.fontSize = "30px";
-    // form container
-    // formGrandParent = document.getElementsByClassName('form-grand-parent');
-    // formParent = document.getElementsByClassName('form-parent');
-    // formGrandParent[0].setAttribute('id', 'new-form-grand-parent');
-    // formParent[0].setAttribute('id', 'new-form-parent');
-    //
-    //
-    // formGrandParent[0].style.top = "10px";
-    // formGrandParent[0].style.left = "30px";
-    // formGrandParent[0].style.margin = "0px";
-    // formGrandParent[0].style.margin = "0px";
-    // formGrandParent[0].style.lineHeight = "30px";
-    // formParent[0].style.top = "30px";
-    // formParent[0].style.left = "30px";
 
     eventContainer = document.getElementsByClassName('event-container');
-
-
-
-
-
-    // .style.width = '212px';
-    // document.getElementById('form-min-date').style.fontSize = '30px';
-    // document.getElementById('form-max-date').style.width = '212px';
-    // document.getElementById('form-max-date').style.fontSize = '30px';
-
-
 
     PubSub.publish('SelectView:form-input-submitted', data);
 
@@ -108,19 +85,6 @@ SelectView.prototype.populateCityList = function (cities) {
   cityList.appendChild(option)
   });
 
-  //
-  //
-  // const list = document.getElementById('cities');
-  //
-  // cities.cityList.forEach(function(item){
-  //   const option = document.createElement('option');
-  //   option.value = item;
-  //   cityList.appendChild(option);
-  // });
-
-
-
-
 };
 
 SelectView.prototype.createData = function (category, location, mindate, maxdate) {
@@ -131,39 +95,5 @@ SelectView.prototype.createData = function (category, location, mindate, maxdate
     maxdate: maxdate
   };
 };
-
-
-
-
-
-
-
-// ANY PLACE - START
-
-// console.log(cities.cityList);
-//
-//      const list = document.getElementById('cities');
-//
-//      cities.cityList.forEach(function(item){
-//        const option = document.createElement('option');
-//        option.value = item;
-//        cityList.appendChild(option);
-//      });
-
-
-// FORM LOCATION - END
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 module.exports = SelectView;
