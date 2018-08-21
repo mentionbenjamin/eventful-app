@@ -77,8 +77,10 @@ EventListView.prototype.renderItem = function(item) {
 };
 
 EventListView.prototype.renderSavedItems = function(savedEvents) {
-  const savedEventsView = new SavedEventView();
-  const savedEvent = savedEventsView.render(savedEvents);
+  const savedEventsView = new SavedEventView(favourites);
+  favourites.innerHTML = "";
+  const savedEvent = savedEventsView.render(savedEvents)
+
   return savedEvents;
 };
 

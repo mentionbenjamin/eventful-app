@@ -1,8 +1,8 @@
 const PubSub = require('../helpers/pub_sub.js');
 
 
-const SavedEventView = function() {
-  this.container = null;
+const SavedEventView = function(container) {
+  this.container = container;
 }
 
 SavedEventView.prototype.bindEvents = function(){
@@ -11,7 +11,7 @@ SavedEventView.prototype.bindEvents = function(){
     this.render(savedEvents);
     PubSub.subscribe('EventListView:saved-list-tab-clicked', (evt) =>{
       console.log(evt.target);
-      this.container.innerHTML = ""
+      this.container.innerHTML = " "
       this.render(savedEvents);
     });
   });
