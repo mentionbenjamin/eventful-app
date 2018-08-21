@@ -40,6 +40,7 @@ body {
    border: 10px solid #ff5e62;
    background-color: white;
    z-index: 1000;
+   min-height: 400px;
  }
  .event-details > div {
    max-height: 500px;
@@ -137,7 +138,7 @@ color: #ff5e62
   font: helvetica;
   font-size: 12px;
   font-weight: bold;
-  padding: 5px 20px;
+  padding: 10px 20px;
   margin: 5px 5px 5px 0px;
   position: relative;
   text-transform: uppercase;
