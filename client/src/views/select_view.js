@@ -21,7 +21,9 @@ SelectView.prototype.bindEvents = function () {
     const mindate = event.target['mindate'].value;
     const maxdate = event.target['maxdate'].value;
     data = this.createData(category, location, mindate, maxdate);
-    document.getElementById('form').id = 'new-form';
+    if (document.getElementById('form') != null){
+      document.getElementById('form').id = 'new-form';
+    }
     // sentence words
     sentenceTexts = document.getElementsByClassName('sentence-text');
     for (sentence of sentenceTexts) {
