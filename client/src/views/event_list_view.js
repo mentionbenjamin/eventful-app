@@ -13,6 +13,9 @@ EventListView.prototype.bindEvents = function() {
     // this.detailsOnClick();
     console.log(items.length);
   });
+  PubSub.subscribe('Events:saved-event-list', (evt) => {
+    this.renderSavedItems(evt.detail);
+  })
 };
 
 EventListView.prototype.renderList = function(items) {
@@ -73,9 +76,11 @@ EventListView.prototype.renderItem = function(item) {
   return eventItem;
 };
 
-SavedEventView.prototype.renderItem = function(savedEvents) {
+EventListView.prototype.renderSavedItems = function(savedEvents) {
   const savedEventsView = new SavedEventView();
-}
+  const savedEvent = savedEventsView.render(savedEvents);
+  return savedEvents;
+};
 
 
 
