@@ -24,7 +24,7 @@ body {
    grid-template-columns: auto;
    grid-template-rows: auto;
    grid-gap: 10px;
-   border: 10px solid #ff5e62;
+   /* border: 10px solid #ff5e62; */
    background-color: white;
    z-index: 900;
    position: flex;
@@ -45,7 +45,7 @@ body {
  .left-description-container {
    grid-column-start: 1;
    grid-column-end: 5;
-   padding: 50px 30px 60px 70px;
+   padding: 50px 30px 60px 40px;
    display: inherit;
    justify-content: left;
    align-content: space-around;
@@ -71,20 +71,20 @@ body {
  .address-container {
    justify-content: right;
    align-content: space-around;
-   padding: 20px 0px;
+   padding: 15px 0px;
    text-align: left;
  }
  .price-container {
    justify-content: right;
    align-content: space-around;
-   padding: 20px 0px;
+   padding: 15px 0px;
    text-align: left;
  }
 
  .date-time-container {
    justify-content: right;
    align-content: space-around;
-   padding: 20px 0px;
+   padding: 15px 0px;
    text-align: left;
  }
 
@@ -106,9 +106,12 @@ color: #ff5e62
 
 /* Buttons */
 .button-container {
-  position: absolute;
+  position: relative;
   z-index: 900;
-  width: 200px;
+  overflow:hidden;
+  justify-content: right;
+  align-content: space-around;
+  padding: 5px 0px;
 }
 button,
 button::after {
