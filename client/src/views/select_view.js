@@ -48,9 +48,23 @@ SelectView.prototype.populateCityList = function (cities) {
   cities.forEach(function(city){
   const option = document.createElement('option');
   option.value = city;
-  const cityList = document.querySelector('#cities')
+  const cityList = document.querySelector('#cities');
   cityList.appendChild(option)
   });
+
+  // 
+  //
+  // const list = document.getElementById('cities');
+  //
+  // cities.cityList.forEach(function(item){
+  //   const option = document.createElement('option');
+  //   option.value = item;
+  //   cityList.appendChild(option);
+  // });
+
+
+
+
 };
 
 SelectView.prototype.createData = function (category, location, mindate, maxdate) {
@@ -61,5 +75,39 @@ SelectView.prototype.createData = function (category, location, mindate, maxdate
     maxdate: maxdate
   };
 };
+
+
+
+
+
+
+
+// ANY PLACE - START
+
+// console.log(cities.cityList);
+//
+//      const list = document.getElementById('cities');
+//
+//      cities.cityList.forEach(function(item){
+//        const option = document.createElement('option');
+//        option.value = item;
+//        cityList.appendChild(option);
+//      });
+
+
+// FORM LOCATION - END
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 module.exports = SelectView;
