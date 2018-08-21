@@ -1,0 +1,184 @@
+/* --- MAIN FORM --- */
+#search-form {
+  margin: 70px;
+  max-width: 900px;
+  max-height: 700px;
+}
+.sentence-text {
+  font: 30px helvetica;
+  font-weight: 600;
+  padding: 7px 0px;
+  display: inline-block;
+}
+
+/* --- ANY EVENT START--- */
+
+.event-container {
+  display: inline-block;
+  text-align: center;
+}
+.custom-select {
+  position: relative;
+  font-family: helvetica;
+  font-weight: 600;
+  font-size: 30px;
+  width: 157px;
+}
+.custom-select select {
+  display: none;
+}
+.select-selected {
+  background-color: white;
+}
+.select-items div, .select-selected {
+  padding: 7px 0px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.4s ease-in-out;
+  top: -44px;
+  height: 29.7px;
+}
+.select-items div:hover, .select-selected {
+  color: #ff5e62;
+}
+.select-items {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background-color: white;
+}
+.select-hide {
+  display: none;
+}
+.select-items div:hover, .same-as-selected {
+   /* background-color: rgba(0, 0, 0, 0.1); */
+}
+.select-items div {
+  display: inline-block;
+  position: relative;
+}
+.select-items div:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  background: #ff5e62;
+  height: 4px;
+  transition-property: right;
+  transition-duration: 0.4s;
+  transition-timing-function: ease-out;
+}
+.select-items div:hover:before,
+.select-items div:focus:before,
+.select-items div:active:before {
+  right: 0;
+}
+
+/* --- ANY EVENT END--- */
+
+/* --- MIN DATE --- */
+#mindate,
+#maxdate {
+  font-family: helvetica;
+  font-weight: 600;
+  font-size: 30px;
+  border: none;
+  width: 212px;
+  color: #ff5e62;
+  padding: 7px 0px;
+  margin-top: 10px;
+}
+#maxdate {
+  padding-left: -10px !important;
+}
+input[type="date"] {
+  text-transform: uppercase;
+}
+input[type="date"]:hover {
+  cursor: pointer;
+}
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-inner-spin-button{
+  display: none;
+}
+
+
+
+
+
+
+/* --- FORM LOCATION - START --- */
+
+/* --- LOCATION --- */
+#location {
+  font: 30px helvetica;
+  font-weight: 600;
+  border: none;
+  width: 175px;
+  max-width: 450px;
+  color: #ff5e62;
+  padding: 4px 5px 8px 13px;
+}
+#location:hover {
+  cursor: pointer;
+}
+#location::-webkit-calendar-picker-indicator {
+  display: none;
+}
+#location::placeholder {
+  color: #ff5e62;
+}
+
+/* --- FORM LOCATION - END --- */
+
+
+
+
+
+/* --- SUBMIT BUTTON - START --- */
+.save-container {
+  position: absolute;
+}
+#save,
+#save::after {
+	transition: all 0.3s;
+}
+#save {
+  background: none;
+  border: 3px solid #ff5e62;
+  color: #ff5e62;
+  display: block;
+  font: helvetica;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 1em auto;
+  padding: 10px 30px;
+  position: relative;
+  text-transform: uppercase;
+}
+#save::before,
+#save::after {
+  background: #ff5e62;
+  content: '';
+  position: absolute;
+  z-index: -1;
+}
+#save:hover {
+  color: white;
+  cursor: pointer;
+}
+.save-button::after {
+  height: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.save-button:hover:after {
+  height: 100%;
+}
+
+/* --- SUBMIT BUTTON - END --- */
