@@ -10,7 +10,7 @@ EventItemView.prototype.render = function (event) {
   console.log(event);
   eventContainer.id = 'event-item';
   eventContainer.addEventListener('click', (event) =>{
-     console.log(event.target);
+     console.log(event.target.innerHTML);
   });
 
 

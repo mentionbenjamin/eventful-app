@@ -79,6 +79,13 @@ MapView.prototype.bindEvents = function () {
 
 
     eventMarker.addTo(markerLayer).on('click', onMapClick)
+    eventMarker.bindPopup(`Event: ${eventMarker.eventName} | click for full details`);
+    eventMarker.on('mouseover', function(e){
+      this.openPopup();
+    });
+    eventMarker.on('mouseout', function(e){
+      this.closePopup();
+    });
     }
   };
 

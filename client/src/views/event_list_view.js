@@ -56,6 +56,7 @@ EventListView.prototype.renderList = function(items) {
     listDiv.appendChild(eventSearchResult);
   });
 
+
   this.container.appendChild(listDiv);
   this.container.appendChild(favourites)
   resultsTab.click();
