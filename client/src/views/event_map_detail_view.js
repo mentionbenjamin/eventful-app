@@ -20,7 +20,7 @@ EventMapDetailView.prototype.renderEventDetails = function (event) {
     this.container.innerHTML = " ";
 
     const detailsDiv = document.createElement('div');
-    detailsDiv.id = "event-details";
+    detailsDiv.classList.add("event-details");
 
     // Left side of container
 
@@ -46,7 +46,7 @@ EventMapDetailView.prototype.renderEventDetails = function (event) {
 
     const rightInfoParent = document.createElement('div');
     rightInfoParent.classList.add("right-info-parent");
-    rightInfoContainer.appendChild(rightInfoContainer);
+    rightInfoContainer.appendChild(rightInfoParent);
 
     const dateTimeContainer = document.createElement('div');
     dateTimeContainer.classList.add("date-time-container");
@@ -58,7 +58,7 @@ EventMapDetailView.prototype.renderEventDetails = function (event) {
     dateTimeContainer.appendChild(dateTimeTitle);
 
     const dateTimeInfo = document.createElement('span');
-    dateTimeInfo.textContent = `${event.date} ${event.openingtimes.doorsopen}`;
+    dateTimeInfo.textContent = `${event.date}`;
     dateTimeContainer.appendChild(dateTimeInfo);
 
     const entryPriceContainer = document.createElement('div');
@@ -84,30 +84,51 @@ EventMapDetailView.prototype.renderEventDetails = function (event) {
     entryPriceTitle.textContent = "ADDRESS";
     addressContainer.appendChild(entryPriceTitle);
 
-    const address = document.createElement('span');
-    address.classList.add("address-info");
-    address.textContent = `${event.venue.name}${event.venue.address}${event.venue.town}${event.venue.postcode}`;
-    addressContainer.appendChild(address);
+    // const address = document.createElement('span');
+    // address.classList.add("address-info");
+    // address.textContent = `${event.venue.name}${event.venue.address}${event.venue.town}${event.venue.postcode}`;
+    // addressContainer.appendChild(address);
 
-    const saveContainer = document.createElement('div');
-    const ticketsButton = document.createElement('button');
-    ticketsButton.classList.add("save-button");
-    ticketsButton.onClick = `location.href=${event.linkURL}`
-    ticketsButton.textContent = "Tickets";
-    saveContainer.appendChild(ticketsButton);
-
-    this.saveEvent(event, saveContainer);
-    // const saveButton = document.createElement('button');
+    // const saveContainer = document.createElement('div');
+    // const ticketsButton = document.createElement('button');
+    // ticketsButton.classList.add("save-button");
+    // ticketsButton.onClick = `location.href=${event.linkURL}`
+    // ticketsButton.textContent = "Tickets";
+    // saveContainer.appendChild(ticketsButton);
     //
-    // saveButton.classList.add("save-button");
-    // saveButton.textContent = "Save";
-    // saveContainer.appendChild(saveButton);
+    // this.saveEvent(event, saveContainer);
 
 
+    const closeIcon = document.createElement('img');
+    closeIcon.src = "https://image.flaticon.com/icons/svg/59/59836.svg"
+    closeIcon.classList.add("close-icon");
+    detailsDiv.appendChild(closeIcon);
 
     this.container.appendChild(detailsDiv)
 
   return this.container;
 };
+
+
+EventMapDetailView.prototype.saveEvent = function (event, container){
+  const saveButton = document.createElement('button');
+  saveButton.classList.add("save-button");
+  saveButton.textContent = "Save";
+  saveButton.value = event;
+  console.log(saveButton.value);
+  saveContainer.appendChild(saveButton);
+  saveButton.addEventListener('click', (evt)=>{
+
+    const newEvent = {
+      name: event.eventname,
+      venue: event.venue.name,
+      date: event.date,
+      price: event.entryprice
+    }
+
+    PubSub.publish('EventItemView:event-to-save-data', newEvent);
+    console.log(newEvent);
+  });
+}
 
 module.exports = EventMapDetailView;

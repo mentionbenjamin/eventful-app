@@ -5,6 +5,7 @@
   overflow: hidden;
   margin-top:20px;
   border: 5px solid white;
+  z-index: -900;
 }
 
 body {
@@ -16,7 +17,24 @@ body {
 }
 #event-form {
   position: relative;
- display: inline-block;
+  display: inline-block;
+}
+
+
+/* Styling event map detail View (Fancy Popup) */
+
+#event-details-container {
+   z-index: 900;
+   position: absolute;
+   width: 65%;
+   max-height: 500px;
+   display: grid;
+   grid-template-columns: auto;
+   grid-template-rows: auto;
+   grid-gap: 10px;
+   border: 10px solid #ff5e62;
+   background-color: white;
+   z-index: 900;
 }
  #event-details {
    display: grid;
@@ -25,7 +43,7 @@ body {
    grid-gap: 10px;
    border: 10px solid #ff5e62;
    background-color: white;
-   z-index: -900;
+   z-index: 900;
  }
  #event-details > div {
    max-height: 500px;
@@ -55,20 +73,64 @@ body {
  }
 
 
-.button {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
-
-    text-decoration: none;
-    background: none;
-    border: 3px solid #ff5e62;
-    color: #ff5e62;
-    font: helvetica;
-    font-size: 12px;
-    font-weight: bold;
-    margin: 1em auto;
-    padding: 10px 30px;
-    position: relative;
-    text-transform: uppercase;
+/* Buttons */
+.button-container {
+  position: absolute;
+  z-index: 900;
+  width: 200px;
 }
+button,
+button::after {
+  transition: all 0.3s;
+  z-index: 900;
+}
+button {
+  background: none;
+  border: 3px solid #ff5e62;
+  color: #ff5e62;
+  font: helvetica;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 1em auto;
+  padding: 10px 30px;
+  position: relative;
+  text-transform: uppercase;
+}
+button::before,
+button::after {
+  background: #ff5e62;
+  content: '';
+  position: absolute;
+  z-index: -1;
+}
+button:hover {
+  color: white;
+  cursor: pointer;
+}
+.save-button::after {
+  height: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.save-button:hover:after {
+  height: 100%;
+}
+
+/* --- CLOSE ICON - START --- */
+
+.close-icon {
+  cursor: pointer;
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  width: 25px;
+  height: 25px;
+  opacity: 0.3;
+  transition: all 1.1s ease;
+}
+.close-icon:hover {
+  transform: rotate(360deg);
+}
+
+/* --- CLOSE ICON - END --- */
