@@ -99,14 +99,21 @@ EventMapDetailView.prototype.renderEventDetails = function (event) {
 
     addressContainer.appendChild(address);
 
+    // BUTTONS
 
-    // const ticketsButton = document.createElement('button');
-    // ticketsButton.classList.add("save-button");
-    // ticketsButton.onClick = `location.href=${event.linkURL}`
-    // ticketsButton.textContent = "Tickets";
-    // saveContainer.appendChild(ticketsButton);
-    //
-    // this.saveEvent(event, saveContainer);
+    const buttonContainer = document.createElement('div');
+    buttonContainer.classList.add('button-container');
+    const buttonLink = document.createElement('a');
+    buttonLink.href= `${event.linkURL}`;
+    const ticketsButton = document.createElement('button');
+    ticketsButton.classList.add("save-button");
+    ticketsButton.textContent = "Tickets";
+    buttonLink.appendChild(ticketsButton);
+    buttonContainer.appendChild(buttonLink);
+
+    this.saveEvent(event, buttonContainer);
+
+    rightInfoParent.appendChild(buttonContainer);
 
 
     const closeIcon = document.createElement('img');
@@ -124,13 +131,13 @@ EventMapDetailView.prototype.renderEventDetails = function (event) {
 
 
 EventMapDetailView.prototype.saveEvent = function (event, container){
-  const saveContainer = document.createElement('div');
+
   const saveButton = document.createElement('button');
   saveButton.classList.add("save-button");
   saveButton.textContent = "Save";
   saveButton.value = event;
   console.log(saveButton.value);
-  saveContainer.appendChild(saveButton);
+  container.appendChild(saveButton);
   saveButton.addEventListener('click', (evt)=>{
 
     const newEvent = {
@@ -143,6 +150,7 @@ EventMapDetailView.prototype.saveEvent = function (event, container){
     PubSub.publish('EventItemView:event-to-save-data', newEvent);
     console.log(newEvent);
   });
+  return container;
 }
 
 EventMapDetailView.prototype.createTextElement = function (elementType, text) {
