@@ -34,10 +34,12 @@ EventListView.prototype.renderList = function(items) {
   savedTab.setAttribute("class", "tablinks");
   resultsTab.addEventListener('click', () => {
     openTab(event, "search");
+
   });
   savedTab.addEventListener('click', () => {
     openTab(event, "favourites");
   });
+
   savedTab.innerHTML = "Saved";
   const listDiv = document.createElement("div");
   listDiv.setAttribute("class", "tabcontent");

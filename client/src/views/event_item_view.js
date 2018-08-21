@@ -46,7 +46,9 @@ EventItemView.prototype.saveEvent = function (event, container){
       name: event.eventname,
       venue: event.venue.name,
       date: event.date,
-      price: event.entryprice
+      price: event.entryprice,
+      lat: event.venue.latitude,
+      longt: event.venue.longitude
     }
 
     PubSub.publish('EventItemView:event-to-save-data', newEvent);

@@ -18,6 +18,11 @@
   cursor: pointer;
 }
 
+#saved-items:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
 #event-container {
   width: 100%;
 }

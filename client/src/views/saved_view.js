@@ -15,10 +15,9 @@ SavedEventView.prototype.bindEvents = function(){
       favourites.innerHTML = ""
       // this.container.innerHTML = " "
       this.render(savedEvents);
-      console.log(this.container);
+      console.log(evt);
     });
   });
-  // });
 }
 
 SavedEventView.prototype.render = function(events){
@@ -62,8 +61,6 @@ SavedEventView.prototype.createDeleteButton = function(eventId, container){
 
   deleteButton.addEventListener('click', (evt) => {
     PubSub.publish('SavedEventView:delete-button-pressed', evt.target.value)
-    console.log(evt.target.value);
-
   });
 }
 
