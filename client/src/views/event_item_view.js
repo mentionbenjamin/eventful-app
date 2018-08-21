@@ -9,18 +9,17 @@ EventItemView.prototype.render = function (event) {
   const eventContainer = document.createElement('div');
   eventContainer.id = 'event-item';
 
-  const eventName = this.createTextElement('p', `Event: ${event.eventname}`);
+  const eventName = this.createTextElement('p', `${event.eventname}`);
   eventName.classList.add('list-event-name');
   eventContainer.appendChild(eventName);
 
-  const venue = this.createTextElement('p',`Venue: ${event.venue.name}`);
+  const venue = this.createTextElement('p',`${event.venue.name}`);
+  venue.classList.add('list-venue');
   eventContainer.appendChild(venue);
 
-  const date = this.createTextElement('p', `Date: ${event.date}`);
+  const date = this.createTextElement('p', `${event.date}`);
+  date.classList.add('list-date');
   eventContainer.appendChild(date);
-
-  const price = this.createTextElement('p', `Price: ${event.entryprice}`);
-  eventContainer.appendChild(price);
 
   this.saveEvent(event, eventContainer);
 

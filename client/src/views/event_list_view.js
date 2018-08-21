@@ -47,7 +47,14 @@ EventListView.prototype.renderList = function(items) {
   const favourites = document.createElement("div");
   favourites.setAttribute("class", "tabcontent");
   favourites.setAttribute("id", "favourites");
-  eventCounter.textContent = `${eventsLength} events found`;
+  eventCounter.textContent = `${eventsLength}`;
+  eventCounter.classList.add('events-found-counter');
+  const eventsFound = document.createElement("p");
+  eventsFound.textContent = `Events found`;
+  eventsFound.classList.add('events-found');
+
+
+
   this.container.appendChild(resultsTab);
   this.container.appendChild(savedTab);
   listDiv.appendChild(eventCounter);
