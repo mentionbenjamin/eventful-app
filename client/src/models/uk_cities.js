@@ -1,5 +1,6 @@
 const Cities = function () {
-  this.cityList = ["Aberdeen",
+  this.cityList = [
+  "Aberdeen",
   "Bath",
   "Belfast",
   "Birmingham",
