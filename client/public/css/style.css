@@ -1,9 +1,6 @@
 #mapid {
   height: 500px;
-  width:65%;
-  float: right;
   overflow: hidden;
-  margin-top:20px;
   border: 5px solid white;
 }
 
@@ -16,7 +13,7 @@ body {
 }
 #event-form {
   position: relative;
- display: inline-block;
+  display: inline-block;
 }
  .eventDetails {
   width: 65%;

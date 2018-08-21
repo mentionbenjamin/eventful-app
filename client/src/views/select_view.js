@@ -43,23 +43,25 @@ SelectView.prototype.bindEvents = function () {
     maxDateStyle[0].style.paddingTop = "10px";
     // location search
     formLocation = document.getElementsByClassName('form-location');
-    formLocation[0].style.width = "175px";
+    formLocation[0].style.width = "250px";
     formLocation[0].style.fontSize = "30px";
     // form container
-    formGrandParent = document.getElementsByClassName('form-grand-parent');
-    formParent = document.getElementsByClassName('form-parent');
-    formGrandParent[0].setAttribute('id', 'new-form-grand-parent');
-    formParent[0].setAttribute('id', 'new-form-parent');
+    // formGrandParent = document.getElementsByClassName('form-grand-parent');
+    // formParent = document.getElementsByClassName('form-parent');
+    // formGrandParent[0].setAttribute('id', 'new-form-grand-parent');
+    // formParent[0].setAttribute('id', 'new-form-parent');
+    //
+    //
+    // formGrandParent[0].style.top = "10px";
+    // formGrandParent[0].style.left = "30px";
+    // formGrandParent[0].style.margin = "0px";
+    // formGrandParent[0].style.margin = "0px";
+    // formGrandParent[0].style.lineHeight = "30px";
+    // formParent[0].style.top = "30px";
+    // formParent[0].style.left = "30px";
 
-
-    formGrandParent[0].style.top = "30px";
-    formGrandParent[0].style.left = "30px";
-    formGrandParent[0].style.margin = "0px";
-    formParent[0].style.top = "30px";
-    formParent[0].style.left = "30px";
-
-    // document.getElementById('new-form').style.
-
+    eventContainer = document.getElementsByClassName('event-container');
+    eventContainer[0].style.width = '100%';
 
 
 
