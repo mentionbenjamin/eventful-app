@@ -27,7 +27,8 @@ body {
    border: 10px solid #ff5e62;
    background-color: white;
    z-index: 900;
-   position: flex;
+   position: relative;
+   bottom: 520px;
 }
  .event-details {
    display: grid;
