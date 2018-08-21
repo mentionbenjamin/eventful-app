@@ -252,7 +252,8 @@ button {
 
 #new-form {
   max-width: 389px;
-  border: 1px solid red;
+  border: 11px solid #dcdcdc;
+  padding: 30px;
 }
 
 
