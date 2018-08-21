@@ -99,7 +99,7 @@ EventMapDetailView.prototype.renderEventDetails = function (event) {
 
     addressContainer.appendChild(address);
 
-    // const saveContainer = document.createElement('div');
+
     // const ticketsButton = document.createElement('button');
     // ticketsButton.classList.add("save-button");
     // ticketsButton.onClick = `location.href=${event.linkURL}`
@@ -112,6 +112,9 @@ EventMapDetailView.prototype.renderEventDetails = function (event) {
     const closeIcon = document.createElement('img');
     closeIcon.src = "https://image.flaticon.com/icons/svg/59/59836.svg"
     closeIcon.classList.add("close-icon");
+    closeIcon.addEventListener('click', (event) => {
+      this.container.innerHTML = " ";
+    })
     detailsDiv.appendChild(closeIcon);
 
     this.container.appendChild(detailsDiv)
@@ -121,6 +124,7 @@ EventMapDetailView.prototype.renderEventDetails = function (event) {
 
 
 EventMapDetailView.prototype.saveEvent = function (event, container){
+  const saveContainer = document.createElement('div');
   const saveButton = document.createElement('button');
   saveButton.classList.add("save-button");
   saveButton.textContent = "Save";
