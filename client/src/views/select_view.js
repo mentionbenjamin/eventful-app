@@ -57,6 +57,11 @@ SelectView.prototype.bindEvents = function () {
     saveContainer[0].style.float = "right";
 
 
+    saveButton = document.getElementsByClassName('save-button');
+    saveButton[0].style.fontSize = "11px";
+    saveButton[0].textContent = "TWEAK";
+
+
     eventContainer = document.getElementsByClassName('event-container');
 
     PubSub.publish('SelectView:form-input-submitted', data);
