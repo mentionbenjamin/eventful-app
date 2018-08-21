@@ -44,7 +44,7 @@ SelectView.prototype.bindEvents = function () {
     maxDateStyle[0].style.width ="178px";
     maxDateStyle[0].style.fontSize = "30px";
     maxDateStyle[0].style.paddingLeft = "0px";
-    maxDateStyle[0].style.paddingTop = "10px";
+    maxDateStyle[0].style.paddingTop = "-10px";
     maxDateStyle[0].style.textAlign = "left";
     // location search
     formLocation = document.getElementsByClassName('form-location');

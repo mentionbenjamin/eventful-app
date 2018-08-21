@@ -9,6 +9,10 @@ EventItemView.prototype.render = function (event) {
   const eventContainer = document.createElement('div');
   eventContainer.id = 'event-item';
 
+  const date = this.createTextElement('p', `${event.date}`);
+  date.classList.add('list-date');
+  eventContainer.appendChild(date);
+
   const eventName = this.createTextElement('p', `${event.eventname}`);
   eventName.classList.add('list-event-name');
   eventContainer.appendChild(eventName);
@@ -16,10 +20,6 @@ EventItemView.prototype.render = function (event) {
   const venue = this.createTextElement('p',`${event.venue.name}`);
   venue.classList.add('list-venue');
   eventContainer.appendChild(venue);
-
-  const date = this.createTextElement('p', `${event.date}`);
-  date.classList.add('list-date');
-  eventContainer.appendChild(date);
 
   this.saveEvent(event, eventContainer);
 

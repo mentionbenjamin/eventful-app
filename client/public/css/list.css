@@ -2,13 +2,14 @@
   max-height: 500px;
 }
 #event-item {
-  margin-bottom: 15px;
   padding-left: 30px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #f5f5f5;
+  border-top: 1px solid #f5f5f5;
 }
 #event-item:hover {
-  background-color: white;
+  background-color: rgb(233, 233, 233);
   cursor: pointer;
 }
 #saved-items:hover {
@@ -30,21 +31,23 @@
 .events-found {
   border: 1px solid red;
 }
+.list-date {
+  font: 11px helvetica;
+  font-weight: 200;
+  margin-bottom: -10px;
+}
 .list-event-name {
   color: black;
   text-transform: uppercase;
   font: 16px helvetica;
   font-weight: 600;
+  width: 90%;
 }
 .list-venue {
   font: 13px helvetica;
   font-weight: 200;
   margin-top: -9px;
-  margin-bottom: -9px;
-}
-.list-date {
-  font: 13px helvetica;
-  font-weight: 200;
+  margin-bottom: 7px;
 }
 .tablinks {
   outline: none;
@@ -52,7 +55,6 @@
   border: 1px solid black;
   font-size: 120%;
   cursor: pointer;
-  border-radius: 4px;
   width: 50%;
 }
 .tablinks:hover {
