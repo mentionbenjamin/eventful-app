@@ -141,10 +141,10 @@ EventMapDetailView.prototype.saveEvent = function (event, container){
   saveButton.addEventListener('click', (evt)=>{
 
     const newEvent = {
-      name: event.eventname,
+      name: event.eventName,
       venue: event.venue.name,
       date: event.date,
-      price: event.entryprice
+      price: event.price
     }
 
     PubSub.publish('EventItemView:event-to-save-data', newEvent);

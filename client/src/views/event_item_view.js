@@ -7,7 +7,6 @@ const EventItemView = function() {
 
 EventItemView.prototype.render = function (event) {
   const eventContainer = document.createElement('div');
-  console.log(event);
   eventContainer.id = 'event-item';
 
 
@@ -39,7 +38,7 @@ EventItemView.prototype.saveEvent = function (event, container){
   saveButton.classList.add('material-icons');
   saveButton.innerHTML = "star-rate";
   saveButton.value = event;
-  console.log(saveButton.value);
+
   container.appendChild(saveButton);
   saveButton.addEventListener('click', (evt)=>{
 
@@ -51,7 +50,6 @@ EventItemView.prototype.saveEvent = function (event, container){
     }
 
     PubSub.publish('EventItemView:event-to-save-data', newEvent);
-    console.log(newEvent);
   });
 }
 
