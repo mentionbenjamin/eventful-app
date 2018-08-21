@@ -48,3 +48,12 @@ button.active {
     background-color: #008CBA;
     color: white;
 }
+
+.material-icons:hover {
+  text-decoration: none;
+  position: relative;
+  top: 4px;
+  -webkit-transform:rotate(360deg);
+          transform: rotate(360deg);
+
+}

@@ -17,9 +17,14 @@ MapView.prototype.bindEvents = function () {
     const latt = eventData[0].venue.latitude;
     const longt = eventData[0].venue.longitude;
     myMap = L.map('mapid', {
-    center: [latt, longt],
-    zoom: 10
-  })
+    center: [54.297293, -1.296386],
+    zoom: 5
+  }).flyTo([latt, longt], 11, true, 6);
+  // myMap.flyTo([latt,longt],{
+  //   animate: true,
+  //   duation: 1
+  // });
+
   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(myMap);
