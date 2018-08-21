@@ -11,6 +11,7 @@ SavedEventView.prototype.bindEvents = function(){
     this.render(savedEvents);
     PubSub.subscribe('EventListView:saved-list-tab-clicked', (evt) =>{
       console.log(evt.target);
+      this.container.innerHTML = ""
       this.render(savedEvents);
     });
   });
@@ -21,7 +22,7 @@ SavedEventView.prototype.render = function(events){
 
     this.container = document.getElementById('favourites');
     this.id = 'saved-events'
-    this.innerHTML = ""
+
 
     const eventTitle = document.createElement('p');
     eventTitle.textContent = events[i].name;
