@@ -6,40 +6,44 @@ const SavedEventView = function(container) {
 }
 
 SavedEventView.prototype.bindEvents = function(){
-  PubSub.subscribe('Events:saved-event-list', (evt) =>{
-    const savedEvents = evt.detail;
-    this.render(savedEvents);
+  // PubSub.subscribe('Events:saved-event-list', (evt) =>{
+  //   const savedEvents = evt.detail;
+  //   this.render(savedEvents);
     PubSub.subscribe('EventListView:saved-list-tab-clicked', (evt) =>{
       console.log(evt.target);
-      this.container.innerHTML = " "
+      // this.container.innerHTML = " "
       this.render(savedEvents);
+      console.log(this.container);
     });
-  });
+  // });
 }
 
 SavedEventView.prototype.render = function(events){
   for(var i = 0; i< events.length; i++){
 
-    this.container = document.getElementById('favourites');
-    this.id = 'saved-events'
+    const favourites = document.getElementById('favourites');
+
+    savedDiv = document.createElement('div');
+    savedDiv.id = "saved-items";
+    favourites.appendChild(savedDiv);
 
 
     const eventTitle = document.createElement('p');
     eventTitle.textContent = events[i].name;
-    this.container.appendChild(eventTitle);
+    savedDiv.appendChild(eventTitle);
 
     const eventVenue = document.createElement('p');
     eventVenue.textContent = events[i].venue;
-    this.container.appendChild(eventVenue);
+    savedDiv.appendChild(eventVenue);
 
 
     const eventPrice = document.createElement('p');
     eventPrice.textContent = events[i].price;
-    this.container.appendChild(eventPrice);
+    savedDiv.appendChild(eventPrice);
 
-    this.createDeleteButton(events[i]._id, this.container);
+    this.createDeleteButton(events[i]._id, savedDiv);
   }
-  return this.container;
+  return savedDiv;
 };
 
 SavedEventView.prototype.createDeleteButton = function(eventId, container){

@@ -7,7 +7,6 @@ const EventItemView = function() {
 
 EventItemView.prototype.render = function (event) {
   const eventContainer = document.createElement('div');
-  console.log(event);
   eventContainer.id = 'event-item';
 
 

@@ -14,7 +14,9 @@ EventListView.prototype.bindEvents = function() {
     console.log(items.length);
   });
   PubSub.subscribe('Events:saved-event-list', (evt) => {
-    this.renderSavedItems(evt.detail);
+    savedEvents = this.renderSavedItems(evt.detail);
+    console.log(savedEvents);
+    return savedEvents;
   })
 };
 
@@ -32,10 +34,10 @@ EventListView.prototype.renderList = function(items) {
   savedTab.setAttribute("class", "tablinks");
   resultsTab.addEventListener('click', () => {
     openTab(event, "search");
-  })
+  });
   savedTab.addEventListener('click', () => {
     openTab(event, "favourites");
-  })
+  });
   savedTab.innerHTML = "Saved";
   const listDiv = document.createElement("div");
   listDiv.setAttribute("class", "tabcontent");
@@ -60,6 +62,10 @@ EventListView.prototype.renderList = function(items) {
     console.log(evt.target);
   })
 };
+
+
+
+
 
 // EventsListView.prototype.renderSavedEventsOnLoad = function(data) {
 //   const savedEvents = this.renderSavedItems(data);
