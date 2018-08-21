@@ -74,7 +74,7 @@ EventListView.prototype.renderItem = function(item) {
 };
 
 SavedEventView.prototype.renderItem = function(savedEvents) {
-  const savedEventsView = new SavedEventView
+  const savedEventsView = new SavedEventView();
 }
 
 
