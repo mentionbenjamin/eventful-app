@@ -53,9 +53,8 @@ EventMapDetailView.prototype.renderEventDetails = function (event) {
     dateTimeContainer.classList.add("date-time-container");
     rightInfoParent.appendChild(dateTimeContainer);
 
-    const dateTimeTitle = document.createElement('p');
+    const dateTimeTitle = this.createTextElement('p', "DATE/TIME");
     dateTimeTitle.classList.add("date-time-title");
-    dateTimeTitle.textContent = "DATE/TIME";
     dateTimeContainer.appendChild(dateTimeTitle);
 
     const dateTimeInfo = document.createElement('p');
@@ -67,9 +66,8 @@ EventMapDetailView.prototype.renderEventDetails = function (event) {
     entryPriceContainer.classList.add("entry-price-container");
     rightInfoParent.appendChild(entryPriceContainer);
 
-    const entryPriceTitle = document.createElement('p');
+    const entryPriceTitle = this.createTextElement('p', "ENTRY PRICE");
     entryPriceTitle.classList.add("entry-price-title");
-    entryPriceTitle.textContent = "ENTRY PRICE";
     entryPriceContainer.appendChild(entryPriceTitle);
 
     const entryPrice = document.createElement('p');
@@ -82,19 +80,23 @@ EventMapDetailView.prototype.renderEventDetails = function (event) {
     addressContainer.classList.add("address-container");
     rightInfoParent.appendChild(addressContainer);
 
-    const addressTitle = document.createElement('p');
+    const addressTitle = this.createTextElement('p', "ADDRESS");
     addressTitle.classList.add("address-title");
-    addressTitle.textContent = "ADDRESS";
     addressContainer.appendChild(addressTitle);
 
-    const address = document.createElement('p');
+    const address = document.createElement('div');
     address.classList.add("address-info");
-    console.log(event.venue);
-    address.textContent =
-    `${event.venue.name}
-     ${event.venue.address}
-     ${event.venue.town}
-     ${event.venue.postcode}`;
+
+    const address1 = this.createTextElement('p', event.venue.name );
+    const address2 = this.createTextElement('p', event.venue.address );
+    const address3 = this.createTextElement('p', event.venue.town );
+    const address4 = this.createTextElement('p', event.venue.postcode );
+
+    address.appendChild(address1);
+    address.appendChild(address2);
+    address.appendChild(address3);
+    address.appendChild(address4);
+
     addressContainer.appendChild(address);
 
     // const saveContainer = document.createElement('div');
@@ -138,5 +140,11 @@ EventMapDetailView.prototype.saveEvent = function (event, container){
     console.log(newEvent);
   });
 }
+
+EventMapDetailView.prototype.createTextElement = function (elementType, text) {
+  const element = document.createElement(elementType);
+  element.textContent = text;
+  return element;
+};
 
 module.exports = EventMapDetailView;
