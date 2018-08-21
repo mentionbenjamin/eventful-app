@@ -34,13 +34,15 @@ SelectView.prototype.bindEvents = function () {
     };
     // mindate & maxdate
     minDateStyle = document.getElementsByClassName('form-min-date');
-    minDateStyle[0].style.width = "212px";
+    minDateStyle[0].style.width = "178px";
     minDateStyle[0].style.fontSize = "30px";
+    minDateStyle[0].style.textAlign = "left";
     maxDateStyle = document.getElementsByClassName('form-max-date');
-    maxDateStyle[0].style.width ="212px";
+    maxDateStyle[0].style.width ="178px";
     maxDateStyle[0].style.fontSize = "30px";
     maxDateStyle[0].style.paddingLeft = "0px";
     maxDateStyle[0].style.paddingTop = "10px";
+    maxDateStyle[0].style.textAlign = "left";
     // location search
     formLocation = document.getElementsByClassName('form-location');
     formLocation[0].style.width = "250px";

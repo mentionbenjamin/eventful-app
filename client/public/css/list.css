@@ -17,19 +17,17 @@
   margin-top: 300px;
 }
 
-button {
-  width: 50%;
+.tablinks {
   outline: none;
   padding: 10px;
   border: 1px solid black;
   font-size: 120%;
   cursor: pointer;
   border-radius: 4px;
+  width: 50%;
 }
 
-button:hover {
-  background-color: #008CBA;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+.tablinks:hover {
   color: white;
 }
 
@@ -40,7 +38,7 @@ button:hover {
     border-top: none;
 }
 
-button.active {
+.tablinks:active {
     background-color: #008CBA;
     color: white;
 }

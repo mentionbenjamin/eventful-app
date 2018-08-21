@@ -217,14 +217,14 @@ button {
   position: relative;
   text-transform: uppercase;
 }
-button::before,
-button::after {
+.save-button::before,
+.save-button::after {
   background: #ff5e62;
   content: '';
   position: absolute;
   z-index: -1;
 }
-button:hover {
+.save-button:hover {
   color: white;
   cursor: pointer;
 }
