@@ -54,12 +54,15 @@ body {
    grid-column-end: 5;
    padding: 50px 30px 60px 70px;
    display: inherit;
+   justify-content: left;
+   align-content: space-around;
  }
  .left-title {
    text-align: left;
    font: 60px helvetica;
    font-weight: 600;
    padding-bottom: 30px;
+
  }
  .left-description {
    font: 15px helvetica;
@@ -75,7 +78,44 @@ body {
    display: inherit;
  }
 
+ .address-container {
+   justify-content: right;
+   align-content: space-around;
+   padding: 20px 0px;
+   text-align: left;
+ }
+ .price-container {
+   justify-content: right;
+   align-content: space-around;
+   padding: 20px 0px;
+   text-align: left;
+ }
 
+ .date-time-container {
+   justify-content: right;
+   align-content: space-around;
+   padding: 20px 0px;
+   text-align: left;
+ }
+
+
+
+.address-title {
+  color: #ff5e62
+
+}
+
+
+.entry-price-title {
+color: #ff5e62
+
+}
+
+
+.date-time-title {
+color: #ff5e62
+
+}
 /* Buttons */
 .button-container {
   position: absolute;

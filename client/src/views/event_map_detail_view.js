@@ -48,43 +48,46 @@ EventMapDetailView.prototype.renderEventDetails = function (event) {
     rightInfoParent.classList.add("right-info-parent");
     rightInfoContainer.appendChild(rightInfoParent);
 
+// DATE INFO
     const dateTimeContainer = document.createElement('div');
     dateTimeContainer.classList.add("date-time-container");
     rightInfoParent.appendChild(dateTimeContainer);
 
-    const dateTimeTitle = document.createElement('span');
+    const dateTimeTitle = document.createElement('p');
     dateTimeTitle.classList.add("date-time-title");
     dateTimeTitle.textContent = "DATE/TIME";
     dateTimeContainer.appendChild(dateTimeTitle);
 
-    const dateTimeInfo = document.createElement('span');
+    const dateTimeInfo = document.createElement('p');
     dateTimeInfo.textContent = `${event.date}`;
     dateTimeContainer.appendChild(dateTimeInfo);
 
+// PRICE INFO
     const entryPriceContainer = document.createElement('div');
     entryPriceContainer.classList.add("entry-price-container");
     rightInfoParent.appendChild(entryPriceContainer);
 
-    const entryPriceTitle = document.createElement('span');
+    const entryPriceTitle = document.createElement('p');
     entryPriceTitle.classList.add("entry-price-title");
     entryPriceTitle.textContent = "ENTRY PRICE";
     entryPriceContainer.appendChild(entryPriceTitle);
 
-    const entryPrice = document.createElement('span');
+    const entryPrice = document.createElement('p');
     entryPrice.classList.add("entry-price-info");
     entryPrice.textContent = `${event.price}`;
     entryPriceContainer.appendChild(entryPrice);
 
+// ADDRESS INFO
     const addressContainer = document.createElement('div');
     addressContainer.classList.add("address-container");
     rightInfoParent.appendChild(addressContainer);
 
-    const addressTitle = document.createElement('span');
-    entryPriceTitle.classList.add("address-title");
-    entryPriceTitle.textContent = "ADDRESS";
-    addressContainer.appendChild(entryPriceTitle);
+    const addressTitle = document.createElement('p');
+    addressTitle.classList.add("address-title");
+    addressTitle.textContent = "ADDRESS";
+    addressContainer.appendChild(addressTitle);
 
-    const address = document.createElement('span');
+    const address = document.createElement('p');
     address.classList.add("address-info");
     console.log(event.venue);
     address.textContent =
