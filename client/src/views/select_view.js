@@ -33,6 +33,28 @@ SelectView.prototype.bindEvents = function () {
       dropdown.style.fontSize = "30px";
     };
 
+    minDateStyle = document.getElementsByClassName('form-min-date');
+    minDateStyle[0].style.width = "212px";
+    minDateStyle[0].style.fontSize = "30px";
+    maxDateStyle = document.getElementsByClassName('form-max-date');
+    maxDateStyle[0].style.width ="212px";
+    maxDateStyle[0].style.fontSize = "30px";
+    maxDateStyle[0].style.paddingLeft = "0px";
+    maxDateStyle[0].style.paddingTop = "10px";
+
+
+    formLocation = document.getElementsByClassName('form-location');
+    formLocation[0].style.width = "175px";
+    formLocation[0].style.fontSize = "30px";
+
+
+
+
+    // .style.width = '212px';
+    // document.getElementById('form-min-date').style.fontSize = '30px';
+    // document.getElementById('form-max-date').style.width = '212px';
+    // document.getElementById('form-max-date').style.fontSize = '30px';
+
 
 
     PubSub.publish('SelectView:form-input-submitted', data);
