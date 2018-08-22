@@ -30,7 +30,7 @@ SavedEventView.prototype.render = function(events){
 
     console.log(events[i]);
     const eventName = document.createElement('p');
-    eventName.textContent = `Event: ${events[i].eventName}`;
+    eventName.textContent = `Event: ${events[i].eventname}`;
     savedDiv.appendChild(eventName);
 
     const eventVenue = document.createElement('p');
