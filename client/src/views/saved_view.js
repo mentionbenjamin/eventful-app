@@ -25,26 +25,23 @@ SavedEventView.prototype.render = function(events){
     const favourites = document.getElementById('favourites');
 
     savedDiv = document.createElement('div');
+    const favourites = document.getElementById('favourites');
+
     savedDiv.id = "saved-items";
     favourites.appendChild(savedDiv);
 
-    console.log(events[i]);
-    const eventname = document.createElement('p');
-    eventname.textContent = `${events[i].eventname}`;
-    savedDiv.appendChild(eventname);
 
-    const eventVenue = document.createElement('p');
-    eventVenue.textContent = `Venue: ${events[i].venue.name}`;
-    savedDiv.appendChild(eventVenue);
+    const date = this.createTextElement('p', `${events[i].date}`);
+    date.classList.add('list-date');
+    savedDiv.appendChild(date);
 
+    const eventName = this.createTextElement('p', `${events[i].minage}`);
+    eventName.classList.add('list-event-name');
+    savedDiv.appendChild(eventName);
 
-    const entryprice = document.createElement('p');
-    entryprice.textContent = `Price: ${events[i].entryprice}`;
-    savedDiv.appendChild(entryprice);
-
-    this.createDeleteButton(events[i]._id, savedDiv);
-
-    this.appenedLine(savedDiv);
+    const venue = this.createTextElement('p', `${events[i].venue.name}`);
+    venue.classList.add('list-venue');
+    savedDiv.appendChild(venue);
   }
   return savedDiv;
 };
