@@ -24,9 +24,6 @@ EventItemView.prototype.render = function (event) {
   venue.classList.add('list-venue');
   eventContainer.appendChild(venue);
 
-  const entryprice = this.createTextElement('p', `Price: ${event.entryprice}`);
-  eventContainer.appendChild(entryprice);
-
   this.saveEvent(event, eventContainer);
 
   return eventContainer;
