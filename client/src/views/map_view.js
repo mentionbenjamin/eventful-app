@@ -18,11 +18,9 @@ MapView.prototype.bindEvents = function () {
      this.setMapMarkersClicked(evt)
   });
 
-
-
   PubSub.subscribe('Events:saved-event-list', (evt) =>{
    this.setMapMarkersSaved(evt.detail);
-   console.log(evt.detail);
+   
   });
 }
 
