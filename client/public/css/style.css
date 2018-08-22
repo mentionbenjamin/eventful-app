@@ -137,11 +137,9 @@ color: #ff5e62
   border: 3px solid #ff5e62;
   color: #ff5e62;
   font: helvetica;
-  font-size: 12px;
   font-weight: bold;
   padding: 10px 20px;
   margin: 5px 5px 5px 0px;
-  position: relative;
   text-transform: uppercase;
 }
 .save-button::after {

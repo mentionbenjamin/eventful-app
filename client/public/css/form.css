@@ -101,6 +101,7 @@ input:focus {
 }
 .select-items div:hover, .select-selected {
   color: #ff5e62;
+  text-align: center;
 }
 /*style items (options):*/
 .select-items {
@@ -108,8 +109,9 @@ input:focus {
   top: 100%;
   left: 0;
   right: 0;
-  z-index: 99;
+  z-index: 999;
   background-color: white;
+  text-align: center;
 }
 /*hide the items when the select box is closed:*/
 .select-hide {
@@ -251,9 +253,7 @@ button {
 
 
 #new-form {
-  max-width: 80%;
-  height: 200px;
-  border: 1px solid red;
+  max-width: 100%;
 }
 
 
@@ -284,6 +284,7 @@ button {
   grid-column-start: 1;
   grid-column-end: 12;
   padding: 30px;
+  margin: 30px;
 }
 .page-list-container {
   grid-column-start: 1;

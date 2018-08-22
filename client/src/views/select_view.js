@@ -27,6 +27,11 @@ SelectView.prototype.bindEvents = function () {
     pageListContainer[0].style.display = 'unset';
     pageMapContainer = document.getElementsByClassName('page-map-container');
     pageMapContainer[0].style.display = 'unset';
+    pageFormContainer = document.getElementsByClassName('page-form-container');
+    pageFormContainer[0].style.border = '11px solid #f3f3f3';
+
+
+
 
 
     if (document.getElementById('form') != null){
@@ -88,6 +93,9 @@ function styleSaveContainer(containerClass) {
   saveButton = document.getElementsByClassName('save-button');
   saveButton[0].style.fontSize = "0.55em";
   saveButton[0].textContent = "TWEAK";
+  saveButton[0].fontSize = "0.55em";
+  saveButton[0].position = "absolute";
+  saveButton[0].right = "6vw";
 }
 
 SelectView.prototype.populateSelect = function () {
