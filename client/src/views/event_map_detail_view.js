@@ -59,7 +59,7 @@ EventMapDetailView.prototype.renderEventDetails = function (event) {
     dateTimeContainer.appendChild(dateTimeTitle);
 
     const dateInfo = this.createTextElement('p', event.date);
-    const timeInfo = this.createTextElement('p', event.doorsopen);
+    const timeInfo = this.createTextElement('p', event.time.doorsopen);
 
     dateTimeContainer.appendChild(dateInfo);
     dateTimeContainer.appendChild(timeInfo);
@@ -129,7 +129,7 @@ EventMapDetailView.prototype.renderEventDetails = function (event) {
     })
     detailsDiv.appendChild(closeIcon);
 
-    this.container.appendChild(detailsDiv)
+    this.container.appendChild(detailsDiv);
 
   return this.container;
 };
@@ -141,15 +141,23 @@ EventMapDetailView.prototype.saveEvent = function (event, container){
   saveButton.classList.add("save-button");
   saveButton.textContent = "Save";
   saveButton.value = event;
-  console.log(saveButton.value);
+  console.log(saveButton.value[0]);
   container.appendChild(saveButton);
   saveButton.addEventListener('click', (evt)=>{
 
     const newEvent = {
-      name: event.eventName,
-      venue: event.venue.name,
+      eventName: event.eventName,
+      description: event.description,
+      venue: event.venue,
       date: event.date,
-      price: event.price
+      time: event.time,
+      entryprice: event.entryprice,
+      lat: event.venue.latitude,
+      longt: event.venue.longitude,
+      customId: event.customId,
+      venueName: event.venueName,
+      eventType: event.eventType,
+      linkURL:event.linkURL,
     }
 
     PubSub.publish('EventItemView:event-to-save-data', newEvent);

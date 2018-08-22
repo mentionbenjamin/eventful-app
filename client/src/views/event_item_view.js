@@ -9,7 +9,6 @@ EventItemView.prototype.render = function (event) {
   const eventValues = [{coordinates:[event.venue.latitude, event.venue.longitude], eventname: event.venue.name, date: event.date, eventprice: event.entryprice, venue: event.venue.name, description:event.description, openingtimes: event.openingtimes, eventCode: event.eventCode}]
 
   const eventContainer = document.createElement('div');
-  console.log(event);
   eventContainer.id = 'event-item';
   eventContainer.value = eventValues;
 
@@ -18,6 +17,9 @@ EventItemView.prototype.render = function (event) {
      PubSub.publish('EventItemView', evt);
   });
 
+  const date = this.createTextElement('p', `Date: ${event.date}`);
+  date.classList.add('list-date');
+  eventContainer.appendChild(date);
 
   const eventName = this.createTextElement('h4', `Event: ${event.eventname}`);
   eventName.value = eventValues;
@@ -50,22 +52,28 @@ EventItemView.prototype.createTextElement = function (elementType, text) {
 };
 
 EventItemView.prototype.saveEvent = function (event, container){
-  const saveButton = document.createElement('i')
-  saveButton.classList.add('material-icons');
-  saveButton.innerHTML = "star-rate";
+  const saveButton = document.createElement('p')
+  saveButton.classList.add('save-icon');
+  saveButton.innerHTML = "S";
   saveButton.value = event;
 
   container.appendChild(saveButton);
   saveButton.addEventListener('click', (evt)=>{
 
-    const newEvent = {
-      name: event.eventname,
-      venue: event.venue.name,
-      date: event.date,
-      price: event.entryprice,
-      lat: event.venue.latitude,
-      longt: event.venue.longitude
-    }
+      const newEvent = {
+        eventName: event.eventName,
+        description: event.description,
+        venue: event.venue,
+        date: event.date,
+        time: event.time,
+        entryprice: event.entryprice,
+        lat: event.venue.latitude,
+        longt: event.venue.longitude,
+        customId: event.customId,
+        venueName: event.venueName,
+        eventType: event.eventType,
+        linkURL:event.linkURL
+      }
 
     PubSub.publish('EventItemView:event-to-save-data', newEvent);
   });
