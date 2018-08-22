@@ -11,6 +11,12 @@ MapView.prototype.bindEvents = function () {
    this.setMapMarkers(evt.detail);
   });
 
+  PubSub.subscribe('EventItemView', (evt) => {
+    console.log(evt.detail.path[0].value);
+    const newMarker = L.marker(evt.detail.path[0].value)
+    newMarker.addTo(myMap).on('click', onMapClick)
+   });
+
   // PubSub.subscribe('Events:saved-event-list', (evt) =>{
   //  this.createMapSaved(evt.detail);
   //  this.setMapMarkersSaved(evt.detail);
