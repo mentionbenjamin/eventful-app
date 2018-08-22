@@ -110,6 +110,8 @@ MapView.prototype.setMapMarkersClicked  = function (eventData){
   newMarker.addTo(this.clickedMarkerLayer).on('click', onMapClick)
  };
 
+
+
   MapView.prototype.setMapMarkersSaved = function (eventData) {
     const eventInformation = eventData;
     for(var i = 0; i <eventInformation.length; i++){
@@ -133,6 +135,7 @@ MapView.prototype.setMapMarkersClicked  = function (eventData){
       riseOffSet: 250
     })
     savedEventMarker.customId = eventInformation[i]._id;
+    console.log(savedEventMarker.customId);
     savedEventMarker.venue = eventInformation[i].venue;
 
     savedEventMarker.eventType = eventInformation[i].EventCode;
@@ -143,10 +146,24 @@ MapView.prototype.setMapMarkersClicked  = function (eventData){
     savedEventMarker.date = eventInformation[i].date;
     savedEventMarker.time = eventInformation[i].openingtimes;
 
+    PubSub.subscribe('SavedEventView:delete-button-pressed', (evt) => {
+      deletedEventId = evt.detail;
+      console.log(deletedEventId);
+      deleteEvent(deletedEventId)
+    });
+
+    function deleteEvent(id){
+      if(id === savedEventMarker.customId){
+        savedEventMarker.opacity(0);
+      }
+    }
+
+
 
     savedEventMarker.addTo(savedMarkerLayer).on('click', onMapClick)
     }
   };
+
 
 
   function onMapClick(e) {
