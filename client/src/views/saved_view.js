@@ -15,7 +15,6 @@ SavedEventView.prototype.bindEvents = function(){
       favourites.innerHTML = ""
       // this.container.innerHTML = " "
       this.render(savedEvents);
-      console.log(evt);
     });
   });
 }
@@ -25,11 +24,9 @@ SavedEventView.prototype.render = function(events){
 
     const favourites = document.getElementById('favourites');
 
-
     savedDiv = document.createElement('div');
     savedDiv.id = "saved-items";
     favourites.appendChild(savedDiv);
-
 
     const eventTitle = document.createElement('p');
     eventTitle.textContent = `Event: ${events[i].name}`;
@@ -38,7 +35,6 @@ SavedEventView.prototype.render = function(events){
     const eventVenue = document.createElement('p');
     eventVenue.textContent = `Venue: ${events[i].venue}`;
     savedDiv.appendChild(eventVenue);
-
 
     const eventPrice = document.createElement('p');
     eventPrice.textContent = `Price: ${events[i].price}`;
