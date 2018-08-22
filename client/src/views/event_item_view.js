@@ -59,7 +59,7 @@ EventItemView.prototype.saveEvent = function (event, container){
   saveButton.addEventListener('click', (evt)=>{
 
       const newEvent = {
-        eventName: event.eventName,
+        eventName: event.eventname,
         description: event.description,
         venue: event.venue,
         date: event.date,
