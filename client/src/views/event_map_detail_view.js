@@ -31,7 +31,7 @@ EventMapDetailView.prototype.renderEventDetails = function (event) {
 
     const leftTitle = document.createElement('div');
     leftTitle.classList.add("left-title");
-    leftTitle.textContent = `${event.eventName}`;
+    leftTitle.textContent = `${event.eventname}`;
     leftDescriptionContainer.appendChild(leftTitle);
 
     const leftDescription = document.createElement('div');
@@ -147,7 +147,7 @@ EventMapDetailView.prototype.saveEvent = function (event, container){
   saveButton.addEventListener('click', (evt)=>{
 
     const newEvent = {
-      eventName: event.eventName,
+      eventname: event.eventname,
       description: event.description,
       venue: event.venue,
       date: event.date,
