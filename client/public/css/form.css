@@ -202,10 +202,6 @@ input[type="date"]::-webkit-inner-spin-button{
 
 /* --- FORM LOCATION - END --- */
 
-
-
-
-
 /* --- SUBMIT BUTTON - START --- */
 .button-container {
   position: absolute;
@@ -249,35 +245,11 @@ button {
 
 /* --- SUBMIT BUTTON - END --- */
 
-
-
-
-
-
-
-
-
 #new-form {
   border: 11px solid #f3f3f3;
   padding: 30px;
   margin: 30px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .page-grid-container {
   display: grid;

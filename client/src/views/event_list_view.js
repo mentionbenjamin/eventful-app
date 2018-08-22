@@ -11,7 +11,6 @@ EventListView.prototype.bindEvents = function() {
     const items = evt.detail;
     this.renderList(items);
     // this.detailsOnClick();
-    console.log(items.length);
   });
   PubSub.subscribe('Events:saved-event-list', (evt) => {
     savedEvents = this.renderSavedItems(evt.detail);
@@ -75,21 +74,6 @@ EventListView.prototype.renderList = function(items) {
 };
 
 
-
-
-
-// EventsListView.prototype.renderSavedEventsOnLoad = function(data) {
-//   const savedEvents = this.renderSavedItems(data);
-//   return savedEvents;
-// }
-
-// EventListView.prototype.detailsOnClick = function(){
-//   this.container.addEventListener('click', (evt) =>{
-//     PubSub.publish('EventListView: selected-event-clicked', evt.details);
-//     console.log(evt.detail);
-//   })
-// }
-
 EventListView.prototype.emptyList = function(items) {
   this.container.innerHTML = '';
 };
@@ -108,8 +92,6 @@ EventListView.prototype.renderSavedItems = function(savedEvents) {
   return savedEvents;
 };
 
-
-
 function openTab(evt, tabName) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
@@ -123,7 +105,5 @@ function openTab(evt, tabName) {
   document.getElementById(tabName).style.display = "block";
   evt.currentTarget.className += " active";
 }
-
-
 
 module.exports = EventListView;
