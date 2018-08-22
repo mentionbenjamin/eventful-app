@@ -28,6 +28,9 @@ SelectView.prototype.bindEvents = function () {
     sentenceTexts = document.getElementsByClassName('sentence-text');
     for (sentence of sentenceTexts) {
       sentence.style.fontSize = "20px";
+      sentence.style.paddingTop = "4px";
+      sentence.style.paddingBottom = "4px";
+
     };
     // events dropdown
     eventsDropdown = document.getElementsByClassName('custom-select');
@@ -40,12 +43,15 @@ SelectView.prototype.bindEvents = function () {
     minDateStyle[0].style.width = "130px";
     minDateStyle[0].style.fontSize = "20px";
     minDateStyle[0].style.paddingLeft = "0px";
+    minDateStyle[0].style.paddingTop = "0px";
+    minDateStyle[0].style.paddingBottom = "0px";
     minDateStyle[0].style.textAlign = "left";
     maxDateStyle = document.getElementsByClassName('form-max-date');
     maxDateStyle[0].style.width ="130px";
     maxDateStyle[0].style.fontSize = "20px";
     maxDateStyle[0].style.paddingLeft = "16px";
-    maxDateStyle[0].style.paddingTop = "-10px";
+    maxDateStyle[0].style.paddingTop = "0px";
+    maxDateStyle[0].style.paddingBottom = "0px";
     maxDateStyle[0].style.textAlign = "left";
     // location search
     formLocation = document.getElementsByClassName('form-location');
@@ -58,6 +64,12 @@ SelectView.prototype.bindEvents = function () {
     saveButton = document.getElementsByClassName('save-button');
     saveButton[0].style.fontSize = "11px";
     saveButton[0].textContent = "TWEAK";
+
+    eventsContainer = document.getElementsByClassName('select-selected');
+    eventsContainer[0].style.height = "0px";
+
+
+
 
 
     eventContainer = document.getElementsByClassName('event-container');
