@@ -58,7 +58,7 @@ input:focus {
 
 /* --- MAIN FORM --- */
 #form {
-  margin: 70px;
+  margin: 0 auto;
   max-width: 900px;
   max-height: 700px;
   text-align: center;
