@@ -154,7 +154,7 @@ MapView.prototype.setMapMarkersClicked  = function (eventData){
 
     function deleteEvent(id){
       if(id === savedEventMarker.customId){
-        savedEventMarker.opacity(0);
+        savedEventMarker.setOpacity(0);
       }
     }
 
