@@ -25,46 +25,39 @@ SelectView.prototype.bindEvents = function () {
       document.getElementById('form').id = 'new-form';
     }
     // sentence words
-    sentenceTexts = document.getElementsByClassName('sentence-text');
-    for (sentence of sentenceTexts) {
-      sentence.style.fontSize = "1.4em";
-      sentence.style.paddingTop = "4px";
-      sentence.style.paddingBottom = "4px";
 
-    };
-    sentenceTexts[2].style.marginLeft = "-22px";
-    sentenceTexts[3].style.marginLeft = "-22px";
-    sentenceTexts[3].style.marginRight = "0px";
-
-
-    // events dropdown
-    eventsDropdown = document.getElementsByClassName('custom-select');
-    for (dropdown of eventsDropdown) {
-      dropdown.style.width = "5em";
-      dropdown.style.fontSize = "1.4em";
-    };
-
+    styleSentences('sentence-text');
+    styleDropDown('custom-select');
     styleMinDate('form-min-date');
     styleMaxDate('form-max-date');
     styleLocation('form-location');
-
-    // search/update button
-    saveContainer = document.getElementsByClassName('save-container');
-    saveContainer[0].style.float = "right";
-    saveButton = document.getElementsByClassName('save-button');
-    saveButton[0].style.fontSize = "0.55em";
-    saveButton[0].textContent = "TWEAK";
-
-    eventsContainer = document.getElementsByClassName('select-selected');
-    // eventsContainer[0].style.height = "0px";
-
-    eventContainer = document.getElementsByClassName('event-container');
+    styleSaveContainer('save-container');
 
     PubSub.publish('SelectView:form-input-submitted', data);
 
   })
 
 };
+
+function styleSentences (sentenceClass) {
+  sentenceTexts = document.getElementsByClassName(sentenceClass);
+  for (sentence of sentenceTexts) {
+    sentence.style.fontSize = "1.4em";
+    sentence.style.paddingTop = "4px";
+    sentence.style.paddingBottom = "4px";
+  };
+  sentenceTexts[2].style.marginLeft = "-22px";
+  sentenceTexts[3].style.marginLeft = "-22px";
+  sentenceTexts[3].style.marginRight = "0px";
+}
+
+function styleDropDown (dropdownClass) {
+  eventsDropdown = document.getElementsByClassName(dropdownClass);
+  for (dropdown of eventsDropdown) {
+    dropdown.style.width = "5em";
+    dropdown.style.fontSize = "1.4em";
+  };
+}
 
 function styleMinDate (minDateClass) {
   minDateStyle = document.getElementsByClassName(minDateClass);
@@ -91,6 +84,14 @@ function styleLocation(locationClass) {
   formLocation[0].style.width = "6.3em";
   formLocation[0].style.fontSize = "1.4em";
   formLocation[0].style.paddingLeft = "0px";
+}
+
+function styleSaveContainer(containerClass) {
+  saveContainer = document.getElementsByClassName(containerClass);
+  saveContainer[0].style.float = "right";
+  saveButton = document.getElementsByClassName('save-button');
+  saveButton[0].style.fontSize = "0.55em";
+  saveButton[0].textContent = "TWEAK";
 }
 
 SelectView.prototype.populateSelect = function () {
