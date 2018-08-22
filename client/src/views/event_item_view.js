@@ -51,8 +51,8 @@ EventItemView.prototype.createTextElement = function (elementType, text) {
 
 EventItemView.prototype.saveEvent = function (event, container){
   const saveButton = document.createElement('p')
-  saveButton.classList.add('save-icon');
-  saveButton.innerHTML = "S";
+  saveButton.classList.add('material-icons');
+  saveButton.innerHTML = "star_border";
   saveButton.value = event;
 
   container.appendChild(saveButton);
