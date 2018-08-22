@@ -22,18 +22,15 @@ EventItemView.prototype.render = function (event) {
   eventname.addEventListener('click', (evt) =>{
   });
 
-  const venue = this.createTextElement('p',`Venue: ${event.venue.name}`);
+  const date = this.createTextElement('p', `${event.date}`);
+  date.classList.add('list-date');
+  date.value = eventValues;
+  eventContainer.appendChild(date);
+
+  const venue = this.createTextElement('p',`${event.venue.name}`);
+  venue.classList.add('list-venue');
   venue.value = eventValues;
   eventContainer.appendChild(venue);
-
-  const date = this.createTextElement('p', `Date: ${event.date}`);
-  eventContainer.appendChild(date);
-  date.value = eventValues;
-
-  const price = this.createTextElement('p', `Price: ${event.entryprice}`);
-  eventContainer.appendChild(price);
-  date.classList.add('list-date');
-  price.value = eventValues;
 
   this.saveEvent(event, eventContainer);
 

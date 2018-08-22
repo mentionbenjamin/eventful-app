@@ -22,14 +22,15 @@ SavedEventView.prototype.bindEvents = function(){
 SavedEventView.prototype.render = function(events){
   for(var i = 0; i< events.length; i++){
 
+    savedDiv = document.createElement('div');
     const favourites = document.getElementById('favourites');
 
-    savedDiv = document.createElement('div');
     savedDiv.id = "saved-items";
     favourites.appendChild(savedDiv);
 
     const eventname = document.createElement('p');
     eventname.textContent = `${events[i].eventname}`;
+    eventname.classList.add('list-event-name');
     savedDiv.appendChild(eventname);
 
     const eventVenue = document.createElement('p');
@@ -37,13 +38,16 @@ SavedEventView.prototype.render = function(events){
     savedDiv.appendChild(eventVenue);
 
 
-    const entryprice = document.createElement('p');
-    entryprice.textContent = `Price: ${events[i].entryprice}`;
-    savedDiv.appendChild(entryprice);
+    const date = this.createTextElement('p', `${events[i].date}`);
+    date.classList.add('list-date');
+    savedDiv.appendChild(date);
+
+
+    const venue = this.createTextElement('p', `${events[i].venue.name}`);
+    venue.classList.add('list-venue');
+    savedDiv.appendChild(venue);
 
     this.createDeleteButton(events[i]._id, savedDiv);
-
-    this.appenedLine(savedDiv);
   }
   return savedDiv;
 };
@@ -61,9 +65,12 @@ SavedEventView.prototype.createDeleteButton = function(eventId, container){
   });
 }
 
-SavedEventView.prototype.appenedLine = function(container){
-  const line = document.createElement('hr');
-  container.appendChild(line);
+SavedEventView.prototype.createTextElement = function (elementType, text) {
+  const element = document.createElement(elementType);
+  element.textContent = text;
+  return element;
 };
+
+
 
 module.exports = SavedEventView;
