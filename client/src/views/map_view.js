@@ -13,12 +13,10 @@ MapView.prototype.bindEvents = function () {
 
   PubSub.subscribe('EventItemView', (evt) => {
     const violetIcon = new L.Icon({
-      iconUrl: 'img/marker-icon-red.png',
-      shadowUrl: 'img/marker-shadow.png',
-      iconSize: [25, 41],
-      iconAnchor: [12, 41],
-      popupAnchor: [1, -34],
-      shadowSize: [41, 41]
+      iconUrl: 'img/marker-icon-2x-red.png',
+      iconSize: [27, 43],
+      iconAnchor: [14, 41],
+      popupAnchor: [1, -34],    
     });
 
     const newMarker = L.marker([evt.detail[0].latt, evt.detail[0].longt],{
