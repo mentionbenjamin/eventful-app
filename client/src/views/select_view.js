@@ -27,36 +27,34 @@ SelectView.prototype.bindEvents = function () {
     // sentence words
     sentenceTexts = document.getElementsByClassName('sentence-text');
     for (sentence of sentenceTexts) {
-      sentence.style.fontSize = "30px";
+      sentence.style.fontSize = "20px";
     };
     // events dropdown
     eventsDropdown = document.getElementsByClassName('custom-select');
     for (dropdown of eventsDropdown) {
-      dropdown.style.width = "157px";
-      dropdown.style.fontSize = "30px";
+      dropdown.style.width = "100px";
+      dropdown.style.fontSize = "20px";
     };
     // mindate & maxdate
     minDateStyle = document.getElementsByClassName('form-min-date');
-    minDateStyle[0].style.width = "171px";
-    minDateStyle[0].style.fontSize = "30px";
+    minDateStyle[0].style.width = "130px";
+    minDateStyle[0].style.fontSize = "20px";
     minDateStyle[0].style.paddingLeft = "0px";
     minDateStyle[0].style.textAlign = "left";
     maxDateStyle = document.getElementsByClassName('form-max-date');
-    maxDateStyle[0].style.width ="171px";
-    maxDateStyle[0].style.fontSize = "30px";
+    maxDateStyle[0].style.width ="130px";
+    maxDateStyle[0].style.fontSize = "20px";
     maxDateStyle[0].style.paddingLeft = "16px";
     maxDateStyle[0].style.paddingTop = "-10px";
     maxDateStyle[0].style.textAlign = "left";
     // location search
     formLocation = document.getElementsByClassName('form-location');
     formLocation[0].style.width = "250px";
-    formLocation[0].style.fontSize = "30px";
-    formLocation[0].style.paddingLeft = "14px";
-
+    formLocation[0].style.fontSize = "20px";
+    formLocation[0].style.paddingLeft = "6px";
+    // search/update button
     saveContainer = document.getElementsByClassName('save-container');
     saveContainer[0].style.float = "right";
-
-
     saveButton = document.getElementsByClassName('save-button');
     saveButton[0].style.fontSize = "11px";
     saveButton[0].textContent = "TWEAK";
