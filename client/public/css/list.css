@@ -59,8 +59,8 @@
 .list-venue {
   font: 13px helvetica;
   font-weight: 200;
-  margin-top: -9px;
-  margin-bottom: 7px;
+
+  width: 70%;
 }
 .tablinks {
   outline: none;

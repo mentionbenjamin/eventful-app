@@ -12,7 +12,7 @@ EventItemView.prototype.render = function (event) {
      console.log(event.target.innerHTML);
   });
 
-  const date = this.createTextElement('p', `Date: ${event.date}`);
+  const date = this.createTextElement('p', `${event.date}`);
   date.classList.add('list-date');
   eventContainer.appendChild(date);
 
