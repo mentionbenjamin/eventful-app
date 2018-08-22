@@ -6,12 +6,10 @@ const EventItemView = function() {
 };
 
 EventItemView.prototype.render = function (event) {
-<<<<<<< HEAD
-  const eventValues = [{latt:event.venue.latitude, longt: event.venue.longitude, eventname: event.venue.name, date: event.date, entryprice: event.entryprice, venue: event.venue.name, description:event.description, eventCode: event.eventCode, openingtimes: event.openingtimes.doorsopen}]
-=======
+
   const eventValues = [{latt:event.venue.latitude, longt: event.venue.longitude, eventname: event.venue.name, date: event.date, entryprice: event.entryprice, venue: event.venue.name, description:event.description, eventCode: event.eventCode, openingtimes: event.openingtimes.doorsopen, link: event.link}]
   console.log(event);
->>>>>>> feature/minor_bug_fixes
+
 
   const eventContainer = document.createElement('div');
   eventContainer.id = 'event-item';
