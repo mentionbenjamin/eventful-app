@@ -17,11 +17,10 @@ MapView.prototype.bindEvents = function () {
     // newMarker.addTo(myMap).on('click', onMapClick)
    });
 
-  // PubSub.subscribe('Events:saved-event-list', (evt) =>{
-  //  this.createMapSaved(evt.detail);
-  //  this.setMapMarkersSaved(evt.detail);
-  //
-  // });
+  PubSub.subscribe('Events:saved-event-list', (evt) =>{
+   this.setMapMarkersSaved(evt.detail);
+
+  });
 }
 
   MapView.prototype.createMap = function (eventData) {
