@@ -70,8 +70,7 @@ MapView.prototype.bindEvents = function () {
     eventMarker.eventType = eventInformation[i].EventCode;
     eventMarker.eventName =eventInformation[i].eventname;
     eventMarker.linkURL  = eventInformation[i].link;
-    eventMarker.eventImage = eventInformation[i].imageurl;
-    eventMarker.price = eventInformation[i].entryprice;
+    eventMarker.entryprice = eventInformation[i].entryprice;
     eventMarker.description = eventInformation[i].description;
     eventMarker.date = eventInformation[i].date;
     eventMarker.time = eventInformation[i].openingtimes;
@@ -89,6 +88,10 @@ MapView.prototype.bindEvents = function () {
     const savedMarkerLayer =  L.layerGroup().addTo(myMap);
     const venueLat = eventInformation[i].lat;
     const venueLongt = eventInformation[i].longt;
+    console.log(eventInformation);
+    console.log(venueLat);
+    console.log(venueLongt);
+
     const violetIcon = new L.Icon({
     	iconUrl: 'img/marker-icon-violet.png',
     	shadowUrl: 'img/marker-shadow.png',
@@ -104,12 +107,12 @@ MapView.prototype.bindEvents = function () {
       riseOffSet: 250
     })
     savedEventMarker.customId = Math.floor((Math.random() * 100) + 1);
-    savedEventMarker.venueName = eventInformation[i].venue;
+    savedEventMarker.venue = eventInformation[i].venue;
+
     savedEventMarker.eventType = eventInformation[i].EventCode;
     savedEventMarker.eventName =eventInformation[i].eventname;
     savedEventMarker.linkURL  = eventInformation[i].link;
-    savedEventMarker.eventImage = eventInformation[i].imageurl;
-    savedEventMarker.price = eventInformation[i].entryprice;
+    savedEventMarker.entryprice = eventInformation[i].entryprice;
     savedEventMarker.description = eventInformation[i].description;
     savedEventMarker.date = eventInformation[i].date;
     savedEventMarker.time = eventInformation[i].openingtimes;

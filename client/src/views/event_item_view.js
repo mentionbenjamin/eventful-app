@@ -19,8 +19,8 @@ EventItemView.prototype.render = function (event) {
   const date = this.createTextElement('p', `Date: ${event.date}`);
   eventContainer.appendChild(date);
 
-  const price = this.createTextElement('p', `Price: ${event.entryprice}`);
-  eventContainer.appendChild(price);
+  const entryprice = this.createTextElement('p', `Price: ${event.entryprice}`);
+  eventContainer.appendChild(entryprice);
 
   this.saveEvent(event, eventContainer);
 
@@ -42,14 +42,20 @@ EventItemView.prototype.saveEvent = function (event, container){
   container.appendChild(saveButton);
   saveButton.addEventListener('click', (evt)=>{
 
-    const newEvent = {
-      name: event.eventname,
-      venue: event.venue.name,
-      date: event.date,
-      price: event.entryprice,
-      lat: event.venue.latitude,
-      longt: event.venue.longitude
-    }
+      const newEvent = {
+        eventName: event.eventName,
+        description: event.description,
+        venue: event.venue,
+        date: event.date,
+        time: event.time,
+        entryprice: event.entryprice,
+        lat: event.venue.latitude,
+        longt: event.venue.longitude,
+        customId: event.customId,
+        venueName: event.venueName,
+        eventType: event.eventType,
+        linkURL:event.linkURL
+      }
 
     PubSub.publish('EventItemView:event-to-save-data', newEvent);
   });
