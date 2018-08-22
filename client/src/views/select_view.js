@@ -27,7 +27,7 @@ SelectView.prototype.bindEvents = function () {
     // sentence words
     sentenceTexts = document.getElementsByClassName('sentence-text');
     for (sentence of sentenceTexts) {
-      sentence.style.fontSize = "1.5em";
+      sentence.style.fontSize = "1.4em";
       sentence.style.paddingTop = "4px";
       sentence.style.paddingBottom = "4px";
 
@@ -41,33 +41,33 @@ SelectView.prototype.bindEvents = function () {
     eventsDropdown = document.getElementsByClassName('custom-select');
     for (dropdown of eventsDropdown) {
       dropdown.style.width = "5em";
-      dropdown.style.fontSize = "1.5em";
+      dropdown.style.fontSize = "1.4em";
     };
     // mindate & maxdate
     minDateStyle = document.getElementsByClassName('form-min-date');
     minDateStyle[0].style.width = "6.2em";
-    minDateStyle[0].style.fontSize = "1.5em";
+    minDateStyle[0].style.fontSize = "1.4em";
     minDateStyle[0].style.paddingLeft = "0px";
     minDateStyle[0].style.paddingTop = "0px";
     minDateStyle[0].style.paddingBottom = "0px";
     minDateStyle[0].style.textAlign = "left";
     maxDateStyle = document.getElementsByClassName('form-max-date');
     maxDateStyle[0].style.width = "6.2em";
-    maxDateStyle[0].style.fontSize = "1.5em";
+    maxDateStyle[0].style.fontSize = "1.4em";
     maxDateStyle[0].style.paddingLeft = "0.1em";
     maxDateStyle[0].style.paddingTop = "0px";
     maxDateStyle[0].style.paddingBottom = "0px";
     maxDateStyle[0].style.textAlign = "left";
     // location search
     formLocation = document.getElementsByClassName('form-location');
-    formLocation[0].style.width = "6.5em";
-    formLocation[0].style.fontSize = "1.5em";
+    formLocation[0].style.width = "6.3em";
+    formLocation[0].style.fontSize = "1.4em";
     formLocation[0].style.paddingLeft = "0px";
     // search/update button
     saveContainer = document.getElementsByClassName('save-container');
     saveContainer[0].style.float = "right";
     saveButton = document.getElementsByClassName('save-button');
-    saveButton[0].style.fontSize = "11px";
+    saveButton[0].style.fontSize = "0.55em";
     saveButton[0].textContent = "TWEAK";
 
     eventsContainer = document.getElementsByClassName('select-selected');
