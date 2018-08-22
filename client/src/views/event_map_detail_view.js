@@ -76,7 +76,7 @@ EventMapDetailView.prototype.renderEventDetails = function (event) {
 
     const entryPrice = document.createElement('p');
     entryPrice.classList.add("entry-price-info");
-    entryPrice.textContent = `${event.price}`;
+    entryPrice.textContent = `${event.entryprice}`;
     entryPriceContainer.appendChild(entryPrice);
 
 // ADDRESS INFO
