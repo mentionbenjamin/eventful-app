@@ -20,6 +20,20 @@ SelectView.prototype.bindEvents = function () {
     const mindate = event.target['mindate'].value;
     const maxdate = event.target['maxdate'].value;
     data = this.createData(category, location, mindate, maxdate);
+
+    pageGrid = document.getElementsByClassName('page-grid-container');
+    pageGrid[0].style.display = 'grid';
+    pageListContainer = document.getElementsByClassName('page-list-container');
+    pageListContainer[0].style.display = 'unset';
+    pageMapContainer = document.getElementsByClassName('page-map-container');
+    pageMapContainer[0].style.display = 'unset';
+    pageFormContainer = document.getElementsByClassName('page-form-container');
+    pageFormContainer[0].style.border = '11px solid #f3f3f3';
+
+
+
+
+
     if (document.getElementById('form') != null){
       document.getElementById('form').id = 'new-form';
     }
@@ -39,12 +53,12 @@ SelectView.prototype.bindEvents = function () {
 function styleSentences (sentenceClass) {
   sentenceTexts = document.getElementsByClassName(sentenceClass);
   for (sentence of sentenceTexts) {
-    sentence.style.fontSize = "1.4em";
+    sentence.style.fontSize = "2.5vw";
     sentence.style.paddingTop = "4px";
     sentence.style.paddingBottom = "4px";
   };
-  sentenceTexts[2].style.marginLeft = "-22px";
-  sentenceTexts[3].style.marginLeft = "-22px";
+  sentenceTexts[2].style.marginLeft = "-1.7vw";
+  sentenceTexts[3].style.marginLeft = "-1.7vw";
   sentenceTexts[3].style.marginRight = "0px";
 }
 
@@ -52,24 +66,24 @@ function styleDropDown (dropdownClass) {
   eventsDropdown = document.getElementsByClassName(dropdownClass);
   for (dropdown of eventsDropdown) {
     dropdown.style.width = "5em";
-    dropdown.style.fontSize = "1.4em";
+    dropdown.style.fontSize = "2.5vw";
   };
 }
 
 function styleDate (dateClass) {
-  minDateStyle = document.getElementsByClassName(dateClass);
-  minDateStyle[0].style.width = "6.2em";
-  minDateStyle[0].style.fontSize = "1.4em";
-  minDateStyle[0].style.paddingLeft = "0px";
-  minDateStyle[0].style.paddingTop = "0px";
-  minDateStyle[0].style.paddingBottom = "0px";
-  minDateStyle[0].style.textAlign = "left";
+  dateStyle = document.getElementsByClassName(dateClass);
+  dateStyle[0].style.width = "15vw";
+  dateStyle[0].style.fontSize = "2.5vw";
+  dateStyle[0].style.paddingLeft = "0px";
+  dateStyle[0].style.paddingTop = "0px";
+  dateStyle[0].style.paddingBottom = "0px";
+  dateStyle[0].style.textAlign = "left";
 }
 
 function styleLocation(locationClass) {
   formLocation = document.getElementsByClassName(locationClass);
   formLocation[0].style.width = "6.3em";
-  formLocation[0].style.fontSize = "1.4em";
+  formLocation[0].style.fontSize = "2.5vw";
   formLocation[0].style.paddingLeft = "0px";
 }
 
@@ -79,6 +93,9 @@ function styleSaveContainer(containerClass) {
   saveButton = document.getElementsByClassName('save-button');
   saveButton[0].style.fontSize = "0.55em";
   saveButton[0].textContent = "TWEAK";
+  saveButton[0].fontSize = "0.55em";
+  saveButton[0].position = "absolute";
+  saveButton[0].right = "6vw";
 }
 
 SelectView.prototype.populateSelect = function () {

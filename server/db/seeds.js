@@ -4,4 +4,4 @@ db.dropDatabase();
 
 db.eventsdv.insertMany([
 
-])
+]);

@@ -1,5 +1,5 @@
 #mapid {
-  height: 743px;
+  height: 74vh;
   overflow: hidden;
   margin: 0px 30px;
   border: 11px solid #f3f3f3;
@@ -24,9 +24,8 @@ body {
 .event-details-container {
    display: inline-grid;
    grid-template-columns: auto;
-   grid-template-rows: auto;
+   grid-auto-rows: minmax(100px, auto);
    grid-gap: 10px;
-   /* border: 10px solid #ff5e62; */
    background-color: white;
    z-index: 900;
    position: relative;
@@ -138,11 +137,9 @@ color: #ff5e62
   border: 3px solid #ff5e62;
   color: #ff5e62;
   font: helvetica;
-  font-size: 12px;
   font-weight: bold;
   padding: 10px 20px;
   margin: 5px 5px 5px 0px;
-  position: relative;
   text-transform: uppercase;
 }
 .save-button::after {

@@ -18,10 +18,6 @@ EventItemView.prototype.render = function (event) {
      PubSub.publish('EventItemView', evt.target.value);
   });
 
-  // const date = this.createTextElement('p', `Date: ${event.date}`);
-  // date.classList.add('list-date');
-  // eventContainer.appendChild(date);
-
   const eventName = this.createTextElement('h4', `Event: ${event.eventname}`);
   eventName.value = eventValues;
   eventContainer.appendChild(eventName);
