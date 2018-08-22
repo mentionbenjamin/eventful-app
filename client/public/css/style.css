@@ -1,7 +1,9 @@
 #mapid {
-  height: 500px;
+  height: 743px;
   overflow: hidden;
-  border: 5px solid white;
+  margin: 0px 30px;
+  border: 11px solid #f3f3f3;
+
 }
 
 body {
@@ -28,7 +30,7 @@ body {
    background-color: white;
    z-index: 900;
    position: relative;
-   bottom: 500px;
+   bottom: 520px;
    grid-column-start: 4;
    grid-column-end: 12;
 }

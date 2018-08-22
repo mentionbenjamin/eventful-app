@@ -15,7 +15,6 @@ SavedEventView.prototype.bindEvents = function(){
       favourites.innerHTML = ""
       // this.container.innerHTML = " "
       this.render(savedEvents);
-      console.log(evt);
     });
   });
 }
@@ -24,7 +23,6 @@ SavedEventView.prototype.render = function(events){
   for(var i = 0; i< events.length; i++){
 
     const favourites = document.getElementById('favourites');
-
 
     savedDiv = document.createElement('div');
     savedDiv.id = "saved-items";

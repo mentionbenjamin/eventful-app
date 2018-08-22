@@ -24,7 +24,7 @@ MapView.prototype.bindEvents = function () {
     const longt = eventData[0].venue.longitude;
     myMap = L.map('mapid', {
     center: [54.297293, -1.296386],
-    zoom: 5
+    zoom: 10
   }).flyTo([latt, longt], 11, true, 6);
   // myMap.flyTo([latt,longt],{
   //   animate: true,
@@ -78,6 +78,13 @@ MapView.prototype.bindEvents = function () {
 
 
     eventMarker.addTo(markerLayer).on('click', onMapClick)
+    eventMarker.bindPopup(`Event: ${eventMarker.eventName} | click for full details`);
+    eventMarker.on('mouseover', function(e){
+      this.openPopup();
+    });
+    eventMarker.on('mouseout', function(e){
+      this.closePopup();
+    });
     }
   };
 

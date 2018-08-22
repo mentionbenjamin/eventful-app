@@ -35,7 +35,7 @@ app.get('/events/:lat/:long/:category/:mindate/:maxdate' , function(req, res){
    const mindate = req.params.mindate;
    const maxdate = req.params.maxdate;
 
- const url = `https://www.skiddle.com/api/v1/events/search/?api_key=${apiKey.apiKey}&limit=100&order=goingto&latitude=${lat}&longitude=${long}&radius=10&eventcode=${category}&minDate=${mindate}&maxDate=${maxdate}`;
+ const url = `https://www.skiddle.com/api/v1/events/search/?api_key=${apiKey.apiKey}&limit=100&order=goingto&latitude=${lat}&longitude=${long}&radius=7&eventcode=${category}&minDate=${mindate}&maxDate=${maxdate}`;
 
  fetch(url)
  .then(res =>  res.json())
