@@ -31,8 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
   savedEventView.bindEvents();
 
   const events = new Events();
-
-  // events.getData('Manchester');
   events.bindEvents();
   // events.getSavedData();
 
