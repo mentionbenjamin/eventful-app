@@ -294,5 +294,28 @@ button {
   grid-row: 2/3;
   grid-column: 4/12;
   max-width: 100%;
+}
+
+
+
+
+.event-details-container {
+  grid-row: 2/3;
+  grid-column: 4/12;
+  max-width: 100%;
   height: 70%;
+  background-color: white;
+  z-index: 900;
+  position: relative;
+  bottom: 500px;
+}
+.event-details {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-gap: 10px;
+  border: 10px solid #ff5e62;
+  background-color: white;
+  z-index: 1000;
+  /* min-height: 400px; */
 }

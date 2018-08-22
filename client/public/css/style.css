@@ -3,7 +3,6 @@
   overflow: hidden;
   margin: 0px 30px;
   border: 11px solid #f3f3f3;
-
 }
 
 body {
@@ -21,7 +20,7 @@ body {
 
 /* Styling event map detail View (Fancy Popup) */
 
-.event-details-container {
+/* .event-details-container {
    display: inline-grid;
    grid-template-columns: auto;
    grid-auto-rows: minmax(100px, auto);
@@ -32,8 +31,8 @@ body {
    bottom: 520px;
    grid-column-start: 4;
    grid-column-end: 12;
-}
- .event-details {
+} */
+ /* .event-details {
    display: grid;
    grid-template-columns: auto;
    grid-template-rows: auto;
@@ -42,7 +41,7 @@ body {
    background-color: white;
    z-index: 1000;
    min-height: 400px;
- }
+ } */
  .event-details > div {
    max-height: 500px;
  }
