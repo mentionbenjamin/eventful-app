@@ -54,13 +54,13 @@ SelectView.prototype.bindEvents = function () {
     maxDateStyle = document.getElementsByClassName('form-max-date');
     maxDateStyle[0].style.width = "6.2em";
     maxDateStyle[0].style.fontSize = "1.5em";
-    maxDateStyle[0].style.paddingLeft = "2px";
+    maxDateStyle[0].style.paddingLeft = "0.1em";
     maxDateStyle[0].style.paddingTop = "0px";
     maxDateStyle[0].style.paddingBottom = "0px";
     maxDateStyle[0].style.textAlign = "left";
     // location search
     formLocation = document.getElementsByClassName('form-location');
-    formLocation[0].style.width = "160px";
+    formLocation[0].style.width = "6.5em";
     formLocation[0].style.fontSize = "1.5em";
     formLocation[0].style.paddingLeft = "0px";
     // search/update button
