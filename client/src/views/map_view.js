@@ -71,29 +71,29 @@ MapView.prototype.bindEvents = function () {
     const markerLayer =  L.layerGroup().addTo(myMap);
     const venueLat = eventInformation[i].venue.latitude;
     const venueLongt = eventInformation[i].venue.longitude;
-    const eventMarker = L.marker([venueLat, venueLongt],{
+        const newMarker = L.marker([venueLat, venueLongt],{
       opacity: 1,
       riseOnHover: true,
       riseOffSet: 250
     })
-    eventMarker.customId = Math.floor((Math.random() * 100) + 1);
-    eventMarker.venue = eventInformation[i].venue;
-    eventMarker.eventType = eventInformation[i].EventCode;
-    eventMarker.eventName =eventInformation[i].eventname;
-    eventMarker.linkURL  = eventInformation[i].link;
-    eventMarker.entryprice = eventInformation[i].entryprice;
-    eventMarker.description = eventInformation[i].description;
-    eventMarker.date = eventInformation[i].date;
-    eventMarker.time = eventInformation[i].openingtimes;
+        newMarker.customId = Math.floor((Math.random() * 100) + 1);
+        newMarker.venue = eventInformation[i].venue;
+        newMarker.eventType = eventInformation[i].EventCode;
+        newMarker.eventName =eventInformation[i].eventname;
+        newMarker.linkURL  = eventInformation[i].link;
+        newMarker.entryprice = eventInformation[i].entryprice;
+        newMarker.description = eventInformation[i].description;
+        newMarker.date = eventInformation[i].date;
+        newMarker.time = eventInformation[i].openingtimes;
 
 
 
-    eventMarker.addTo(markerLayer).on('click', onMapClick)
-    eventMarker.bindPopup(`Event: ${eventMarker.eventName} | click for full details`);
-    eventMarker.on('mouseover', function(e){
+        newMarker.addTo(markerLayer).on('click', onMapClick)
+            newMarker.bindPopup(`Event: ${newMarker.eventName} | click for full details`);
+        newMarker.on('mouseover', function(e){
       this.openPopup();
     });
-    eventMarker.on('mouseout', function(e){
+        newMarker.on('mouseout', function(e){
       this.closePopup();
     });
     }
@@ -119,6 +119,17 @@ MapView.prototype.setMapMarkersClicked  = function (eventData){
   riseOnHover: true,
   riseOffSet: 250
 })
+
+    newMarker.customId = Math.floor((Math.random() * 100) + 1);
+    newMarker.venue = eventData.detail[0].venue;
+    newMarker.eventType = eventData.detail[0].EventCode;
+    newMarker.eventName =eventData.detail[0].eventname;
+    newMarker.linkURL  = eventData.detail[0].link;
+    newMarker.entryprice = eventData.detail[0].entryprice;
+    newMarker.description = eventData.detail[0].description;
+    newMarker.date = eventData.detail[0].date;
+    newMarker.time = eventData.detail[0].openingtimes;
+
   console.log(newMarker);
 
 
