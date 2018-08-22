@@ -11,9 +11,8 @@ SelectView.prototype.bindEvents = function () {
   this.populateCityList(cities.cityList);
   PubSub.subscribe('Events:event-data-loaded', (evt) => {
     const events = evt.detail;
-    console.log(events);
-
   })
+  
   this.element.addEventListener('submit', (evt) => {
     evt.preventDefault();
     const category = event.target['category'].value;
@@ -24,7 +23,6 @@ SelectView.prototype.bindEvents = function () {
     if (document.getElementById('form') != null){
       document.getElementById('form').id = 'new-form';
     }
-    // sentence words
 
     styleSentences('sentence-text');
     styleDropDown('custom-select');
@@ -34,7 +32,6 @@ SelectView.prototype.bindEvents = function () {
     styleSaveContainer('save-container');
 
     PubSub.publish('SelectView:form-input-submitted', data);
-
   })
 
 };
