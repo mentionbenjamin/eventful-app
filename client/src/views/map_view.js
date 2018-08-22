@@ -79,7 +79,7 @@ MapView.prototype.bindEvents = function () {
         newMarker.customId = Math.floor((Math.random() * 100) + 1);
         newMarker.venue = eventInformation[i].venue;
         newMarker.eventType = eventInformation[i].EventCode;
-        newMarker.eventName =eventInformation[i].eventname;
+        newMarker.eventname =eventInformation[i].eventname;
         newMarker.linkURL  = eventInformation[i].link;
         newMarker.entryprice = eventInformation[i].entryprice;
         newMarker.description = eventInformation[i].description;
@@ -89,7 +89,7 @@ MapView.prototype.bindEvents = function () {
 
 
         newMarker.addTo(markerLayer).on('click', onMapClick)
-            newMarker.bindPopup(`Event: ${newMarker.eventName} | click for full details`);
+            newMarker.bindPopup(`Event: ${newMarker.eventname} | click for full details`);
         newMarker.on('mouseover', function(e){
       this.openPopup();
     });
@@ -123,7 +123,7 @@ MapView.prototype.setMapMarkersClicked  = function (eventData){
     newMarker.customId = Math.floor((Math.random() * 100) + 1);
     newMarker.venue = eventData.detail[0].venue;
     newMarker.eventType = eventData.detail[0].EventCode;
-    newMarker.eventName =eventData.detail[0].eventname;
+    newMarker.eventname =eventData.detail[0].eventname;
     newMarker.linkURL  = eventData.detail[0].link;
     newMarker.entryprice = eventData.detail[0].entryprice;
     newMarker.description = eventData.detail[0].description;
@@ -167,7 +167,7 @@ MapView.prototype.setMapMarkersClicked  = function (eventData){
     savedEventMarker.venue = eventInformation[i].venue;
 
     savedEventMarker.eventType = eventInformation[i].EventCode;
-    savedEventMarker.eventName =eventInformation[i].eventname;
+    savedEventMarker.eventname =eventInformation[i].eventname;
     savedEventMarker.linkURL  = eventInformation[i].link;
     savedEventMarker.entryprice = eventInformation[i].entryprice;
     savedEventMarker.description = eventInformation[i].description;

@@ -29,9 +29,15 @@ SavedEventView.prototype.render = function(events){
     favourites.appendChild(savedDiv);
 
     console.log(events[i]);
+<<<<<<< HEAD
     const eventName = document.createElement('p');
     eventName.textContent = `Event: ${events[i].eventname}`;
     savedDiv.appendChild(eventName);
+=======
+    const eventname = document.createElement('p');
+    eventname.textContent = `${events[i].eventname}`;
+    savedDiv.appendChild(eventname);
+>>>>>>> e55244995df28d817ca32068faacbb648cc872fb
 
     const eventVenue = document.createElement('p');
     eventVenue.textContent = `Venue: ${events[i].venue.name}`;

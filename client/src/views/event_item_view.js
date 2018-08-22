@@ -18,10 +18,10 @@ EventItemView.prototype.render = function (event) {
      PubSub.publish('EventItemView', evt.target.value);
   });
 
-  const eventName = this.createTextElement('h4', `Event: ${event.eventname}`);
-  eventName.value = eventValues;
-  eventContainer.appendChild(eventName);
-  eventName.addEventListener('click', (evt) =>{
+  const eventname = this.createTextElement('h4', `${event.eventname}`);
+  eventname.value = eventValues;
+  eventContainer.appendChild(eventname);
+  eventname.addEventListener('click', (evt) =>{
     console.log(evt.target.value);
   });
 
