@@ -52,13 +52,14 @@ SelectView.prototype.bindEvents = function () {
     // minDateStyle[0].style.paddingTop = "0px";
     // minDateStyle[0].style.paddingBottom = "0px";
     // minDateStyle[0].style.textAlign = "left";
-    maxDateStyle = document.getElementsByClassName('form-max-date');
-    maxDateStyle[0].style.width = "6.2em";
-    maxDateStyle[0].style.fontSize = "1.4em";
-    maxDateStyle[0].style.paddingLeft = "0.1em";
-    maxDateStyle[0].style.paddingTop = "0px";
-    maxDateStyle[0].style.paddingBottom = "0px";
-    maxDateStyle[0].style.textAlign = "left";
+    styleMaxDate('form-max-date');
+    // maxDateStyle = document.getElementsByClassName('form-max-date');
+    // maxDateStyle[0].style.width = "6.2em";
+    // maxDateStyle[0].style.fontSize = "1.4em";
+    // maxDateStyle[0].style.paddingLeft = "0.1em";
+    // maxDateStyle[0].style.paddingTop = "0px";
+    // maxDateStyle[0].style.paddingBottom = "0px";
+    // maxDateStyle[0].style.textAlign = "left";
     // location search
     formLocation = document.getElementsByClassName('form-location');
     formLocation[0].style.width = "6.3em";
@@ -90,6 +91,16 @@ function styleMinDate (minDateClass) {
   minDateStyle[0].style.paddingTop = "0px";
   minDateStyle[0].style.paddingBottom = "0px";
   minDateStyle[0].style.textAlign = "left";
+}
+
+function styleMaxDate(maxDateClass) {
+  maxDateStyle = document.getElementsByClassName(maxDateClass);
+  maxDateStyle[0].style.width = "6.2em";
+  maxDateStyle[0].style.fontSize = "1.4em";
+  maxDateStyle[0].style.paddingLeft = "0.1em";
+  maxDateStyle[0].style.paddingTop = "0px";
+  maxDateStyle[0].style.paddingBottom = "0px";
+  maxDateStyle[0].style.textAlign = "left";
 }
 
 SelectView.prototype.populateSelect = function () {
