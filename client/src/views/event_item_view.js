@@ -33,9 +33,9 @@ EventItemView.prototype.createTextElement = function (elementType, text) {
 };
 
 EventItemView.prototype.saveEvent = function (event, container){
-  const saveButton = document.createElement('i')
-  saveButton.classList.add('material-icons');
-  saveButton.innerHTML = "star-rate";
+  const saveButton = document.createElement('p')
+  saveButton.classList.add('save-icon');
+  saveButton.innerHTML = "S";
   saveButton.value = event;
 
   container.appendChild(saveButton);

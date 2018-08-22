@@ -2,7 +2,7 @@
   max-height: 500px;
   max-height: 500px;
   margin: 0px 0px 30px 30px;
-  border: 11px solid #dcdcdc;
+  border: 11px solid #f3f3f3;
 }
 #event-item {
   padding-left: 30px;
@@ -81,8 +81,6 @@
 #defaultOpen {
   margin-left: 30px;
 }
-.material-icons:hover {
-  text-decoration: none;
-  position: relative;
-  top: 4px;
+.save-icon {
+  margin: 0;
 }

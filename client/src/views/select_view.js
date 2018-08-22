@@ -66,7 +66,7 @@ SelectView.prototype.bindEvents = function () {
     saveButton[0].textContent = "TWEAK";
 
     eventsContainer = document.getElementsByClassName('select-selected');
-    eventsContainer[0].style.height = "0px";
+    // eventsContainer[0].style.height = "0px";
 
 
 
