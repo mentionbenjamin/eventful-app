@@ -69,7 +69,6 @@ EventListView.prototype.renderList = function(items) {
   resultsTab.click();
   savedTab.addEventListener('click', (evt) => {
     PubSub.publish('EventListView:saved-list-tab-clicked', evt);
-    console.log(evt);
   })
 };
 

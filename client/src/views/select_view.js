@@ -12,7 +12,7 @@ SelectView.prototype.bindEvents = function () {
   PubSub.subscribe('Events:event-data-loaded', (evt) => {
     const events = evt.detail;
   })
-  
+
   this.element.addEventListener('submit', (evt) => {
     evt.preventDefault();
     const category = event.target['category'].value;
@@ -26,8 +26,8 @@ SelectView.prototype.bindEvents = function () {
 
     styleSentences('sentence-text');
     styleDropDown('custom-select');
-    styleMinDate('form-min-date');
-    styleMaxDate('form-max-date');
+    styleDate('form-min-date');
+    styleDate('form-max-date');
     styleLocation('form-location');
     styleSaveContainer('save-container');
 
@@ -56,24 +56,14 @@ function styleDropDown (dropdownClass) {
   };
 }
 
-function styleMinDate (minDateClass) {
-  minDateStyle = document.getElementsByClassName(minDateClass);
+function styleDate (dateClass) {
+  minDateStyle = document.getElementsByClassName(dateClass);
   minDateStyle[0].style.width = "6.2em";
   minDateStyle[0].style.fontSize = "1.4em";
   minDateStyle[0].style.paddingLeft = "0px";
   minDateStyle[0].style.paddingTop = "0px";
   minDateStyle[0].style.paddingBottom = "0px";
   minDateStyle[0].style.textAlign = "left";
-}
-
-function styleMaxDate(maxDateClass) {
-  maxDateStyle = document.getElementsByClassName(maxDateClass);
-  maxDateStyle[0].style.width = "6.2em";
-  maxDateStyle[0].style.fontSize = "1.4em";
-  maxDateStyle[0].style.paddingLeft = "0.1em";
-  maxDateStyle[0].style.paddingTop = "0px";
-  maxDateStyle[0].style.paddingBottom = "0px";
-  maxDateStyle[0].style.textAlign = "left";
 }
 
 function styleLocation(locationClass) {
