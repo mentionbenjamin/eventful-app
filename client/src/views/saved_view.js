@@ -22,32 +22,53 @@ SavedEventView.prototype.bindEvents = function(){
 SavedEventView.prototype.render = function(events){
   for(var i = 0; i< events.length; i++){
 
+    savedDiv = document.createElement('div');
     const favourites = document.getElementById('favourites');
 
-    savedDiv = document.createElement('div');
     savedDiv.id = "saved-items";
     favourites.appendChild(savedDiv);
 
-    console.log(events[i]);
-    const eventName = document.createElement('p');
-    eventName.textContent = `Event: ${events[i].eventName}`;
+
+    const date = this.createTextElement('p', `${events[i].date}`);
+    date.classList.add('list-date');
+    savedDiv.appendChild(date);
+
+    const eventName = this.createTextElement('p', `${events[i].minage}`);
+    eventName.classList.add('list-event-name');
     savedDiv.appendChild(eventName);
 
-    const eventVenue = document.createElement('p');
-    eventVenue.textContent = `Venue: ${events[i].venue.name}`;
-    savedDiv.appendChild(eventVenue);
-
-
-    const entryprice = document.createElement('p');
-    entryprice.textContent = `Price: ${events[i].entryprice}`;
-    savedDiv.appendChild(entryprice);
+    const venue = this.createTextElement('p', `${events[i].venue.name}`);
+    venue.classList.add('list-venue');
+    savedDiv.appendChild(venue);
 
     this.createDeleteButton(events[i]._id, savedDiv);
 
-    this.appenedLine(savedDiv);
+
+    //
+    // console.log(events[i]);
+    // const eventName = document.createElement('p');
+    // eventName.textContent = `Event: ${events[i].eventName}`;
+    // savedDiv.appendChild(eventName);
+    //
+    // const eventVenue = document.createElement('p');
+    // eventVenue.textContent = `Venue: ${events[i].venue.name}`;
+    // savedDiv.appendChild(eventVenue);
+    //
+    //
+    //
+    // this.createDeleteButton(events[i]._id, savedDiv);
+    //
+    // this.appenedLine(savedDiv);
   }
   return savedDiv;
 };
+
+SavedEventView.prototype.createTextElement = function (elementType, text) {
+  const element = document.createElement(elementType);
+  element.textContent = text;
+  return element;
+};
+
 
 SavedEventView.prototype.createDeleteButton = function(eventId, container){
   const deleteButton = document.createElement('i');
@@ -62,9 +83,9 @@ SavedEventView.prototype.createDeleteButton = function(eventId, container){
   });
 }
 
-SavedEventView.prototype.appenedLine = function(container){
-  const line = document.createElement('hr');
-  container.appendChild(line);
-};
+// SavedEventView.prototype.appenedLine = function(container){
+//   const line = document.createElement('hr');
+//   container.appendChild(line);
+// };
 
 module.exports = SavedEventView;
