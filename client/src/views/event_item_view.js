@@ -17,9 +17,9 @@ EventItemView.prototype.render = function (event) {
      PubSub.publish('EventItemView', evt);
   });
 
-  const date = this.createTextElement('p', `Date: ${event.date}`);
-  date.classList.add('list-date');
-  eventContainer.appendChild(date);
+  // const date = this.createTextElement('p', `Date: ${event.date}`);
+  // date.classList.add('list-date');
+  // eventContainer.appendChild(date);
 
   const eventName = this.createTextElement('h4', `Event: ${event.eventname}`);
   eventName.value = eventValues;
@@ -38,6 +38,7 @@ EventItemView.prototype.render = function (event) {
 
   const price = this.createTextElement('p', `Price: ${event.entryprice}`);
   eventContainer.appendChild(price);
+  date.classList.add('list-date');
   price.value = eventValues;
 
   this.saveEvent(event, eventContainer);
