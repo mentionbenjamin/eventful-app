@@ -6,7 +6,7 @@ const EventItemView = function() {
 };
 
 EventItemView.prototype.render = function (event) {
-  const eventValues = [{coordinates:[event.venue.latitude, event.venue.longitude], eventname: event.venue.name, date: event.date, eventprice: event.entryprice, venue: event.venue.name, description:event.description, openingtimes: event.openingtimes, eventCode: event.eventCode}]
+  const eventValues = [{latt:event.venue.latitude, longt: event.venue.longitude, eventname: event.venue.name, date: event.date, entryprice: event.entryprice, venue: event.venue.name, description:event.description, openingtimes: event.openingtimes, eventCode: event.eventCode}, ]
 
   const eventContainer = document.createElement('div');
   eventContainer.id = 'event-item';
@@ -14,7 +14,7 @@ EventItemView.prototype.render = function (event) {
 
   eventContainer.addEventListener('click', (evt) =>{
      console.log(evt.target.value);
-     PubSub.publish('EventItemView', evt);
+     PubSub.publish('EventItemView', evt.target.value);
   });
 
   // const date = this.createTextElement('p', `Date: ${event.date}`);

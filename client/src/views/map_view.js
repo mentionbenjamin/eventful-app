@@ -12,9 +12,23 @@ MapView.prototype.bindEvents = function () {
   });
 
   PubSub.subscribe('EventItemView', (evt) => {
-    console.log(evt.detail.path[0].value);
-    const newMarker = L.marker(evt.detail.path[0].value[0])
-    // newMarker.addTo(myMap).on('click', onMapClick)
+    const violetIcon = new L.Icon({
+      iconUrl: 'img/marker-icon-red.png',
+      shadowUrl: 'img/marker-shadow.png',
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41]
+    });
+
+    const newMarker = L.marker([evt.detail[0].latt, evt.detail[0].longt],{
+      icon: violetIcon,
+      opacity: 1,
+      riseOnHover: true,
+      riseOffSet: 250
+    }
+    )
+    newMarker.addTo(myMap).on('click', onMapClick)
    });
 
   PubSub.subscribe('Events:saved-event-list', (evt) =>{
