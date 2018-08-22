@@ -22,6 +22,7 @@ MapView.prototype.bindEvents = function () {
 
   PubSub.subscribe('Events:saved-event-list', (evt) =>{
    this.setMapMarkersSaved(evt.detail);
+   console.log(evt.detail);
   });
 }
 
@@ -131,7 +132,7 @@ MapView.prototype.setMapMarkersClicked  = function (eventData){
       riseOnHover: true,
       riseOffSet: 250
     })
-    savedEventMarker.customId = Math.floor((Math.random() * 100) + 1);
+    savedEventMarker.customId = eventInformation[i]._id;
     savedEventMarker.venue = eventInformation[i].venue;
 
     savedEventMarker.eventType = eventInformation[i].EventCode;
