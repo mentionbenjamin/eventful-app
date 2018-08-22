@@ -7,14 +7,12 @@ const EventItemView = function() {
 
 EventItemView.prototype.render = function (event) {
   const eventValues = [{latt:event.venue.latitude, longt: event.venue.longitude, eventname: event.venue.name, date: event.date, entryprice: event.entryprice, venue: event.venue.name, description:event.description, eventCode: event.eventCode, openingtimes: event.openingtimes.doorsopen}]
-  console.log(event);
 
   const eventContainer = document.createElement('div');
   eventContainer.id = 'event-item';
   eventContainer.value = eventValues;
 
   eventContainer.addEventListener('click', (evt) =>{
-     console.log(evt.target.value);
      PubSub.publish('EventItemView', evt.target.value);
   });
 
@@ -22,7 +20,6 @@ EventItemView.prototype.render = function (event) {
   eventname.value = eventValues;
   eventContainer.appendChild(eventname);
   eventname.addEventListener('click', (evt) =>{
-    console.log(evt.target.value);
   });
 
   const venue = this.createTextElement('p',`Venue: ${event.venue.name}`);
@@ -65,7 +62,7 @@ EventItemView.prototype.saveEvent = function (event, container){
         date: event.date,
         time: event.time,
         entryprice: event.entryprice,
-        lat: event.venue.latitude,
+        latt: event.venue.latitude,
         longt: event.venue.longitude,
         customId: event.customId,
         venueName: event.venueName,

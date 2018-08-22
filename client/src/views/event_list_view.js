@@ -10,11 +10,9 @@ EventListView.prototype.bindEvents = function() {
   PubSub.subscribe('Events:event-data-loaded', (evt) => {
     const items = evt.detail;
     this.renderList(items);
-    // this.detailsOnClick();
   });
   PubSub.subscribe('Events:saved-event-list', (evt) => {
     savedEvents = this.renderSavedItems(evt.detail);
-    console.log(savedEvents);
     return savedEvents;
   })
 };

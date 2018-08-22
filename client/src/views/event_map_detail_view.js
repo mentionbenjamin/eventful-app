@@ -9,7 +9,6 @@ EventMapDetailView.prototype.bindEvents = function () {
 
   PubSub.subscribe('MapView:pin-click', (event) => {
     this.renderEventDetails(event.detail);
-    console.log(event.detail);
   })
   PubSub.subscribe('EventListView: selected-event-clicked', (evt)=>{
     this.renderEventDetails(evt.detail);
@@ -17,7 +16,6 @@ EventMapDetailView.prototype.bindEvents = function () {
 }
 
 EventMapDetailView.prototype.renderEventDetails = function (event) {
-  console.log(event);
     this.container.innerHTML = " ";
 
     const detailsDiv = document.createElement('div');
@@ -59,7 +57,6 @@ EventMapDetailView.prototype.renderEventDetails = function (event) {
     dateTimeContainer.appendChild(dateTimeTitle);
 
     const dateInfo = this.createTextElement('p', event.date);
-    // console.log(event.);
     const timeInfo = this.createTextElement('p', event.time.doorsopen);
 
     dateTimeContainer.appendChild(dateInfo);
@@ -142,7 +139,6 @@ EventMapDetailView.prototype.saveEvent = function (event, container){
   saveButton.classList.add("save-button");
   saveButton.textContent = "Save";
   saveButton.value = event;
-  console.log(saveButton.value[0]);
   container.appendChild(saveButton);
   saveButton.addEventListener('click', (evt)=>{
 
@@ -153,7 +149,7 @@ EventMapDetailView.prototype.saveEvent = function (event, container){
       date: event.date,
       time: event.time,
       entryprice: event.entryprice,
-      lat: event.venue.latitude,
+      latt: event.venue.latitude,
       longt: event.venue.longitude,
       customId: event.customId,
       venueName: event.venueName,
@@ -162,7 +158,6 @@ EventMapDetailView.prototype.saveEvent = function (event, container){
     }
 
     PubSub.publish('EventItemView:event-to-save-data', newEvent);
-    console.log(newEvent);
   });
   return container;
 }

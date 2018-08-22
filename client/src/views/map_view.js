@@ -15,9 +15,6 @@ MapView.prototype.bindEvents = function () {
   });
 
   PubSub.subscribe('EventItemView', (evt) => {
-    // if(newMarker != undefined){
-    //   myMap.removeLayer(clickedMarkerLayer);
-    // }
      this.setMapMarkersClicked(evt)
   });
 
@@ -25,7 +22,6 @@ MapView.prototype.bindEvents = function () {
 
   PubSub.subscribe('Events:saved-event-list', (evt) =>{
    this.setMapMarkersSaved(evt.detail);
-
   });
 }
 
@@ -37,31 +33,11 @@ MapView.prototype.bindEvents = function () {
     center: [54.297293, -1.296386],
     zoom: 10
   }).flyTo([latt, longt], 11, true, 6);
-  // myMap.flyTo([latt,longt],{
-  //   animate: true,
-  //   duation: 1
-  // });
 
   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(myMap);
   };
-
-
-  // MapView.prototype.createMapSaved = function (eventData) {
-  //   document.getElementById('map-container').innerHTML = "<div id ='mapid'></div>"
-  //   const latt = eventData[0].lat;
-  //   const longt = eventData[0].longt;
-  //   myMap = L.map('mapid', {
-  //   center: [latt, longt],
-  //   zoom: 10
-  // }).flyTo([latt,longt])
-  // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-  //       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-  //   }).addTo(myMap);
-  // };
-
-
 
   MapView.prototype.setMapMarkers = function (eventData) {
 
@@ -112,7 +88,6 @@ MapView.prototype.setMapMarkersClicked  = function (eventData){
     popupAnchor: [1, -34],
   });
 
-  console.log(eventData.detail[0].latt);
   const newMarker = L.marker([eventData.detail[0].latt, eventData.detail[0].longt],{
   icon: redIcon,
   opacity: 1,
@@ -130,23 +105,16 @@ MapView.prototype.setMapMarkersClicked  = function (eventData){
     newMarker.date = eventData.detail[0].date;
     newMarker.time = eventData.detail[0].openingtimes;
 
-  console.log(newMarker);
-
-
-
   newMarker.addTo(this.clickedMarkerLayer).on('click', onMapClick)
  };
 
   MapView.prototype.setMapMarkersSaved = function (eventData) {
     const eventInformation = eventData;
-    console.log(eventInformation);
     for(var i = 0; i <eventInformation.length; i++){
     const savedMarkerLayer =  L.layerGroup().addTo(myMap);
-    const venueLat = eventInformation[i].lat;
+    console.log(eventInformation[i]);
+    const venueLat = eventInformation[i].latt;
     const venueLongt = eventInformation[i].longt;
-    console.log(eventInformation);
-    console.log(venueLat);
-    console.log(venueLongt);
 
     const violetIcon = new L.Icon({
     	iconUrl: 'img/marker-icon-violet.png',
@@ -179,14 +147,7 @@ MapView.prototype.setMapMarkersClicked  = function (eventData){
   };
 
 
-// MapView.prototype.methodName = function () {
-//
-// };
-
-
-
   function onMapClick(e) {
-    console.log(e);
     PubSub.publish('MapView:pin-click', e.target);
   }
 

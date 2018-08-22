@@ -28,7 +28,6 @@ SavedEventView.prototype.render = function(events){
     savedDiv.id = "saved-items";
     favourites.appendChild(savedDiv);
 
-    console.log(events[i]);
     const eventname = document.createElement('p');
     eventname.textContent = `${events[i].eventname}`;
     savedDiv.appendChild(eventname);
