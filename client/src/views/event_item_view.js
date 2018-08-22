@@ -12,7 +12,7 @@ EventItemView.prototype.render = function (event) {
      console.log(event.target.innerHTML);
   });
 
-  const date = this.createTextElement('p', `${event.date}`);
+  const date = this.createTextElement('p', `Date: ${event.date}`);
   date.classList.add('list-date');
   eventContainer.appendChild(date);
 
@@ -23,9 +23,6 @@ EventItemView.prototype.render = function (event) {
   const venue = this.createTextElement('p',`${event.venue.name}`);
   venue.classList.add('list-venue');
   eventContainer.appendChild(venue);
-
-  const date = this.createTextElement('p', `Date: ${event.date}`);
-  eventContainer.appendChild(date);
 
   const entryprice = this.createTextElement('p', `Price: ${event.entryprice}`);
   eventContainer.appendChild(entryprice);
