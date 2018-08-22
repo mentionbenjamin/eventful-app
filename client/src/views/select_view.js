@@ -21,6 +21,15 @@ SelectView.prototype.bindEvents = function () {
     const mindate = event.target['mindate'].value;
     const maxdate = event.target['maxdate'].value;
     data = this.createData(category, location, mindate, maxdate);
+
+    pageGrid = document.getElementsByClassName('page-grid-container');
+    pageGrid[0].style.display = 'grid';
+    pageListContainer = document.getElementsByClassName('page-list-container');
+    pageListContainer[0].style.display = 'unset';
+    pageMapContainer = document.getElementsByClassName('page-map-container');
+    pageMapContainer[0].style.display = 'unset';
+
+
     if (document.getElementById('form') != null){
       document.getElementById('form').id = 'new-form';
     }

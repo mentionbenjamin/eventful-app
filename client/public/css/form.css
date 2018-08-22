@@ -282,7 +282,7 @@ button {
 
 
 .page-grid-container {
-  display: grid;
+  /* display: grid; */
   grid-template-columns: repeat( auto-fit, minmax(105px, 1fr) );
   width: 100vw;
   /* height: 100vh; */
