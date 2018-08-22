@@ -6,7 +6,8 @@ const EventItemView = function() {
 };
 
 EventItemView.prototype.render = function (event) {
-  const eventValues = [{latt:event.venue.latitude, longt: event.venue.longitude, eventname: event.venue.name, date: event.date, entryprice: event.entryprice, venue: event.venue.name, description:event.description, openingtimes: event.openingtimes, eventCode: event.eventCode}, ]
+  const eventValues = [{latt:event.venue.latitude, longt: event.venue.longitude, eventname: event.venue.name, date: event.date, entryprice: event.entryprice, venue: event.venue.name, description:event.description, eventCode: event.eventCode, openingtimes: event.openingtimes.doorsopen}]
+  console.log(event);
 
   const eventContainer = document.createElement('div');
   eventContainer.id = 'event-item';

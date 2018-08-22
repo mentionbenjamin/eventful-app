@@ -2,7 +2,10 @@ const PubSub = require('../helpers/pub_sub.js');
 const linkifyjsHtml = require('linkifyjs/html');
 const MapView = function (container) {
   this.container = container;
+  this.clickedMarkerLayer = null;
+
 }
+
 
 MapView.prototype.bindEvents = function () {
 
@@ -12,22 +15,13 @@ MapView.prototype.bindEvents = function () {
   });
 
   PubSub.subscribe('EventItemView', (evt) => {
-    const violetIcon = new L.Icon({
-      iconUrl: 'img/marker-icon-2x-red.png',
-      iconSize: [27, 43],
-      iconAnchor: [14, 41],
-      popupAnchor: [1, -34],    
-    });
+    // if(newMarker != undefined){
+    //   myMap.removeLayer(clickedMarkerLayer);
+    // }
+     this.setMapMarkersClicked(evt)
+  });
 
-    const newMarker = L.marker([evt.detail[0].latt, evt.detail[0].longt],{
-      icon: violetIcon,
-      opacity: 1,
-      riseOnHover: true,
-      riseOffSet: 250
-    }
-    )
-    newMarker.addTo(myMap).on('click', onMapClick)
-   });
+
 
   PubSub.subscribe('Events:saved-event-list', (evt) =>{
    this.setMapMarkersSaved(evt.detail);
@@ -104,6 +98,33 @@ MapView.prototype.bindEvents = function () {
     });
     }
   };
+MapView.prototype.setMapMarkersClicked  = function (eventData){
+
+  if (this.clickedMarkerLayer != null ) {
+    myMap.removeLayer(this.clickedMarkerLayer);
+  };
+  this.clickedMarkerLayer =  L.layerGroup().addTo(myMap);
+
+  const redIcon = new L.Icon({
+    iconUrl: 'img/marker-icon-2x-red.png',
+    iconSize: [27, 43],
+    iconAnchor: [14, 41],
+    popupAnchor: [1, -34],
+  });
+
+  console.log(eventData.detail[0].latt);
+  const newMarker = L.marker([eventData.detail[0].latt, eventData.detail[0].longt],{
+  icon: redIcon,
+  opacity: 1,
+  riseOnHover: true,
+  riseOffSet: 250
+})
+  console.log(newMarker);
+
+
+
+  newMarker.addTo(this.clickedMarkerLayer).on('click', onMapClick)
+ };
 
   MapView.prototype.setMapMarkersSaved = function (eventData) {
     const eventInformation = eventData;
