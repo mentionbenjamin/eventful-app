@@ -27,13 +27,13 @@ SelectView.prototype.bindEvents = function () {
     // sentence words
     sentenceTexts = document.getElementsByClassName('sentence-text');
     for (sentence of sentenceTexts) {
-      sentence.style.fontSize = "1.4em";
+      sentence.style.fontSize = "2.5vw";
       sentence.style.paddingTop = "4px";
       sentence.style.paddingBottom = "4px";
 
     };
-    sentenceTexts[2].style.marginLeft = "-22px";
-    sentenceTexts[3].style.marginLeft = "-22px";
+    sentenceTexts[2].style.marginLeft = "-1.7vw";
+    sentenceTexts[3].style.marginLeft = "-1.7vw";
     sentenceTexts[3].style.marginRight = "0px";
 
 
@@ -41,19 +41,19 @@ SelectView.prototype.bindEvents = function () {
     eventsDropdown = document.getElementsByClassName('custom-select');
     for (dropdown of eventsDropdown) {
       dropdown.style.width = "5em";
-      dropdown.style.fontSize = "1.4em";
+      dropdown.style.fontSize = "2.5vw";
     };
     // mindate & maxdate
     minDateStyle = document.getElementsByClassName('form-min-date');
-    minDateStyle[0].style.width = "6.2em";
-    minDateStyle[0].style.fontSize = "1.4em";
+    minDateStyle[0].style.width = "15vw";
+    minDateStyle[0].style.fontSize = "2.5vw";
     minDateStyle[0].style.paddingLeft = "0px";
     minDateStyle[0].style.paddingTop = "0px";
     minDateStyle[0].style.paddingBottom = "0px";
     minDateStyle[0].style.textAlign = "left";
     maxDateStyle = document.getElementsByClassName('form-max-date');
-    maxDateStyle[0].style.width = "6.2em";
-    maxDateStyle[0].style.fontSize = "1.4em";
+    maxDateStyle[0].style.width = "15vw";
+    maxDateStyle[0].style.fontSize = "2.5vw";
     maxDateStyle[0].style.paddingLeft = "0.1em";
     maxDateStyle[0].style.paddingTop = "0px";
     maxDateStyle[0].style.paddingBottom = "0px";
@@ -61,7 +61,7 @@ SelectView.prototype.bindEvents = function () {
     // location search
     formLocation = document.getElementsByClassName('form-location');
     formLocation[0].style.width = "6.3em";
-    formLocation[0].style.fontSize = "1.4em";
+    formLocation[0].style.fontSize = "2.5vw";
     formLocation[0].style.paddingLeft = "0px";
     // search/update button
     saveContainer = document.getElementsByClassName('save-container');

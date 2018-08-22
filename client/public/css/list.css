@@ -1,7 +1,6 @@
 #list-panel {
-  max-height: 500px;
-  max-height: 500px;
-  margin: 0px 0px 30px 30px;
+  min-height: 74vh;
+  margin: 0px 0px 0px 30px;
   border: 11px solid #f3f3f3;
 }
 #event-item {
