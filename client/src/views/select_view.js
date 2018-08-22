@@ -32,6 +32,9 @@ SelectView.prototype.bindEvents = function () {
       sentence.style.paddingBottom = "4px";
 
     };
+    sentenceTexts[2].style.marginLeft = "-22px";
+
+
     // events dropdown
     eventsDropdown = document.getElementsByClassName('custom-select');
     for (dropdown of eventsDropdown) {
@@ -49,7 +52,7 @@ SelectView.prototype.bindEvents = function () {
     maxDateStyle = document.getElementsByClassName('form-max-date');
     maxDateStyle[0].style.width ="130px";
     maxDateStyle[0].style.fontSize = "20px";
-    maxDateStyle[0].style.paddingLeft = "16px";
+    maxDateStyle[0].style.paddingLeft = "2px";
     maxDateStyle[0].style.paddingTop = "0px";
     maxDateStyle[0].style.paddingBottom = "0px";
     maxDateStyle[0].style.textAlign = "left";
