@@ -7,13 +7,12 @@ const EventItemView = function() {
 
 EventItemView.prototype.render = function (event) {
   const eventContainer = document.createElement('div');
-  console.log(event);
   eventContainer.id = 'event-item';
   eventContainer.addEventListener('click', (event) =>{
      console.log(event.target.innerHTML);
   });
 
-  const date = this.createTextElement('p', `${event.date}`);
+  const date = this.createTextElement('p', `Date: ${event.date}`);
   date.classList.add('list-date');
   eventContainer.appendChild(date);
 
@@ -24,6 +23,9 @@ EventItemView.prototype.render = function (event) {
   const venue = this.createTextElement('p',`${event.venue.name}`);
   venue.classList.add('list-venue');
   eventContainer.appendChild(venue);
+
+  const entryprice = this.createTextElement('p', `Price: ${event.entryprice}`);
+  eventContainer.appendChild(entryprice);
 
   this.saveEvent(event, eventContainer);
 
@@ -45,14 +47,20 @@ EventItemView.prototype.saveEvent = function (event, container){
   container.appendChild(saveButton);
   saveButton.addEventListener('click', (evt)=>{
 
-    const newEvent = {
-      name: event.eventname,
-      venue: event.venue.name,
-      date: event.date,
-      price: event.entryprice,
-      lat: event.venue.latitude,
-      longt: event.venue.longitude
-    }
+      const newEvent = {
+        eventName: event.eventName,
+        description: event.description,
+        venue: event.venue,
+        date: event.date,
+        time: event.time,
+        entryprice: event.entryprice,
+        lat: event.venue.latitude,
+        longt: event.venue.longitude,
+        customId: event.customId,
+        venueName: event.venueName,
+        eventType: event.eventType,
+        linkURL:event.linkURL
+      }
 
     PubSub.publish('EventItemView:event-to-save-data', newEvent);
   });

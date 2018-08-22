@@ -15,7 +15,6 @@ SavedEventView.prototype.bindEvents = function(){
       favourites.innerHTML = ""
       // this.container.innerHTML = " "
       this.render(savedEvents);
-      console.log(evt);
     });
   });
 }
@@ -25,24 +24,23 @@ SavedEventView.prototype.render = function(events){
 
     const favourites = document.getElementById('favourites');
 
-
     savedDiv = document.createElement('div');
     savedDiv.id = "saved-items";
     favourites.appendChild(savedDiv);
 
-
-    const eventTitle = document.createElement('p');
-    eventTitle.textContent = `Event: ${events[i].name}`;
-    savedDiv.appendChild(eventTitle);
+    console.log(events[i]);
+    const eventName = document.createElement('p');
+    eventName.textContent = `Event: ${events[i].eventName}`;
+    savedDiv.appendChild(eventName);
 
     const eventVenue = document.createElement('p');
-    eventVenue.textContent = `Venue: ${events[i].venue}`;
+    eventVenue.textContent = `Venue: ${events[i].venue.name}`;
     savedDiv.appendChild(eventVenue);
 
 
-    const eventPrice = document.createElement('p');
-    eventPrice.textContent = `Price: ${events[i].price}`;
-    savedDiv.appendChild(eventPrice);
+    const entryprice = document.createElement('p');
+    entryprice.textContent = `Price: ${events[i].entryprice}`;
+    savedDiv.appendChild(entryprice);
 
     this.createDeleteButton(events[i]._id, savedDiv);
 

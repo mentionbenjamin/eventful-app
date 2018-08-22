@@ -11,11 +11,11 @@ MapView.prototype.bindEvents = function () {
    this.setMapMarkers(evt.detail);
   });
 
-  // PubSub.subscribe('Events:saved-event-list', (evt) =>{
-  //  this.createMapSaved(evt.detail);
-  //  this.setMapMarkersSaved(evt.detail);
-  //
-  // });
+  PubSub.subscribe('Events:saved-event-list', (evt) =>{
+   // this.createMapSaved(evt.detail);
+   this.setMapMarkersSaved(evt.detail);
+
+  });
 }
 
   MapView.prototype.createMap = function (eventData) {
@@ -70,8 +70,7 @@ MapView.prototype.bindEvents = function () {
     eventMarker.eventType = eventInformation[i].EventCode;
     eventMarker.eventName =eventInformation[i].eventname;
     eventMarker.linkURL  = eventInformation[i].link;
-    eventMarker.eventImage = eventInformation[i].imageurl;
-    eventMarker.price = eventInformation[i].entryprice;
+    eventMarker.entryprice = eventInformation[i].entryprice;
     eventMarker.description = eventInformation[i].description;
     eventMarker.date = eventInformation[i].date;
     eventMarker.time = eventInformation[i].openingtimes;
@@ -89,34 +88,51 @@ MapView.prototype.bindEvents = function () {
     }
   };
 
-  // MapView.prototype.setMapMarkersSaved = function (eventData) {
-  //   const eventInformation = eventData;
-  //   for(var i = 0; i <eventInformation.length; i++){
-  //   const markerLayer =  L.layerGroup().addTo(myMap);
-  //   const venueLat = eventInformation[i].lat;
-  //   const venueLongt = eventInformation[i].longt;
-  //   const eventMarker = L.marker([venueLat, venueLongt],{
-  //     opacity: 1,
-  //     riseOnHover: true,
-  //     riseOffSet: 250
-  //   })
-  //   eventMarker.customId = Math.floor((Math.random() * 100) + 1);
-  //   eventMarker.venueName = eventInformation[i].venue;
-  //   // eventMarker.eventType = eventInformation[i].EventCode;
-  //   // eventMarker.eventName =eventInformation[i].eventname;
-  //   // eventMarker.linkURL  = eventInformation[i].link;
-  //   // eventMarker.eventImage = eventInformation[i].imageurl;
-  //   // eventMarker.price = eventInformation[i].entryprice;
-  //   // eventMarker.description = eventInformation[i].description;
-  //   // eventMarker.date = eventInformation[i].date;
-  //
-  //
-  //   eventMarker.addTo(markerLayer).on('click', onMapClick)
-  //   }
-  // };
+  MapView.prototype.setMapMarkersSaved = function (eventData) {
+    const eventInformation = eventData;
+    console.log(eventInformation);
+    for(var i = 0; i <eventInformation.length; i++){
+    const savedMarkerLayer =  L.layerGroup().addTo(myMap);
+    const venueLat = eventInformation[i].lat;
+    const venueLongt = eventInformation[i].longt;
+    console.log(eventInformation);
+    console.log(venueLat);
+    console.log(venueLongt);
+
+    const violetIcon = new L.Icon({
+    	iconUrl: 'img/marker-icon-violet.png',
+    	shadowUrl: 'img/marker-shadow.png',
+    	iconSize: [25, 41],
+    	iconAnchor: [12, 41],
+    	popupAnchor: [1, -34],
+    	shadowSize: [41, 41]
+    });
+    const savedEventMarker = L.marker([venueLat, venueLongt],{
+      icon: violetIcon,
+      opacity: 1,
+      riseOnHover: true,
+      riseOffSet: 250
+    })
+    savedEventMarker.customId = Math.floor((Math.random() * 100) + 1);
+    savedEventMarker.venue = eventInformation[i].venue;
+
+    savedEventMarker.eventType = eventInformation[i].EventCode;
+    savedEventMarker.eventName =eventInformation[i].eventname;
+    savedEventMarker.linkURL  = eventInformation[i].link;
+    savedEventMarker.entryprice = eventInformation[i].entryprice;
+    savedEventMarker.description = eventInformation[i].description;
+    savedEventMarker.date = eventInformation[i].date;
+    savedEventMarker.time = eventInformation[i].openingtimes;
 
 
+    savedEventMarker.addTo(savedMarkerLayer).on('click', onMapClick)
+    }
+  };
 
+
+// MapView.prototype.methodName = function () {
+//
+// };
 
 
 

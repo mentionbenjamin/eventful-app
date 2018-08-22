@@ -30,6 +30,8 @@ body {
    z-index: 900;
    position: relative;
    bottom: 520px;
+   grid-column-start: 4;
+   grid-column-end: 12;
 }
  .event-details {
    display: grid;
@@ -38,7 +40,8 @@ body {
    grid-gap: 10px;
    border: 10px solid #ff5e62;
    background-color: white;
-   z-index: 900;
+   z-index: 1000;
+   min-height: 400px;
  }
  .event-details > div {
    max-height: 500px;
@@ -47,7 +50,7 @@ body {
  .left-description-container {
    grid-column-start: 1;
    grid-column-end: 5;
-   padding: 50px 30px 60px 70px;
+   padding: 50px 30px 60px 40px;
    display: inherit;
    justify-content: left;
    align-content: space-around;
@@ -67,33 +70,42 @@ body {
    grid-column-start: 5;
    grid-column-end: 7;
    padding: 50px 30px 50px 0px;
-   float: right;
+   /* float: right; */
    display: inherit;
+   font-size: 14px
  }
  .address-container {
    justify-content: right;
-   align-content: space-around;
-   padding: 20px 0px;
+   align-content: space-between;
+   position: relative;
+   padding: 10px 0px;
    text-align: left;
  }
  .price-container {
    justify-content: right;
-   align-content: space-around;
-   padding: 20px 0px;
+   align-content: space-between;
+   position: relative;
+   padding: 10px 0px;
    text-align: left;
  }
 
  .date-time-container {
    justify-content: right;
-   align-content: space-around;
-   padding: 20px 0px;
+   align-content: space-between;
+   padding: 10px 0px;
+   position: relative;
    text-align: left;
  }
 
 
-
+.event-details p {
+  padding: 0px;
+  margin: 0px;
+  line-height:
+}
 .address-title {
   color: #ff5e62
+
 }
 
 
@@ -108,35 +120,37 @@ color: #ff5e62
 
 /* Buttons */
 .button-container {
-  position: absolute;
+  position: relative;
   z-index: 900;
-  width: 200px;
+  overflow: hidden;
+  justify-content: right;
+  align-content: space-between;
+  padding: 5px 0px;
 }
-button,
-button::after {
+.save-button,
+.save-button::after {
   transition: all 0.3s;
   z-index: 900;
 }
-button {
+.save-button {
   background: none;
   border: 3px solid #ff5e62;
   color: #ff5e62;
   font: helvetica;
   font-size: 12px;
   font-weight: bold;
-  margin: 1em auto;
-  padding: 10px 30px;
+  padding: 10px 20px;
+  margin: 5px 5px 5px 0px;
   position: relative;
   text-transform: uppercase;
 }
-button::before,
-button::after {
+.save-button::after {
   background: #ff5e62;
   content: '';
   position: absolute;
   z-index: -1;
 }
-button:hover {
+.save-button:hover {
   color: white;
   cursor: pointer;
 }
