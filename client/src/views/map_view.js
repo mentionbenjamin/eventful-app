@@ -129,6 +129,7 @@ MapView.prototype.setMapMarkersClicked  = function (eventData){
     newMarker.description = eventData.detail[0].description;
     newMarker.date = eventData.detail[0].date;
     newMarker.time = eventData.detail[0].openingtimes;
+    newMarker.link = eventData.detail[0].link;
 
   console.log(newMarker);
 
