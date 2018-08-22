@@ -7,7 +7,11 @@ const EventItemView = function() {
 
 EventItemView.prototype.render = function (event) {
   const eventContainer = document.createElement('div');
+  console.log(event);
   eventContainer.id = 'event-item';
+  eventContainer.addEventListener('click', (event) =>{
+     console.log(event.target.innerHTML);
+  });
 
   const date = this.createTextElement('p', `${event.date}`);
   date.classList.add('list-date');

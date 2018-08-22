@@ -108,6 +108,7 @@ EventMapDetailView.prototype.renderEventDetails = function (event) {
     const buttonContainer = document.createElement('div');
     buttonContainer.classList.add('button-container');
     const buttonLink = document.createElement('a');
+    buttonLink.setAttribute("target", "_blank");
     buttonLink.href= `${event.linkURL}`;
     const ticketsButton = document.createElement('button');
     ticketsButton.classList.add("save-button");
