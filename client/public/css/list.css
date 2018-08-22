@@ -59,7 +59,6 @@
 .list-venue {
   font: 13px helvetica;
   font-weight: 200;
-
   width: 70%;
 }
 .tablinks {
@@ -87,15 +86,6 @@
 .save-icon {
   margin: 0;
 }
-
-
-
-
-
-
-
-
-
 .tablinks,
 .tablinks::after {
   transition: all 0.3s;

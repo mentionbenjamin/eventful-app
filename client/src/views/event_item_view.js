@@ -11,32 +11,21 @@ EventItemView.prototype.render = function (event) {
 
   const eventContainer = document.createElement('div');
   eventContainer.id = 'event-item';
-  eventContainer.value = eventValues;
-
-  eventContainer.addEventListener('click', (evt) =>{
-     console.log(evt.target.value);
-     PubSub.publish('EventItemView', evt.target.value);
+  eventContainer.addEventListener('click', (event) =>{
+     console.log(event.target.innerHTML);
   });
 
-  const eventname = this.createTextElement('h4', `${event.eventname}`);
-  eventname.value = eventValues;
-  eventContainer.appendChild(eventname);
-  eventname.addEventListener('click', (evt) =>{
-    console.log(evt.target.value);
-  });
-
-  const venue = this.createTextElement('p',`Venue: ${event.venue.name}`);
-  venue.value = eventValues;
-  eventContainer.appendChild(venue);
-
-  const date = this.createTextElement('p', `Date: ${event.date}`);
-  eventContainer.appendChild(date);
-  date.value = eventValues;
-
-  const price = this.createTextElement('p', `Price: ${event.entryprice}`);
-  eventContainer.appendChild(price);
+  const date = this.createTextElement('p', `${event.date}`);
   date.classList.add('list-date');
-  price.value = eventValues;
+  eventContainer.appendChild(date);
+
+  const eventName = this.createTextElement('p', `${event.eventname}`);
+  eventName.classList.add('list-event-name');
+  eventContainer.appendChild(eventName);
+
+  const venue = this.createTextElement('p',`${event.venue.name}`);
+  venue.classList.add('list-venue');
+  eventContainer.appendChild(venue);
 
   this.saveEvent(event, eventContainer);
 
