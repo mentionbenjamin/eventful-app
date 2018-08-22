@@ -43,14 +43,15 @@ SelectView.prototype.bindEvents = function () {
       dropdown.style.width = "5em";
       dropdown.style.fontSize = "1.4em";
     };
+    styleMinDate('form-min-date');
     // mindate & maxdate
-    minDateStyle = document.getElementsByClassName('form-min-date');
-    minDateStyle[0].style.width = "6.2em";
-    minDateStyle[0].style.fontSize = "1.4em";
-    minDateStyle[0].style.paddingLeft = "0px";
-    minDateStyle[0].style.paddingTop = "0px";
-    minDateStyle[0].style.paddingBottom = "0px";
-    minDateStyle[0].style.textAlign = "left";
+    // minDateStyle = document.getElementsByClassName('form-min-date');
+    // minDateStyle[0].style.width = "6.2em";
+    // minDateStyle[0].style.fontSize = "1.4em";
+    // minDateStyle[0].style.paddingLeft = "0px";
+    // minDateStyle[0].style.paddingTop = "0px";
+    // minDateStyle[0].style.paddingBottom = "0px";
+    // minDateStyle[0].style.textAlign = "left";
     maxDateStyle = document.getElementsByClassName('form-max-date');
     maxDateStyle[0].style.width = "6.2em";
     maxDateStyle[0].style.fontSize = "1.4em";
@@ -73,16 +74,23 @@ SelectView.prototype.bindEvents = function () {
     eventsContainer = document.getElementsByClassName('select-selected');
     // eventsContainer[0].style.height = "0px";
 
-
-
-
-
     eventContainer = document.getElementsByClassName('event-container');
 
     PubSub.publish('SelectView:form-input-submitted', data);
 
   })
+
 };
+
+function styleMinDate (minDateClass) {
+  minDateStyle = document.getElementsByClassName(minDateClass);
+  minDateStyle[0].style.width = "6.2em";
+  minDateStyle[0].style.fontSize = "1.4em";
+  minDateStyle[0].style.paddingLeft = "0px";
+  minDateStyle[0].style.paddingTop = "0px";
+  minDateStyle[0].style.paddingBottom = "0px";
+  minDateStyle[0].style.textAlign = "left";
+}
 
 SelectView.prototype.populateSelect = function () {
   const categorySelect = document.querySelector('select#category');
