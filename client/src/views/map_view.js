@@ -73,14 +73,14 @@ MapView.prototype.bindEvents = function () {
     })
     eventMarker.customId = Math.floor((Math.random() * 100) + 1);
     eventMarker.venue = eventInformation[i].venue;
-    // eventMarker.eventType = eventInformation[i].EventCode;
-    // eventMarker.eventName =eventInformation[i].eventname;
-    // eventMarker.linkURL  = eventInformation[i].link;
-    // eventMarker.eventImage = eventInformation[i].imageurl;
-    // eventMarker.price = eventInformation[i].entryprice;
-    // eventMarker.description = eventInformation[i].description;
-    // eventMarker.date = eventInformation[i].date;
-    // eventMarker.time = eventInformation[i].openingtimes;
+    eventMarker.eventType = eventInformation[i].EventCode;
+    eventMarker.eventName =eventInformation[i].eventname;
+    eventMarker.linkURL  = eventInformation[i].link;
+    eventMarker.eventImage = eventInformation[i].imageurl;
+    eventMarker.price = eventInformation[i].entryprice;
+    eventMarker.description = eventInformation[i].description;
+    eventMarker.date = eventInformation[i].date;
+    eventMarker.time = eventInformation[i].openingtimes;
 
 
 
