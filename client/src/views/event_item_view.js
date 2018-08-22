@@ -9,7 +9,8 @@ EventItemView.prototype.render = function (event) {
   const eventContainer = document.createElement('div');
   console.log(event);
   eventContainer.id = 'event-item';
-  eventContainer.value = [event.venue.latitude, event.venue.longitude];
+  eventContainer.value = [[event.venue.latitude, event.venue.longitude],event.venue.name,event.date,event.price]
+
   eventContainer.addEventListener('click', (evt) =>{
      console.log(evt.target.value);
      PubSub.publish('EventItemView', evt);
@@ -17,23 +18,23 @@ EventItemView.prototype.render = function (event) {
 
 
   const eventName = this.createTextElement('h4', `Event: ${event.eventname}`);
-  eventName.value = [event.venue.latitude, event.venue.longitude]
+  eventName.value = [[event.venue.latitude, event.venue.longitude],event.venue.name,event.date,event.price]
   eventContainer.appendChild(eventName);
   eventName.addEventListener('click', (evt) =>{
     console.log(evt.target.value);
   });
 
   const venue = this.createTextElement('p',`Venue: ${event.venue.name}`);
-  venue.value = [event.venue.latitude, event.venue.longitude]
+  venue.value = [[event.venue.latitude, event.venue.longitude],event.venue.name,event.date,event.price]
   eventContainer.appendChild(venue);
 
   const date = this.createTextElement('p', `Date: ${event.date}`);
   eventContainer.appendChild(date);
-  date.value = [event.venue.latitude, event.venue.longitude]
+  date.value = [[event.venue.latitude, event.venue.longitude],event.venue.name,event.date,event.price]
 
   const price = this.createTextElement('p', `Price: ${event.entryprice}`);
   eventContainer.appendChild(price);
-  price.value = [event.venue.latitude, event.venue.longitude]
+  price.value = [[event.venue.latitude, event.venue.longitude],event.venue.name,event.date,event.price]
 
   this.saveEvent(event, eventContainer);
 
