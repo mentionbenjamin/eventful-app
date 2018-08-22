@@ -25,16 +25,16 @@ EventItemView.prototype.render = function (event) {
   });
 
   const venue = this.createTextElement('p',`Venue: ${event.venue.name}`);
-  venue.value = [[event.venue.latitude, event.venue.longitude],event.venue.name,event.date,event.price]
+  venue.value = [{coordinates:[event.venue.latitude, event.venue.longitude], eventname: event.venue.name, eventdate: event.date, eventprice: event.entryprice}]
   eventContainer.appendChild(venue);
 
   const date = this.createTextElement('p', `Date: ${event.date}`);
   eventContainer.appendChild(date);
-  date.value = [[event.venue.latitude, event.venue.longitude],event.venue.name,event.date,event.price]
+  date.value = [{coordinates:[event.venue.latitude, event.venue.longitude], eventname: event.venue.name, eventdate: event.date, eventprice: event.entryprice}]
 
   const price = this.createTextElement('p', `Price: ${event.entryprice}`);
   eventContainer.appendChild(price);
-  price.value = [[event.venue.latitude, event.venue.longitude],event.venue.name,event.date,event.price]
+  price.value = [{coordinates:[event.venue.latitude, event.venue.longitude], eventname: event.venue.name, eventdate: event.date, eventprice: event.entryprice}]
 
   this.saveEvent(event, eventContainer);
 
