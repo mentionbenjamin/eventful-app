@@ -55,7 +55,7 @@ SelectView.prototype.bindEvents = function () {
     maxDateStyle[0].style.textAlign = "left";
     // location search
     formLocation = document.getElementsByClassName('form-location');
-    formLocation[0].style.width = "250px";
+    formLocation[0].style.width = "160px";
     formLocation[0].style.fontSize = "20px";
     formLocation[0].style.paddingLeft = "6px";
     // search/update button
