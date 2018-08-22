@@ -18,7 +18,7 @@ EventItemView.prototype.render = function (event) {
      PubSub.publish('EventItemView', evt.target.value);
   });
 
-  const eventname = this.createTextElement('h4', `Event: ${event.eventname}`);
+  const eventname = this.createTextElement('h4', `${event.eventname}`);
   eventname.value = eventValues;
   eventContainer.appendChild(eventname);
   eventname.addEventListener('click', (evt) =>{
