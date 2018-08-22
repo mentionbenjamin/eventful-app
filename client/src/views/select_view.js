@@ -53,27 +53,28 @@ SelectView.prototype.bindEvents = function () {
 function styleSentences (sentenceClass) {
   sentenceTexts = document.getElementsByClassName(sentenceClass);
   for (sentence of sentenceTexts) {
-    sentence.style.fontSize = "2.5vw";
+    sentence.style.fontSize = "2.3vw";
     sentence.style.paddingTop = "4px";
     sentence.style.paddingBottom = "4px";
   };
-  sentenceTexts[2].style.marginLeft = "-1.7vw";
-  sentenceTexts[3].style.marginLeft = "-1.7vw";
-  sentenceTexts[3].style.marginRight = "0px";
+  sentenceTexts[2].style.marginLeft = "-2.7vw";
+  sentenceTexts[2].style.marginRight = "-0.2vw";
+  sentenceTexts[3].style.marginLeft = "-2.7vw";
+  sentenceTexts[3].style.marginRight = "0.3vw";
 }
 
 function styleDropDown (dropdownClass) {
   eventsDropdown = document.getElementsByClassName(dropdownClass);
   for (dropdown of eventsDropdown) {
     dropdown.style.width = "5em";
-    dropdown.style.fontSize = "2.5vw";
+    dropdown.style.fontSize = "2.3vw";
   };
 }
 
 function styleDate (dateClass) {
   dateStyle = document.getElementsByClassName(dateClass);
   dateStyle[0].style.width = "15vw";
-  dateStyle[0].style.fontSize = "2.5vw";
+  dateStyle[0].style.fontSize = "2.3vw";
   dateStyle[0].style.paddingLeft = "0px";
   dateStyle[0].style.paddingTop = "0px";
   dateStyle[0].style.paddingBottom = "0px";
@@ -83,7 +84,7 @@ function styleDate (dateClass) {
 function styleLocation(locationClass) {
   formLocation = document.getElementsByClassName(locationClass);
   formLocation[0].style.width = "6.3em";
-  formLocation[0].style.fontSize = "2.5vw";
+  formLocation[0].style.fontSize = "2.3vw";
   formLocation[0].style.paddingLeft = "0px";
 }
 
