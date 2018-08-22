@@ -13,7 +13,7 @@ MapView.prototype.bindEvents = function () {
 
   PubSub.subscribe('EventItemView', (evt) => {
     console.log(evt.detail.path[0].value);
-    // const newMarker = L.marker(evt.detail.path[0].value[0])
+    const newMarker = L.marker(evt.detail.path[0].value[0])
     // newMarker.addTo(myMap).on('click', onMapClick)
    });
 
@@ -73,14 +73,14 @@ MapView.prototype.bindEvents = function () {
     })
     eventMarker.customId = Math.floor((Math.random() * 100) + 1);
     eventMarker.venue = eventInformation[i].venue;
-    eventMarker.eventType = eventInformation[i].EventCode;
-    eventMarker.eventName =eventInformation[i].eventname;
-    eventMarker.linkURL  = eventInformation[i].link;
-    eventMarker.eventImage = eventInformation[i].imageurl;
-    eventMarker.price = eventInformation[i].entryprice;
-    eventMarker.description = eventInformation[i].description;
-    eventMarker.date = eventInformation[i].date;
-    eventMarker.time = eventInformation[i].openingtimes;
+    // eventMarker.eventType = eventInformation[i].EventCode;
+    // eventMarker.eventName =eventInformation[i].eventname;
+    // eventMarker.linkURL  = eventInformation[i].link;
+    // eventMarker.eventImage = eventInformation[i].imageurl;
+    // eventMarker.price = eventInformation[i].entryprice;
+    // eventMarker.description = eventInformation[i].description;
+    // eventMarker.date = eventInformation[i].date;
+    // eventMarker.time = eventInformation[i].openingtimes;
 
 
 

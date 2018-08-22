@@ -6,10 +6,12 @@ const EventItemView = function() {
 };
 
 EventItemView.prototype.render = function (event) {
+  const divValues = [{coordinates:[event.venue.latitude, event.venue.longitude], eventname: event.venue.name, eventdate: event.date, eventprice: event.entryprice, venue: event.venue.name, description:event.description}]
+
   const eventContainer = document.createElement('div');
   console.log(event);
   eventContainer.id = 'event-item';
-  eventContainer.value = [[event.venue.latitude, event.venue.longitude],event.venue.name,event.date,event.price]
+  eventContainer.value = divValues;
 
   eventContainer.addEventListener('click', (evt) =>{
      console.log(evt.target.value);
@@ -18,23 +20,23 @@ EventItemView.prototype.render = function (event) {
 
 
   const eventName = this.createTextElement('h4', `Event: ${event.eventname}`);
-  eventName.value = [[event.venue.latitude, event.venue.longitude],event.venue.name,event.date,event.price]
+  eventName.value = divValues;
   eventContainer.appendChild(eventName);
   eventName.addEventListener('click', (evt) =>{
     console.log(evt.target.value);
   });
 
   const venue = this.createTextElement('p',`Venue: ${event.venue.name}`);
-  venue.value = [{coordinates:[event.venue.latitude, event.venue.longitude], eventname: event.venue.name, eventdate: event.date, eventprice: event.entryprice}]
+  venue.value = divValues;
   eventContainer.appendChild(venue);
 
   const date = this.createTextElement('p', `Date: ${event.date}`);
   eventContainer.appendChild(date);
-  date.value = [{coordinates:[event.venue.latitude, event.venue.longitude], eventname: event.venue.name, eventdate: event.date, eventprice: event.entryprice}]
+  date.value = divValues;
 
   const price = this.createTextElement('p', `Price: ${event.entryprice}`);
   eventContainer.appendChild(price);
-  price.value = [{coordinates:[event.venue.latitude, event.venue.longitude], eventname: event.venue.name, eventdate: event.date, eventprice: event.entryprice}]
+  price.value = divValues;
 
   this.saveEvent(event, eventContainer);
 
