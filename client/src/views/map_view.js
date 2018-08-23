@@ -46,7 +46,15 @@ MapView.prototype.bindEvents = function () {
     const markerLayer =  L.layerGroup().addTo(myMap);
     const venueLat = eventInformation[i].venue.latitude;
     const venueLongt = eventInformation[i].venue.longitude;
+
+    const blueIcon = new L.Icon({
+      iconUrl: 'img/pin3.svg',
+      iconSize: [27, 43],
+      iconAnchor: [14, 41],
+      popupAnchor: [1, -34],
+    });
         const newMarker = L.marker([venueLat, venueLongt],{
+      icon: blueIcon,
       opacity: 1,
       riseOnHover: true,
       riseOffSet: 250
@@ -80,8 +88,8 @@ MapView.prototype.setMapMarkersClicked  = function (eventData){
   this.clickedMarkerLayer =  L.layerGroup().addTo(myMap);
 
   const redIcon = new L.Icon({
-    iconUrl: 'img/marker-icon-2x-red.png',
-    iconSize: [27, 43],
+    iconUrl: 'img/pin2.svg',
+    iconSize: [28, 44],
     iconAnchor: [14, 41],
     popupAnchor: [1, -34],
   });
@@ -118,9 +126,9 @@ MapView.prototype.setMapMarkersClicked  = function (eventData){
     const venueLongt = eventInformation[i].longt;
 
     const violetIcon = new L.Icon({
-    	iconUrl: 'img/marker-icon-violet.png',
+    	iconUrl: 'img/pin1.svg',
     	shadowUrl: 'img/marker-shadow.png',
-    	iconSize: [25, 41],
+    	iconSize: [28, 44],
     	iconAnchor: [12, 41],
     	popupAnchor: [1, -34],
     	shadowSize: [41, 41]
