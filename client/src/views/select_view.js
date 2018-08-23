@@ -88,10 +88,12 @@ function styleSaveContainer(containerClass) {
   saveContainer[0].style.float = "right";
   saveButton = document.getElementsByClassName('save-button');
   saveButton[0].style.fontSize = "0.55em";
-  saveButton[0].textContent = "TWEAK";
+  saveButton[0].textContent = "UPDATE";
   saveButton[0].fontSize = "0.55em";
   saveButton[0].position = "absolute";
   saveButton[0].right = "6vw";
+  saveButton[0].marginTop = "11px";
+
 }
 
 SelectView.prototype.populateSelect = function () {
