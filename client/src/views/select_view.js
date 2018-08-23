@@ -30,10 +30,6 @@ SelectView.prototype.bindEvents = function () {
     pageFormContainer = document.getElementsByClassName('page-form-container');
     pageFormContainer[0].style.border = '11px solid #f3f3f3';
 
-
-
-
-
     if (document.getElementById('form') != null){
       document.getElementById('form').id = 'new-form';
     }
