@@ -121,7 +121,6 @@ MapView.prototype.setMapMarkersClicked  = function (eventData){
     const eventInformation = eventData;
     for(var i = 0; i <eventInformation.length; i++){
     const savedMarkerLayer =  L.layerGroup().addTo(myMap);
-    console.log(eventInformation[i]);
     const venueLat = eventInformation[i].latt;
     const venueLongt = eventInformation[i].longt;
 
@@ -140,7 +139,6 @@ MapView.prototype.setMapMarkersClicked  = function (eventData){
       riseOffSet: 250
     })
     savedEventMarker.customId = eventInformation[i]._id;
-    console.log(savedEventMarker.customId);
     savedEventMarker.venue = eventInformation[i].venue;
 
     savedEventMarker.eventType = eventInformation[i].EventCode;
@@ -153,7 +151,6 @@ MapView.prototype.setMapMarkersClicked  = function (eventData){
 
     PubSub.subscribe('SavedEventView:delete-button-pressed', (evt) => {
       deletedEventId = evt.detail;
-      console.log(deletedEventId);
       deleteEvent(deletedEventId)
     });
 
