@@ -19,16 +19,17 @@ EventItemView.prototype.render = function (event) {
      PubSub.publish('EventItemView', evt.target.value);
   });
 
-  const eventname = this.createTextElement('h4', `${event.eventname}`);
-  eventname.value = eventValues;
-  eventContainer.appendChild(eventname);
-  eventname.addEventListener('click', (evt) =>{
-  });
-
   const date = this.createTextElement('p', `${event.date}`);
   date.classList.add('list-date');
   date.value = eventValues;
   eventContainer.appendChild(date);
+
+  const eventname = this.createTextElement('h4', `${event.eventname}`);
+  eventname.classList.add('list-event-name');
+  eventname.value = eventValues;
+  eventContainer.appendChild(eventname);
+  eventname.addEventListener('click', (evt) =>{
+  });
 
   const venue = this.createTextElement('p',`${event.venue.name}`);
   venue.classList.add('list-venue');
