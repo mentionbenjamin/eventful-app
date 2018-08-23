@@ -49,7 +49,7 @@ MapView.prototype.bindEvents = function () {
 
     const blueIcon = new L.Icon({
       iconUrl: 'img/pin3.svg',
-      iconSize: [27, 43],
+      iconSize: [28, 44],
       iconAnchor: [14, 41],
       popupAnchor: [1, -34],
     });
@@ -89,7 +89,7 @@ MapView.prototype.setMapMarkersClicked  = function (eventData){
 
   const redIcon = new L.Icon({
     iconUrl: 'img/pin2.svg',
-    iconSize: [28, 44],
+    iconSize: [30, 46],
     iconAnchor: [14, 41],
     popupAnchor: [1, -34],
   });
@@ -128,7 +128,7 @@ MapView.prototype.setMapMarkersClicked  = function (eventData){
     const violetIcon = new L.Icon({
     	iconUrl: 'img/pin1.svg',
     	shadowUrl: 'img/marker-shadow.png',
-    	iconSize: [28, 44],
+    	iconSize: [29, 45],
     	iconAnchor: [12, 41],
     	popupAnchor: [1, -34],
     	shadowSize: [41, 41]
