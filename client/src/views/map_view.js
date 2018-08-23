@@ -18,10 +18,9 @@ MapView.prototype.bindEvents = function () {
      this.setMapMarkersClicked(evt)
   });
 
-
-
   PubSub.subscribe('Events:saved-event-list', (evt) =>{
    this.setMapMarkersSaved(evt.detail);
+
   });
 }
 
@@ -47,7 +46,15 @@ MapView.prototype.bindEvents = function () {
     const markerLayer =  L.layerGroup().addTo(myMap);
     const venueLat = eventInformation[i].venue.latitude;
     const venueLongt = eventInformation[i].venue.longitude;
+
+    const blueIcon = new L.Icon({
+      iconUrl: 'img/pin3.svg',
+      iconSize: [27, 43],
+      iconAnchor: [14, 41],
+      popupAnchor: [1, -34],
+    });
         const newMarker = L.marker([venueLat, venueLongt],{
+      icon: blueIcon,
       opacity: 1,
       riseOnHover: true,
       riseOffSet: 250
@@ -65,7 +72,6 @@ MapView.prototype.bindEvents = function () {
 
 
         newMarker.addTo(markerLayer).on('click', onMapClick)
-            newMarker.bindPopup(`Event: ${newMarker.eventname} | click for full details`);
         newMarker.on('mouseover', function(e){
       this.openPopup();
     });
@@ -82,8 +88,8 @@ MapView.prototype.setMapMarkersClicked  = function (eventData){
   this.clickedMarkerLayer =  L.layerGroup().addTo(myMap);
 
   const redIcon = new L.Icon({
-    iconUrl: 'img/marker-icon-2x-red.png',
-    iconSize: [27, 43],
+    iconUrl: 'img/pin2.svg',
+    iconSize: [28, 44],
     iconAnchor: [14, 41],
     popupAnchor: [1, -34],
   });
@@ -109,6 +115,8 @@ MapView.prototype.setMapMarkersClicked  = function (eventData){
   newMarker.addTo(this.clickedMarkerLayer).on('click', onMapClick)
  };
 
+
+
   MapView.prototype.setMapMarkersSaved = function (eventData) {
     const eventInformation = eventData;
     for(var i = 0; i <eventInformation.length; i++){
@@ -118,9 +126,9 @@ MapView.prototype.setMapMarkersClicked  = function (eventData){
     const venueLongt = eventInformation[i].longt;
 
     const violetIcon = new L.Icon({
-    	iconUrl: 'img/marker-icon-violet.png',
+    	iconUrl: 'img/pin1.svg',
     	shadowUrl: 'img/marker-shadow.png',
-    	iconSize: [25, 41],
+    	iconSize: [28, 44],
     	iconAnchor: [12, 41],
     	popupAnchor: [1, -34],
     	shadowSize: [41, 41]
@@ -131,7 +139,8 @@ MapView.prototype.setMapMarkersClicked  = function (eventData){
       riseOnHover: true,
       riseOffSet: 250
     })
-    savedEventMarker.customId = Math.floor((Math.random() * 100) + 1);
+    savedEventMarker.customId = eventInformation[i]._id;
+    console.log(savedEventMarker.customId);
     savedEventMarker.venue = eventInformation[i].venue;
 
     savedEventMarker.eventType = eventInformation[i].EventCode;
@@ -142,10 +151,24 @@ MapView.prototype.setMapMarkersClicked  = function (eventData){
     savedEventMarker.date = eventInformation[i].date;
     savedEventMarker.time = eventInformation[i].openingtimes;
 
+    PubSub.subscribe('SavedEventView:delete-button-pressed', (evt) => {
+      deletedEventId = evt.detail;
+      console.log(deletedEventId);
+      deleteEvent(deletedEventId)
+    });
+
+    function deleteEvent(id){
+      if(id === savedEventMarker.customId){
+        savedEventMarker.remove();
+      }
+    }
+
+
 
     savedEventMarker.addTo(savedMarkerLayer).on('click', onMapClick)
     }
   };
+
 
 
   function onMapClick(e) {

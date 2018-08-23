@@ -18,6 +18,9 @@ EventItemView.prototype.render = function (event) {
   eventContainer.addEventListener('click', (evt) =>{
      PubSub.publish('EventItemView', evt.target.value);
   });
+  eventContainer.addEventListener('mouseover', (evt) => {
+    PubSub.publish('EventItemView', evt.target.value);
+  });
 
   const date = this.createTextElement('p', `${event.date}`);
   date.classList.add('list-date');
