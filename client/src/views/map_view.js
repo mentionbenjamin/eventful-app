@@ -20,7 +20,7 @@ MapView.prototype.bindEvents = function () {
 
   PubSub.subscribe('Events:saved-event-list', (evt) =>{
    this.setMapMarkersSaved(evt.detail);
-   
+
   });
 }
 
@@ -64,7 +64,6 @@ MapView.prototype.bindEvents = function () {
 
 
         newMarker.addTo(markerLayer).on('click', onMapClick)
-            newMarker.bindPopup(`Event: ${newMarker.eventname} | click for full details`);
         newMarker.on('mouseover', function(e){
       this.openPopup();
     });
