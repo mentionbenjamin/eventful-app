@@ -91,13 +91,11 @@ EventMapDetailView.prototype.renderEventDetails = function (event) {
 
     const address1 = this.createTextElement('p', event.venue.name );
     const address2 = this.createTextElement('p', event.venue.address );
-    const address3 = this.createTextElement('p', event.venue.town );
-    const address4 = this.createTextElement('p', event.venue.postcode );
+    const address3 = this.createTextElement('p', event.venue.postcode );
 
     address.appendChild(address1);
     address.appendChild(address2);
     address.appendChild(address3);
-    address.appendChild(address4);
 
     addressContainer.appendChild(address);
 

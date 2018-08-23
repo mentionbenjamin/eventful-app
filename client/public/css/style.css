@@ -69,7 +69,7 @@ body {
  .right-info-container {
    grid-column-start: 5;
    grid-column-end: 7;
-   padding: 50px 30px 50px 0px;
+   padding: 50px 75px 50px 0px;
    /* float: right; */
    display: inherit;
    font-size: 14px
@@ -80,6 +80,9 @@ body {
    position: relative;
    padding: 10px 0px;
    text-align: left;
+   font: 13px helvetica;
+   line-height: 16px;
+   font-weight: 200;
  }
  .price-container {
    justify-content: right;
@@ -103,20 +106,15 @@ body {
   margin: 0px;
   line-height:
 }
+.date-time-title,
+.entry-price-title,
 .address-title {
-  color: #ff5e62
-
+  color: #ff5e62;
+  font: 11px helvetica;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
-
-.entry-price-title {
-color: #ff5e62
-}
-
-
-.date-time-title {
-color: #ff5e62
-}
 
 /* Buttons */
 .button-container {

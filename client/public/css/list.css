@@ -1,7 +1,7 @@
 #list-panel {
   min-height: 74vh;
   margin: 0px 0px 0px 30px;
-  border: 11px solid rgba(228, 228, 228, 0.2);
+  border: 11px solid #f3f3f3;
 }
 .page-list-container {
   display: none;
@@ -13,11 +13,11 @@
   padding-left: 30px;
   padding-top: 9px;
   padding-bottom: 9px;
-  border-bottom: 1px solid rgba(228, 228, 228, 0.2);
-  border-top: 1px solid rgba(228, 228, 228, 0.2);
+  border-bottom: 1px solid #f3f3f3;
+  border-top: 1px solid #f3f3f3;
 }
 #event-item:hover {
-  background-color: rgba(228, 228, 228, 0.2);
+  background-color: #f3f3f3;
   cursor: pointer;
 }
 #saved-items:hover {
@@ -67,6 +67,11 @@
 .material-icons {
   margin-top: -2px;
   margin-bottom: 2px;
+  opacity: 0.5;
+  transition: all 0.3s fade;
+}
+.material-icons:hover {
+  opacity: 1;
 }
 .tablinks {
   outline: none;
