@@ -98,7 +98,7 @@ input:focus {
   user-select: none;
   transition: all 0.4s ease-in-out;
   top: -44px;
-  height: 29.7px;
+  height: 30.7px;
 }
 .select-items div:hover, .select-selected {
   color: #ff5e62;

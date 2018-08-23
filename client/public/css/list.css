@@ -67,11 +67,14 @@
 .material-icons {
   margin-top: -2px;
   margin-bottom: 2px;
-  opacity: 0.5;
-  transition: all 0.3s fade;
+  opacity: 1;
+  transition: all 0.4s fade-in-out;
+  color: #ff5e62;
+
 }
 .material-icons:hover {
-  opacity: 1;
+  opacity: 0.6;
+  color: #ff5e62;
 }
 .tablinks {
   outline: none;
