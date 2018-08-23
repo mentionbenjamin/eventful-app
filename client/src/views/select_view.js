@@ -53,9 +53,15 @@ function styleSentences (sentenceClass) {
     sentence.style.paddingTop = "4px";
     sentence.style.paddingBottom = "4px";
   };
+
+  sentenceTexts[1].style.marginLeft = "0.2vw";
+  sentenceTexts[1].style.marginRight = "0.2vw";
+
+
   sentenceTexts[2].style.marginLeft = "-1.7vw";
+  sentenceTexts[2].style.marginRight = "0.3vw";
   sentenceTexts[3].style.marginLeft = "-1.7vw";
-  sentenceTexts[3].style.marginRight = "0px";
+  sentenceTexts[3].style.marginRight = "0.2vw";
 }
 
 function styleDropDown (dropdownClass) {
