@@ -1,25 +1,21 @@
-# JavaScript Event Finder App
-Single page JavaScript web app allowing users to search for events by categorgy, date, and location and view their results on an interactive map. The project was completed in one week and was the final project for our study at CodeClan.
+# Synopsis
+Built a single page web application allowing users to search for events by category, date, and location and view their results on an interactive map.
+
+Collaboration with Gregor Cox, James Amos & Iona Macbeth.
+
+# Deadline
+6 days, followed by a presentation on the final day. 
+
+# Objectives
+Collaboration, Agile Methodology, consolidating PubSub pattern, GitHub (branches, merging, conflicts), working with external libraries, handling API data, UX & UI.
 
 # Built with
-* JavaScript
-* Node.js
-* Webpack
-* MongoDB
-* HTML/CSS
-
-# Other tools
-* Leaflet
-* Geocode API
-* Skiddle API
+Vanilla JavaScript, HTML5, CSS3, MongoDB, Skiddle API, Geocode API, Leaflet maps. 
 
 # Installing
-
 ```
 npm init-y
 npm i
 npm run build
 npm run server:dev
 ```
-
-
