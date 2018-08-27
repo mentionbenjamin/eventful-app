@@ -10,7 +10,14 @@ Collaboration with Gregor Cox, James Amos & Iona Macbeth.
 Collaboration, Agile Methodology, consolidating PubSub pattern, GitHub (branches, merging, conflicts), working with external libraries, handling API data, UX & UI.
 
 # Built with
-Vanilla JavaScript, HTML5, CSS3, MongoDB, Skiddle API, Geocode API, Leaflet maps. 
+* Vanilla JavaScript
+* HTML5
+* CSS3
+* Webpack
+* MongoDB
+* Skiddle API
+* Geocode API
+* Leaflet maps
 
 # Installing
 ```
