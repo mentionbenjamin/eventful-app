@@ -33,7 +33,6 @@ Terminal
   npm run server:dev
   
 Browser
-  http://localhost:3000/
-  
+  http://localhost:3000/  
 ```
 
