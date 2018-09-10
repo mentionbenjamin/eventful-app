@@ -23,8 +23,17 @@ Collaboration, Agile Methodology, consolidating PubSub pattern, GitHub (branches
 
 ## Installing
 ```
-npm init-y
-npm i
-npm run build
-npm run server:dev
+Download & unpack folder
+
+Terminal
+  CD into folder
+  npm init-y
+  npm i
+  npm run build
+  npm run server:dev
+  
+Browser
+  http://localhost:3000/
+  
 ```
+
